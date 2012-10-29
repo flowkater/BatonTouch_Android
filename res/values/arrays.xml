@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="distance">
+        <item>걸어서 5분 거리</item>
+        <item>걸어서 10분 거리</item>
+        <item>걸어서 15분 거리</item>
+        <item>걸어서 20분 거리</item>
+    </string-array>
+    <string-array name="price">
+        <item>3,000원</item>
+        <item>6,000원</item>
+        <item>9,000원</item>
+        <item>12,000원</item>
+    </string-array>
+
+</resources>

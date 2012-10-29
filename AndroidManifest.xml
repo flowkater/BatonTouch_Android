@@ -1,0 +1,77 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.batontouch"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="Batontouch"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".main.SplashActivity"
+            android:label="Batontouch" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.MainActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".main.LoginActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".managebaton.BatonManageActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".Example"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreateActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".homeindex.BatonIndexActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".main.List6"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_PostATask1"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_PostATask2"
+            android:label="Batontouch" >
+        </activity>
+          <activity
+            android:name=".createbaton.BatonCreate_PostATask3"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:label="Batontouch" >
+        </activity>
+           <activity
+            android:name=".profile.ProfileActivity_Edit"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".setting.SettingActivity"
+            android:label="Batontouch" >
+        </activity>
+    </application>
+
+</manifest>
