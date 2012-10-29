@@ -19,11 +19,9 @@ public class LoginActivity extends Activity{
 	}
 	
 	public void mOnClick(View v){
-		
 		Toast.makeText(getApplicationContext(), "로그인 완료!", 3000).show();
 		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 		startActivity(intent);
-		
 	}
 
 }

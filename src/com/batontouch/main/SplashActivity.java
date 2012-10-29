@@ -19,6 +19,7 @@ public class SplashActivity extends Activity {
 	}
 
 	private void initialize() {
+		// Handler
 		Handler handler = new Handler() {
 
 			@Override
@@ -27,7 +28,7 @@ public class SplashActivity extends Activity {
 				startActivity(new Intent(SplashActivity.this, LoginActivity.class));
 			}
 		};
-
+		// 2 sec
 		handler.sendEmptyMessageDelayed(0, 2000);
 	}
 }

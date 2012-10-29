@@ -24,46 +24,47 @@ public class MainActivity extends TabActivity  {
         Resources ressources = getResources(); 
 		TabHost tabHost = getTabHost(); 
  
-		// Android tab
-		Intent intentAndroid = new Intent().setClass(this, BatonIndexActivity.class);
-		TabSpec tabSpecAndroid = tabHost
-		  .newTabSpec("Android")
+		// Home tab
+		Intent intentHome = new Intent().setClass(this, BatonIndexActivity.class);
+		TabSpec tabSpecHome = tabHost
+		  .newTabSpec("Home")
 		  .setIndicator("홈", null)
-		  .setContent(intentAndroid);
+		  .setContent(intentHome);
  
-		// Apple tab
-		Intent intentApple = new Intent().setClass(this, BatonManageActivity.class);
-		TabSpec tabSpecApple = tabHost
-		  .newTabSpec("Apple")
+		// Baton Manager tab
+		Intent intentBatonMng = new Intent().setClass(this, BatonManageActivity.class);
+		TabSpec tabSpecBatonMng = tabHost
+		  .newTabSpec("BatonMng")
 		  .setIndicator("바톤관리", null)
-		  .setContent(intentApple);
+		  .setContent(intentBatonMng);
  
-		// Windows tab
-		Intent intentWindows = new Intent().setClass(this, BatonCreateActivity.class);
-		TabSpec tabSpecWindows = tabHost
-		  .newTabSpec("Windows")
+		// Baton Touch tab
+		Intent intentBatonTouch = new Intent().setClass(this, BatonCreateActivity.class);
+		TabSpec tabSpecBatonTouch = tabHost
+		  .newTabSpec("BatonTouch")
 		  .setIndicator("", ressources.getDrawable(R.drawable.logo))
-		  .setContent(intentWindows);
+		  .setContent(intentBatonTouch);
  
-		// Blackberry tab
-		Intent intentBerry = new Intent().setClass(this, ProfileActivity.class);
-		TabSpec tabSpecBerry = tabHost
-		  .newTabSpec("Berry")
+		// Profile tab
+		Intent intentProfile = new Intent().setClass(this, ProfileActivity.class);
+		TabSpec tabSpecProfile = tabHost
+		  .newTabSpec("Profile")
 		  .setIndicator("프로필", null)
-		  .setContent(intentBerry);
+		  .setContent(intentProfile);
 		
-		Intent intentBerry2 = new Intent().setClass(this, SettingActivity.class);
-		TabSpec tabSpecBerry2 = tabHost
-		  .newTabSpec("Berry")
+		// Preference tab
+		Intent intentPreference = new Intent().setClass(this, SettingActivity.class);
+		TabSpec tabSpecPreference = tabHost
+		  .newTabSpec("Preference")
 		  .setIndicator("설정", null)
-		  .setContent(intentBerry2);
+		  .setContent(intentPreference);
  
 		// add all tabs 
-		tabHost.addTab(tabSpecAndroid);
-		tabHost.addTab(tabSpecApple);
-		tabHost.addTab(tabSpecWindows);
-		tabHost.addTab(tabSpecBerry);
-		tabHost.addTab(tabSpecBerry2);
+		tabHost.addTab(tabSpecHome);
+		tabHost.addTab(tabSpecBatonMng);
+		tabHost.addTab(tabSpecBatonTouch);
+		tabHost.addTab(tabSpecProfile);
+		tabHost.addTab(tabSpecPreference);
  
 		//set Windows tab as default (zero based)
 		tabHost.setCurrentTab(0);
