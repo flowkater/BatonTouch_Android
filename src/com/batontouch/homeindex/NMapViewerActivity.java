@@ -1,20 +1,37 @@
 package com.batontouch.homeindex;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 
 import com.batontouch.R;
 import com.nhn.android.maps.NMapActivity;
+import com.nhn.android.maps.NMapCompassManager;
 import com.nhn.android.maps.NMapController;
+import com.nhn.android.maps.NMapLocationManager;
 import com.nhn.android.maps.NMapView;
 import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.maps.nmapmodel.NMapError;
+import com.nhn.android.maps.nmapmodel.NMapPlacemark;
+import com.nhn.android.mapviewer.overlay.NMapMyLocationOverlay;
+import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 
 public class NMapViewerActivity extends NMapActivity {
 	private static final String API_KEY = "c6cbabefd0ffbcafa3317b9df1f069e4";
+
 	private NMapView mMapView; // MapView Variable
 	private NMapController mMapController; // MapController Variable
+	private NMapLocationManager mMapLocationManager;
+	private NMapMyLocationOverlay mMyLocationOverlay; // MyLocation Overlay
+	private NMapOverlayManager mOverlayManager;
+	private NMapViewerResourceProvider mMapViewerResourceProvider;
+	private NMapCompassManager mMapCompassManager;
+
+	private Button myLocationBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +43,132 @@ public class NMapViewerActivity extends NMapActivity {
 		mMapView = (NMapView) findViewById(R.id.mapView);
 		mMapView.setApiKey(API_KEY); // API_KEY Setting
 
+		myLocationBtn = (Button) findViewById(R.id.mylocationBtn);
+
 		mMapView.setClickable(true);
 		mMapView.setEnabled(true);
 		mMapView.setFocusable(true);
 		mMapView.setFocusableInTouchMode(true);
 
-		mMapView.setOnMapStateChangeListener(onMapViewStateChangeListener); // State
-																			// Change
-		mMapView.setOnMapViewTouchEventListener(onMapViewTouchEventListener); // Touch
-																				// Event
+		mMapView.setOnMapStateChangeListener(onMapViewStateChangeListener); // StateChange
+		mMapView.setOnMapViewTouchEventListener(onMapViewTouchEventListener); // TouchEvent
 
 		mMapController = mMapView.getMapController();
 		mMapView.setBuiltInZoomControls(true, null);
+
+		// create resource provider
+		mMapViewerResourceProvider = new NMapViewerResourceProvider(this);
+		super.setMapDataProviderListener(onDataProviderListener);
+
+		// create overlay manager
+		mOverlayManager = new NMapOverlayManager(this, mMapView,
+				mMapViewerResourceProvider);
+
+		// location manager
+		mMapLocationManager = new NMapLocationManager(this);
+		mMapLocationManager
+				.setOnLocationChangeListener(onMyLocationChangeListener);
+
+		// compass manager
+		mMapCompassManager = new NMapCompassManager(this);
+
+		mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(
+				mMapLocationManager, mMapCompassManager);
+
 	}
+	
+	public void onMyLocationClick(View v){
+		startMyLocation();
+	}
+
+	private final NMapLocationManager.OnLocationChangeListener onMyLocationChangeListener = new NMapLocationManager.OnLocationChangeListener() {
+
+		@Override
+		public void onLocationUpdateTimeout(NMapLocationManager locationManager) {
+			Log.d("tag", "Your current location is temporaily unavailable.");
+		}
+
+		@Override
+		public void onLocationUnavailableArea(
+				NMapLocationManager locationManager, NGeoPoint MyLocation) {
+			Log.d("tag", "Your current location is unavailable area.");
+			stopMyLocation();
+		}
+
+		@Override
+		public boolean onLocationChanged(NMapLocationManager locationManager,
+				NGeoPoint MyLocation) {
+			if (mMapController != null) {
+				mMapController.animateTo(MyLocation);
+			}
+			return true;
+		}
+	};
+
+	// Find My Location
+	private void startMyLocation() {
+		// MyLocationOverlay is not null..
+		if (mMyLocationOverlay != null) {
+			// Manager no has Overlay, and then Add Overlay
+			if (!mOverlayManager.hasOverlay(mMyLocationOverlay)) {
+				mOverlayManager.addOverlay(mMyLocationOverlay);
+			}
+
+			if (mMapLocationManager.isMyLocationEnabled()) {
+
+				if (!mMapView.isAutoRotateEnabled()) {
+					mMyLocationOverlay.setCompassHeadingVisible(true);
+
+					mMapCompassManager.enableCompass();
+
+					mMapView.setAutoRotateEnabled(true, false);
+
+					mMapView.requestLayout();
+				} else {
+					stopMyLocation();
+				}
+
+				mMapView.postInvalidate();
+			} else {
+				boolean isMyLocationEnabled = mMapLocationManager
+						.enableMyLocation(false);
+				if (!isMyLocationEnabled) {
+					Log.d("tag",
+							"Please enable a My Location source in system settings");
+
+					Intent goToSettings = new Intent(
+							Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+					startActivity(goToSettings);
+
+					return;
+				}
+			}
+		}
+	}
+
+	private void stopMyLocation() {
+		if (mMyLocationOverlay != null) {
+			mMapLocationManager.disableMyLocation();
+
+			if (mMapView.isAutoRotateEnabled()) {
+				mMyLocationOverlay.setCompassHeadingVisible(false);
+
+				mMapCompassManager.disableCompass();
+
+				mMapView.setAutoRotateEnabled(false, false);
+
+				mMapView.requestLayout();
+			}
+		}
+	}
+
+	private final NMapActivity.OnDataProviderListener onDataProviderListener = new NMapActivity.OnDataProviderListener() {
+		@Override
+		public void onReverseGeocoderResponse(NMapPlacemark placeMark,
+				NMapError errInfo) {
+
+		}
+	};
 
 	private final NMapView.OnMapViewTouchEventListener onMapViewTouchEventListener = new NMapView.OnMapViewTouchEventListener() {
 		@Override
@@ -72,8 +202,8 @@ public class NMapViewerActivity extends NMapActivity {
 		public void onMapInitHandler(NMapView mapView, NMapError errorInfo) {
 			Log.d("tag", "Init handler");
 			if (errorInfo == null) {
-				 mMapController.setMapCenter(new NGeoPoint(126.978371,
-				 37.5666091), 11);
+				mMapController.setMapCenter(new NGeoPoint(126.978371,
+						37.5666091), 11);
 			} else { // fail
 				Log.e("tag", "OnMapInitHanlder: error=" + errorInfo.toString());
 			}
