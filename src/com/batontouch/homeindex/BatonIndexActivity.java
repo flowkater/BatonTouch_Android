@@ -25,7 +25,6 @@ public class BatonIndexActivity extends Activity {
 
 	private ArrayList<String> items;
 
-	VideoView video;
 	Button btn;
 
 	RelativeLayout relative;
