@@ -31,8 +31,6 @@ public class NMapViewerActivity extends NMapActivity {
 	private NMapViewerResourceProvider mMapViewerResourceProvider;
 	private NMapCompassManager mMapCompassManager;
 
-	private Button myLocationBtn;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,8 +40,6 @@ public class NMapViewerActivity extends NMapActivity {
 
 		mMapView = (NMapView) findViewById(R.id.mapView);
 		mMapView.setApiKey(API_KEY); // API_KEY Setting
-
-		myLocationBtn = (Button) findViewById(R.id.mylocationBtn);
 
 		mMapView.setClickable(true);
 		mMapView.setEnabled(true);

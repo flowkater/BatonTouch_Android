@@ -1,11 +1,18 @@
+/* 
+ * NMapCalloutBasicOverlay.java $version 2010. 1. 1
+ * 
+ * Copyright 2010 NHN Corp. All rights Reserved. 
+ * NHN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms. 
+ */
+
 package com.batontouch.homeindex;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.graphics.Paint.Style;
 import android.graphics.drawable.Drawable;
 
 import com.nhn.android.maps.NMapOverlay;
@@ -13,6 +20,11 @@ import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.NMapView;
 import com.nhn.android.mapviewer.overlay.NMapCalloutOverlay;
 
+/**
+ * Basic callout overlay
+ * 
+ * @author kyjkim 
+ */
 public class NMapCalloutBasicOverlay extends NMapCalloutOverlay {
 
 	private static final int CALLOUT_TEXT_PADDING_X = 10;
@@ -26,12 +38,11 @@ public class NMapCalloutBasicOverlay extends NMapCalloutOverlay {
 	private final Path mPath;
 	private float mOffsetX, mOffsetY;
 
-	public NMapCalloutBasicOverlay(NMapOverlay itemOverlay,
-			NMapOverlayItem item, Rect itemBounds) {
+	public NMapCalloutBasicOverlay(NMapOverlay itemOverlay, NMapOverlayItem item, Rect itemBounds) {
 		super(itemOverlay, item, itemBounds);
 
 		mInnerPaint = new Paint();
-		mInnerPaint.setARGB(225, 75, 75, 75); // gray
+		mInnerPaint.setARGB(225, 75, 75, 75); //gray
 		mInnerPaint.setAntiAlias(true);
 
 		mBorderPaint = new Paint();
@@ -63,8 +74,7 @@ public class NMapCalloutBasicOverlay extends NMapCalloutOverlay {
 
 		adjustTextBounds(mapView);
 
-		mTempRect.set((int) mTempRectF.left, (int) mTempRectF.top,
-				(int) mTempRectF.right, (int) mTempRectF.bottom);
+		mTempRect.set((int)mTempRectF.left, (int)mTempRectF.top, (int)mTempRectF.right, (int)mTempRectF.bottom);
 		mTempRect.union(mTempPoint.x, mTempPoint.y);
 
 		return mTempRect;
@@ -81,20 +91,17 @@ public class NMapCalloutBasicOverlay extends NMapCalloutOverlay {
 	}
 
 	@Override
-	protected void drawCallout(Canvas canvas, NMapView mapView, boolean shadow,
-			long when) {
+	protected void drawCallout(Canvas canvas, NMapView mapView, boolean shadow, long when) {
 
 		adjustTextBounds(mapView);
 
 		stepAnimations(canvas, mapView, when);
 
 		// Draw inner info window
-		canvas.drawRoundRect(mTempRectF, CALLOUT_ROUND_RADIUS_X,
-				CALLOUT_ROUND_RADIUS_Y, mInnerPaint);
+		canvas.drawRoundRect(mTempRectF, CALLOUT_ROUND_RADIUS_X, CALLOUT_ROUND_RADIUS_Y, mInnerPaint);
 
 		// Draw border for info window
-		canvas.drawRoundRect(mTempRectF, CALLOUT_ROUND_RADIUS_X,
-				CALLOUT_ROUND_RADIUS_Y, mBorderPaint);
+		canvas.drawRoundRect(mTempRectF, CALLOUT_ROUND_RADIUS_X, CALLOUT_ROUND_RADIUS_Y, mBorderPaint);
 
 		// Draw bottom tag
 		if (CALLOUT_TAG_WIDTH > 0 && CALLOUT_TAG_HEIGHT > 0) {
@@ -113,7 +120,7 @@ public class NMapCalloutBasicOverlay extends NMapCalloutOverlay {
 			canvas.drawPath(path, mBorderPaint);
 		}
 
-		// Draw title
+		//  Draw title
 		canvas.drawText(mOverlayItem.getTitle(), mOffsetX, mOffsetY, mTextPaint);
 	}
 
@@ -121,19 +128,17 @@ public class NMapCalloutBasicOverlay extends NMapCalloutOverlay {
 
 	private void adjustTextBounds(NMapView mapView) {
 
-		// Determine the screen coordinates of the selected MapLocation
-		mapView.getMapProjection().toPixels(mOverlayItem.getPointInUtmk(),
-				mTempPoint);
+		//  Determine the screen coordinates of the selected MapLocation
+		mapView.getMapProjection().toPixels(mOverlayItem.getPointInUtmk(), mTempPoint);
 
 		final String title = mOverlayItem.getTitle();
 		mTextPaint.getTextBounds(title, 0, title.length(), mTempRect);
 
-		// Setup the callout with the appropriate size & location
+		//  Setup the callout with the appropriate size & location
 		mTempRectF.set(mTempRect);
 		mTempRectF.inset(-CALLOUT_TEXT_PADDING_X, -CALLOUT_TEXT_PADDING_Y);
 		mOffsetX = mTempPoint.x - mTempRect.width() / 2;
-		mOffsetY = mTempPoint.y - mTempRect.height() - mItemBounds.height()
-				- CALLOUT_TEXT_PADDING_Y;
+		mOffsetY = mTempPoint.y - mTempRect.height() - mItemBounds.height() - CALLOUT_TEXT_PADDING_Y;
 		mTempRectF.offset(mOffsetX, mOffsetY);
 	}
 
