@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:layout_marginBottom="60dp"
     android:orientation="vertical" >
-
+
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -47,9 +48,11 @@
             android:id="@+id/mapBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:onClick="mapClick"
             android:text="지도" />
+
     </RelativeLayout>
 
     <ListView

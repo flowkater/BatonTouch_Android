@@ -1,4 +1,4 @@
 bin/
 .classpath
-gen/com/batontouch/BuildConfig.java
 project.properties
+gen/
