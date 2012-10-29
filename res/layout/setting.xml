@@ -12,6 +12,27 @@
         android:orientation="vertical" >
 
         <Button
+            android:id="@+id/passwordBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacyBtn"
+            android:text="바톤터치를 친구에게 추천" />
+
+        <Button
+            android:id="@+id/passwordBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacyBtn"
+            android:text="자주 묻는 질문" />
+
+        <Button
+            android:id="@+id/passwordBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacyBtn"
+            android:text="문의/ 제안/ 신고" />
+
+        <Button
             android:id="@+id/button1"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
@@ -28,7 +49,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="privacyBtn"
-            android:text="비밀번호 재설정" />
+            android:text="로그아웃" />
+
+        <Button
+            android:id="@+id/passwordBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacyBtn"
+            android:text="페이스북 연동" />
 
         <Button
             android:id="@+id/varificationBtn"
@@ -45,6 +73,13 @@
             android:text="결제정보 수정/확인" />
 
         <Button
+            android:id="@+id/passwordBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacyBtn"
+            android:text="회원탈퇴" />
+
+        <Button
             android:id="@+id/button1"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
@@ -55,6 +90,13 @@
             android:text="알림수정"
             android:textColor="#ffffff"
             android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/passwordBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacyBtn"
+            android:text="알림 설정" />
 
         <Button
             android:id="@+id/button1"

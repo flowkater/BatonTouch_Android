@@ -4,14 +4,18 @@ package com.batontouch.managebaton;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.batontouch.R;
+import com.batontouch.homeindex.BatonIndexActivity_Detail;
 
 public class MyListAdapter extends BaseAdapter {
 	Context maincon;
@@ -58,7 +62,23 @@ public class MyListAdapter extends BaseAdapter {
 		}
 		ImageView img = (ImageView) convertView.findViewById(R.id.image);
 		img.setImageResource(arSrc.get(position).Icon);
-
+		convertView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				
+				String str = arSrc.get(pos).Name +"";
+		
+				
+				Intent intent = new Intent(maincon, BatonMangeActivity_ManageTasks.class);
+				intent.putExtra("taskName", str);
+				Toast.makeText(maincon, str+"", 3000).show();
+				maincon.startActivity(intent);
+			}
+		});
+		
+		
 		TextView txt = (TextView) convertView.findViewById(R.id.name);
 		txt.setText(arSrc.get(position).Name);
 

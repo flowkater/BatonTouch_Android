@@ -33,6 +33,10 @@
             android:label="Batontouch" >
         </activity>
         <activity
+            android:name=".managebaton.BatonMangeActivity_ManageTasks"
+            android:label="Batontouch" >
+        </activity>
+        <activity
             android:name=".Example"
             android:label="Batontouch" >
         </activity>
@@ -42,6 +46,18 @@
         </activity>
         <activity
             android:name=".homeindex.BatonIndexActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".homeindex.BatonIndexActivity_Map"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".homeindex.BatonIndexActivity_Detail"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".homeindex.MyListAdapter2"
             android:label="Batontouch" >
         </activity>
         <activity
@@ -56,7 +72,7 @@
             android:name=".createbaton.BatonCreate_PostATask2"
             android:label="Batontouch" >
         </activity>
-          <activity
+        <activity
             android:name=".createbaton.BatonCreate_PostATask3"
             android:label="Batontouch" >
         </activity>
@@ -64,7 +80,7 @@
             android:name=".profile.ProfileActivity"
             android:label="Batontouch" >
         </activity>
-           <activity
+        <activity
             android:name=".profile.ProfileActivity_Edit"
             android:label="Batontouch" >
         </activity>
