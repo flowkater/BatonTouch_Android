@@ -1,4 +1,4 @@
-package com.batontouch.managebaton;
+package com.batontouch.homeindex;
 
 
 import java.util.ArrayList;
@@ -15,12 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
-import com.batontouch.homeindex.BatonIndexActivity_Detail;
 
-public class MyListAdapter extends BaseAdapter {
+public class MyListAdapter2 extends BaseAdapter {
 	Context maincon;
 	LayoutInflater Inflater;
-	ArrayList<MyItem> arSrc;
+	ArrayList<MyItem2> arSrc;
 	int layout;
 	
 
@@ -28,7 +27,7 @@ public class MyListAdapter extends BaseAdapter {
 
 	
 
-	public MyListAdapter(Context context, int alayout, ArrayList<MyItem> aarSrc) {
+	public MyListAdapter2(Context context, int alayout, ArrayList<MyItem2> aarSrc) {
 		maincon = context;
 		Inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -66,14 +65,11 @@ public class MyListAdapter extends BaseAdapter {
 			
 			@Override
 			public void onClick(View arg0) {
-				
-				
 				String str = arSrc.get(pos).Name +"";
-		
-				
-				Intent intent = new Intent(maincon, BatonMangeActivity_ManageTasks.class);
+				Intent intent = new Intent(maincon, BatonIndexActivity_Detail.class);
 				intent.putExtra("taskName", str);
-				Toast.makeText(maincon, str+"", 3000).show();
+				
+				Toast.makeText(maincon, str, 3000).show();
 				maincon.startActivity(intent);
 			}
 		});
@@ -85,7 +81,7 @@ public class MyListAdapter extends BaseAdapter {
 		// Button btn = (Button)convertView.findViewById(R.id.btn);
 		// btn.setOnClickListener(new Button.OnClickListener() {
 		// public void onClick(View v) {
-		// String str = arSrc.get(pos).Name + "를 주문합니다.";
+		// String str = arSrc.get(pos).Name + "called";
 		// Toast.makeText(maincon, str, Toast.LENGTH_SHORT).show();
 		// }
 		// });

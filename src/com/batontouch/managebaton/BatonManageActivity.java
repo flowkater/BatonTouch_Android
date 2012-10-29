@@ -3,6 +3,7 @@ package com.batontouch.managebaton;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,13 @@ import android.widget.VideoView;
 import com.batontouch.R;
 
 public class BatonManageActivity extends Activity {
-	ListView listView;
+	ListView listView, listView2;
 	ArrayList<MyItem> arItem;
 
 	private ArrayList<String> items;
 
-	VideoView video;
-	Button btn;
+
+	Button btn, askedButton, myTaskBtn;
 
 	RelativeLayout relative;
 
@@ -38,24 +39,33 @@ public class BatonManageActivity extends Activity {
 		arItem.add(mi);
 		mi = new MyItem(R.drawable.ic_launcher, "세탁물 맡겨주세요.");
 		arItem.add(mi);
-	
+		mi = new MyItem(R.drawable.ic_launcher, "밥 사다 주세요~");
+		arItem.add(mi);
 
-		MyListAdapter MyAdapter = new MyListAdapter(this, R.layout.featured_adapter, arItem);
+		MyListAdapter MyAdapter = new MyListAdapter(this,
+				R.layout.featured_adapter, arItem);
 
 		listView = (ListView) findViewById(R.id.listView);
-
+		listView2 = (ListView) findViewById(R.id.listView2);
+		
 		LayoutInflater inflator = getLayoutInflater();
 
 		// listView.addHeaderView(linear);
 
 		listView.setAdapter(MyAdapter);
-
+		listView2.setAdapter(MyAdapter);
+		
+		
+		askedButton = (Button) findViewById(R.id.askedTaskBtn);
+		myTaskBtn = (Button) findViewById(R.id.myTaskBtn);
 	}
+	
+	
 
 	public void mOnClick(View v) {
 
 		// btn = (Button) findViewById(R.id.button);
-		video = (VideoView) findViewById(R.id.videoView);
+	
 
 		switch (v.getId()) {
 
@@ -68,20 +78,26 @@ public class BatonManageActivity extends Activity {
 		//
 		// startActivity(intent);
 
-		case R.id.btnCollections:
+		case R.id.askedTaskBtn:
 
 			// Toast.makeText(getApplicationContext(), "btnCollections",
 			// 3000).show();
-			video.setVisibility(View.INVISIBLE);
+			// #8b8989
+			myTaskBtn.setBackgroundColor(Color.BLACK);
+			askedButton.setBackgroundColor(Color.rgb(89, 89, 89));
+			listView2.setVisibility(View.INVISIBLE);
 			listView.setVisibility(View.VISIBLE);
 			break;
 
-		case R.id.btnVideos:
+		case R.id.myTaskBtn:
 
 			// Toast.makeText(getApplicationContext(), "btnVideos",
 			// 3000).show();
+
+			askedButton.setBackgroundColor(Color.BLACK);
+			myTaskBtn.setBackgroundColor(Color.rgb(89, 89, 89));
 			listView.setVisibility(View.INVISIBLE);
-			video.setVisibility(View.VISIBLE);
+			listView2.setVisibility(View.VISIBLE);
 			break;
 
 		}

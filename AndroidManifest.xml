@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="15" />
@@ -37,6 +37,10 @@
             android:label="Batontouch" >
         </activity>
         <activity
+            android:name=".managebaton.BatonMangeActivity_ManageTasks"
+            android:label="Batontouch" >
+        </activity>
+        <activity
             android:name=".Example"
             android:label="Batontouch" >
         </activity>
@@ -53,6 +57,14 @@
             android:label="Batontouch" >
         </activity>
         <activity
+            android:name=".homeindex.BatonIndexActivity_Detail"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".homeindex.MyListAdapter2"
+            android:label="Batontouch" >
+        </activity>
+        <activity
             android:name=".main.List6"
             android:label="Batontouch" >
         </activity>
@@ -64,7 +76,7 @@
             android:name=".createbaton.BatonCreate_PostATask2"
             android:label="Batontouch" >
         </activity>
-          <activity
+        <activity
             android:name=".createbaton.BatonCreate_PostATask3"
             android:label="Batontouch" >
         </activity>
@@ -72,7 +84,7 @@
             android:name=".profile.ProfileActivity"
             android:label="Batontouch" >
         </activity>
-           <activity
+        <activity
             android:name=".profile.ProfileActivity_Edit"
             android:label="Batontouch" >
         </activity>

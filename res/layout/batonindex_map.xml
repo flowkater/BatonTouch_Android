@@ -44,18 +44,19 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/mapBtn"
+            android:onClick="listOnClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:onClick="mapClick"
-            android:text="지도" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="리스트" />
+
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent" >
-    </ListView>
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/navermap" />
 
 </LinearLayout>

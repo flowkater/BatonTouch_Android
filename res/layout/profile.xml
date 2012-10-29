@@ -83,6 +83,7 @@
 
                 <CheckBox
                     android:id="@+id/checkBox1"
+                    android:enabled="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -90,11 +91,14 @@
                     android:id="@+id/imageView3"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
+             
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/phone" />
 
                 <CheckBox
                     android:id="@+id/checkBox1"
+                        android:enabled="false"
+                        android:checked="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
