@@ -6,7 +6,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 import com.batontouch.R;
 import com.nhn.android.maps.NMapActivity;
@@ -17,8 +16,10 @@ import com.nhn.android.maps.NMapView;
 import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.maps.nmapmodel.NMapError;
 import com.nhn.android.maps.nmapmodel.NMapPlacemark;
+import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.mapviewer.overlay.NMapMyLocationOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
+import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
 public class NMapViewerActivity extends NMapActivity {
 	private static final String API_KEY = "c6cbabefd0ffbcafa3317b9df1f069e4";
@@ -71,9 +72,32 @@ public class NMapViewerActivity extends NMapActivity {
 		mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(
 				mMapLocationManager, mMapCompassManager);
 
+		// 오버레이들을 관리하기 위한 id값 생성
+		int markerId = NMapPOIflagType.PIN;
+
+		// 표시할 위치 데이터를 지정한다. 마지막 인자가 오버레이를 인식하기 위한 id값
+		NMapPOIdata poiData = new NMapPOIdata(3, mMapViewerResourceProvider);
+		poiData.beginPOIdata(3);
+		poiData.addPOIitem(126.89470767974854, 37.48264941044898, "바톤1",
+				markerId, 0);
+		poiData.addPOIitem(126.89453601837158, 37.48440321935226, "바톤2",
+				markerId, 0);
+		poiData.addPOIitem(126.89906358718872, 37.485475917127985, "바톤3",
+				markerId, 0);
+		poiData.endPOIdata();
+		
+		//위치 데이터를 사용하여 오버레이 생성
+		NMapPOIdataOverlay poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
+		
+		//id 값이 0으로 지정된 모든 오버레이가 표시되고 있는 위치로
+		// 지도의 중심과 ZOOM을 재설정
+		poiDataOverlay.showAllPOIdata(0);
+		
+		//오버레이 이벤트 등록
+//		mOverlayManager.setOnCalloutOverlayListener(this);
 	}
-	
-	public void onMyLocationClick(View v){
+
+	public void onMyLocationClick(View v) {
 		startMyLocation();
 	}
 
@@ -198,8 +222,8 @@ public class NMapViewerActivity extends NMapActivity {
 		public void onMapInitHandler(NMapView mapView, NMapError errorInfo) {
 			Log.d("tag", "Init handler");
 			if (errorInfo == null) {
-				mMapController.setMapCenter(new NGeoPoint(126.978371,
-						37.5666091), 11);
+//				mMapController.setMapCenter(new NGeoPoint(126.978371,
+//						37.5666091), 11);
 			} else { // fail
 				Log.e("tag", "OnMapInitHanlder: error=" + errorInfo.toString());
 			}
