@@ -72,28 +72,22 @@ public class NMapViewerActivity extends NMapActivity {
 		mMyLocationOverlay = mOverlayManager.createMyLocationOverlay(
 				mMapLocationManager, mMapCompassManager);
 
-		// 오버레이들을 관리하기 위한 id값 생성
 		int markerId = NMapPOIflagType.PIN;
 
-		// 표시할 위치 데이터를 지정한다. 마지막 인자가 오버레이를 인식하기 위한 id값
 		NMapPOIdata poiData = new NMapPOIdata(3, mMapViewerResourceProvider);
 		poiData.beginPOIdata(3);
-		poiData.addPOIitem(126.89470767974854, 37.48264941044898, "바톤1",
+		poiData.addPOIitem(126.89470767974854, 37.48264941044898, "Baton1",
 				markerId, 0);
-		poiData.addPOIitem(126.89453601837158, 37.48440321935226, "바톤2",
+		poiData.addPOIitem(126.89453601837158, 37.48440321935226, "Baton2",
 				markerId, 0);
-		poiData.addPOIitem(126.89906358718872, 37.485475917127985, "바톤3",
+		poiData.addPOIitem(126.89906358718872, 37.485475917127985, "Baton3",
 				markerId, 0);
 		poiData.endPOIdata();
 		
-		//위치 데이터를 사용하여 오버레이 생성
 		NMapPOIdataOverlay poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
 		
-		//id 값이 0으로 지정된 모든 오버레이가 표시되고 있는 위치로
-		// 지도의 중심과 ZOOM을 재설정
 		poiDataOverlay.showAllPOIdata(0);
 		
-		//오버레이 이벤트 등록
 //		mOverlayManager.setOnCalloutOverlayListener(this);
 	}
 
