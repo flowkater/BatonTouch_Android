@@ -1,157 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:id="@+id/layoutForPostATask"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
 
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/radio0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:checked="true" />
-
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
-
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:checked="true" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="선물을 골라 주세요."
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/coffeebean" />
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/coffeebean" />
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/coffeebean" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/starbucks" />
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/starbucks" />
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/starbucks" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/tomntoms" />
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/tomntoms" />
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/tomntoms" />
-            </TableRow>
-        </TableLayout>
-
-        <Button
-            android:id="@+id/button2"
+        <RadioButton
+            android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="10dp"
-            android:onClick="mOnClick"
-            android:text="일 시키기" />
-    </LinearLayout>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:checked="true" />
 
-</ScrollView>
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:checked="true" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:gravity="center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="선물을 골라 주세요."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:numColumns="3" >
+    </GridView>
+</LinearLayout>

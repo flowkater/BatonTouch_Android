@@ -77,6 +77,10 @@
             android:label="Batontouch" >
         </activity>
         <activity
+            android:name=".createbaton.BatonCreate_PostALastTask"
+            android:label="Batontouch" >
+        </activity>
+        <activity
             android:name=".createbaton.BatonCreate_PostATask3"
             android:label="Batontouch" >
         </activity>
