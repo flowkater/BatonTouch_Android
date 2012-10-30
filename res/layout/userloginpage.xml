@@ -18,7 +18,8 @@
         android:paddingLeft="10.0dp"
         android:paddingRight="10.0dp"
         android:singleLine="true"
-        android:textSize="16.0sp" />
+        android:textSize="16.0sp"
+        android:text="foobar@foobar.com" />
 
     <EditText
         android:id="@+id/login_pw_edit_text"
@@ -33,7 +34,8 @@
         android:paddingLeft="10.0dp"
         android:paddingRight="10.0dp"
         android:singleLine="true"
-        android:textSize="16.0sp" />
+        android:textSize="16.0sp"
+        android:text="foobar" />
 
     <Button
         android:id="@+id/login_btn"

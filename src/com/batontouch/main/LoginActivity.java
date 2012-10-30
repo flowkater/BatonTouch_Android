@@ -33,6 +33,8 @@ public class LoginActivity extends Activity{
 	}
 	
 	public void UserLoginClick(View v){
+		Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
+		startActivity(intent);
 	}
 	
 	public void RegisterClick(View v){
@@ -53,5 +55,4 @@ public class LoginActivity extends Activity{
 		}
 		return false;
 	}
-
 }
