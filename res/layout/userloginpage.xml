@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="10.0dip" >
+
+    <EditText
+        android:id="@+id/login_id_edit_text"
+        android:layout_width="220.0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:gravity="center_vertical"
+        android:hint="이메일"
+        android:inputType="textEmailAddress"
+        android:nextFocusDown="@+id/login_pw_edit_text"
+        android:paddingLeft="10.0dp"
+        android:paddingRight="10.0dp"
+        android:singleLine="true"
+        android:textSize="16.0sp" />
+
+    <EditText
+        android:id="@+id/login_pw_edit_text"
+        android:layout_width="220.0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_id_edit_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8.0dip"
+        android:gravity="center_vertical"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:paddingLeft="10.0dp"
+        android:paddingRight="10.0dp"
+        android:singleLine="true"
+        android:textSize="16.0sp" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="120.0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_pw_edit_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12.0dip"
+        android:onClick="LoginClick"
+        android:gravity="center"
+        android:text="로그인"
+        android:textSize="16.0sp" />
+
+</RelativeLayout>

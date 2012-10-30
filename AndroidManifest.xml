@@ -92,6 +92,14 @@
             android:name=".setting.SettingActivity"
             android:label="Batontouch" >
         </activity>
+        <activity
+            android:name=".main.RegisterActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".main.UserLoginActivity"
+            android:label="Batontouch" >
+        </activity>
     </application>
 
 </manifest>

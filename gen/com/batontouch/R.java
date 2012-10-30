@@ -54,7 +54,9 @@ public final class R {
         public static final int users=0x7f020024;
     }
     public static final class id {
+        public static final int RegisterButton=0x7f070038;
         public static final int askedTaskBtn=0x7f070017;
+        public static final int basic_info_text=0x7f070030;
         public static final int button1=0x7f070001;
         public static final int button2=0x7f070002;
         public static final int button3=0x7f070016;
@@ -80,14 +82,24 @@ public final class R {
         public static final int linearLayout3=0x7f070019;
         public static final int listView=0x7f070013;
         public static final int listView2=0x7f07001b;
+        public static final int login_btn=0x7f07003f;
+        public static final int login_id_edit_text=0x7f07003d;
+        public static final int login_pw_edit_text=0x7f07003e;
+        public static final int login_root=0x7f07003c;
         public static final int logo=0x7f070020;
         public static final int mapBtn=0x7f070012;
         public static final int mapView=0x7f070022;
+        public static final int member_email=0x7f070032;
+        public static final int member_email_edit_text=0x7f070033;
+        public static final int member_password=0x7f070034;
+        public static final int member_password_confirmation=0x7f070036;
+        public static final int member_password_confirmation_edit_text=0x7f070037;
+        public static final int member_password_edit_text=0x7f070035;
         public static final int myTaskBtn=0x7f070018;
         public static final int mylocationBtn=0x7f070023;
         public static final int name=0x7f07001e;
-        public static final int passwordBtn=0x7f07002f;
-        public static final int paymentBtn=0x7f070031;
+        public static final int passwordBtn=0x7f070039;
+        public static final int paymentBtn=0x7f07003b;
         public static final int priceBtn=0x7f070011;
         public static final int profileEdit=0x7f070025;
         public static final int progressBar1=0x7f07001f;
@@ -95,7 +107,9 @@ public final class R {
         public static final int radio1=0x7f070009;
         public static final int radio2=0x7f07000a;
         public static final int radioGroup1=0x7f070007;
+        public static final int regist_page_table=0x7f070031;
         public static final int scrollView1=0x7f070006;
+        public static final int setting_personal_layout=0x7f07002f;
         public static final int tableRow1=0x7f070000;
         public static final int tableRow2=0x7f070003;
         public static final int tableRow3=0x7f07000e;
@@ -103,7 +117,7 @@ public final class R {
         public static final int textView2=0x7f070015;
         public static final int textViewIntroduce=0x7f070029;
         public static final int uploadImage=0x7f07002a;
-        public static final int varificationBtn=0x7f070030;
+        public static final int varificationBtn=0x7f07003a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -122,7 +136,9 @@ public final class R {
         public static final int nmapviewer=0x7f03000d;
         public static final int profile=0x7f03000e;
         public static final int profile_edit=0x7f03000f;
-        public static final int setting=0x7f030010;
+        public static final int registerpage=0x7f030010;
+        public static final int setting=0x7f030011;
+        public static final int userloginpage=0x7f030012;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
