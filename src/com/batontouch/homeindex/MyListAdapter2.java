@@ -61,6 +61,20 @@ public class MyListAdapter2 extends BaseAdapter {
 		}
 		ImageView img = (ImageView) convertView.findViewById(R.id.image);
 		img.setImageResource(arSrc.get(position).Icon);
+		
+		TextView status = (TextView) convertView.findViewById(R.id.status);
+		status.setText(arSrc.get(position).Status);
+
+		TextView name = (TextView) convertView.findViewById(R.id.name);
+		name.setText(arSrc.get(position).Name);
+
+		TextView date = (TextView) convertView.findViewById(R.id.day);
+		date.setText(arSrc.get(position).Date);
+
+		TextView price = (TextView) convertView.findViewById(R.id.price);
+		price.setText(Integer.toString(arSrc.get(position).Price) + "원");
+		
+		
 		convertView.setOnClickListener(new OnClickListener() {
 			
 			@Override

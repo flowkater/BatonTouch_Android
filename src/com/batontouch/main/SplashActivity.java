@@ -1,6 +1,7 @@
 package com.batontouch.main;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,15 +11,24 @@ import com.batontouch.R;
 
 public class SplashActivity extends Activity {
 
+	ProgressDialog progressBar;
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.intro);
 
+	
+
 		initialize();
 	}
 
 	private void initialize() {
+		progressBar = new ProgressDialog(this);
+		progressBar.setCancelable(true);
+		progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		progressBar.show();
 		// Handler
 		Handler handler = new Handler() {
 

@@ -10,26 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/passwordBtn"
+
+        <ImageButton
+            android:id="@+id/recommendToFriendsBtn"
             android:layout_width="fill_parent"
+            android:layout_gravity="left"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:src="@drawable/btn_kakaotalk_logo_andr"
+            android:background="@drawable/btn_width_android"
+            android:onClick="sendUrlLink"
             android:text="바톤터치를 친구에게 추천" />
 
         <Button
-            android:id="@+id/passwordBtn"
+            android:id="@+id/talkInKakao"
+            android:layout_width="fill_parent"
+             android:onClick="generalSettingBtn"
+            android:layout_height="wrap_content"
+            android:text="카톡에서 대화 하실라우?" />
+
+        <Button
+            android:id="@+id/FAQBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="generalSettingBtn"
             android:text="자주 묻는 질문" />
 
         <Button
-            android:id="@+id/passwordBtn"
+            android:id="@+id/suggestionBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="generalSettingBtn"
             android:text="문의/ 제안/ 신고" />
 
         <Button
@@ -45,42 +55,41 @@
             android:textSize="25dp" />
 
         <Button
-            android:id="@+id/passwordBtn"
+            android:id="@+id/logoutBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="privacySettingBtn"
             android:text="로그아웃" />
 
         <Button
-            android:id="@+id/passwordBtn"
+            android:id="@+id/faebookBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="privacySettingBtn"
             android:text="페이스북 연동" />
 
         <Button
             android:id="@+id/varificationBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
-            android:text="인증번호 수정" />
+            android:onClick="privacySettingBtn"
+            android:text="인증 전화번호 수정" />
 
         <Button
             android:id="@+id/paymentBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="privacySettingBtn"
             android:text="결제정보 수정/확인" />
 
         <Button
-            android:id="@+id/passwordBtn"
+            android:id="@+id/dropoutBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="privacySettingBtn"
             android:text="회원탈퇴" />
 
         <Button
-            android:id="@+id/button1"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -92,26 +101,27 @@
             android:textSize="25dp" />
 
         <Button
-            android:id="@+id/passwordBtn"
+            android:id="@+id/alarmBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="privacyBtn"
+            android:onClick="alarmSettingBtn"
             android:text="알림 설정" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/pushAreaBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="alarmSettingBtn"
             android:text="관심 푸쉬지역 설정" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/pushRangeBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="alarmSettingBtn"
             android:text="푸쉬 범위 설정" />
 
         <Button
-            android:id="@+id/button1"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -123,15 +133,17 @@
             android:textSize="25dp" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/annoucementBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="buttontouchSettingBtn"
             android:text="공지사항" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/policyBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="buttontouchSettingBtn"
             android:text="이용약관 및 개인 보호 정책" />
     </LinearLayout>
 
