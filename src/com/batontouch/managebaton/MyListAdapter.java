@@ -1,6 +1,5 @@
 package com.batontouch.managebaton;
 
-
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -17,16 +16,11 @@ import android.widget.Toast;
 import com.batontouch.R;
 import com.batontouch.homeindex.BatonIndexActivity_Detail;
 
-public class MyListAdapter extends BaseAdapter {
+class MyListAdapter extends BaseAdapter {
 	Context maincon;
 	LayoutInflater Inflater;
 	ArrayList<MyItem> arSrc;
 	int layout;
-	
-
-	
-
-	
 
 	public MyListAdapter(Context context, int alayout, ArrayList<MyItem> aarSrc) {
 		maincon = context;
@@ -34,9 +28,6 @@ public class MyListAdapter extends BaseAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		arSrc = aarSrc;
 		layout = alayout;
-		
-	
-		
 	}
 
 	public int getCount() {
@@ -44,9 +35,6 @@ public class MyListAdapter extends BaseAdapter {
 	}
 
 	public String getItem(int position) {
-		
-		
-		
 		return arSrc.get(position).Name;
 	}
 
@@ -62,25 +50,42 @@ public class MyListAdapter extends BaseAdapter {
 		}
 		ImageView img = (ImageView) convertView.findViewById(R.id.image);
 		img.setImageResource(arSrc.get(position).Icon);
+
+		TextView status = (TextView) convertView.findViewById(R.id.status);
+		status.setText(arSrc.get(position).Status);
+
+		TextView name = (TextView) convertView.findViewById(R.id.name);
+		name.setText(arSrc.get(position).Name);
+
+		TextView date = (TextView) convertView.findViewById(R.id.day);
+		date.setText(arSrc.get(position).Date);
+
+		TextView price = (TextView) convertView.findViewById(R.id.price);
+		price.setText(Integer.toString(arSrc.get(position).Price) + "원");
+
 		convertView.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
+
+				String str = arSrc.get(pos).Name + "";
+				String str2 = arSrc.get(pos).Status + "";
+				String str3 = arSrc.get(pos).Date + "";
+				String str4 = Integer.toString(arSrc.get(pos).Price) + "원";
 				
 				
-				String str = arSrc.get(pos).Name +"";
-		
-				
-				Intent intent = new Intent(maincon, BatonMangeActivity_ManageTasks.class);
+				Intent intent = new Intent(maincon,
+						BatonMangeActivity_ManageTasks.class);
 				intent.putExtra("taskName", str);
-				Toast.makeText(maincon, str+"", 3000).show();
+				intent.putExtra("status", str2);
+				intent.putExtra("date", str3);
+				intent.putExtra("price", str4);
+
+				Toast.makeText(maincon, str, 3000).show();
 				maincon.startActivity(intent);
+
 			}
 		});
-		
-		
-		TextView txt = (TextView) convertView.findViewById(R.id.name);
-		txt.setText(arSrc.get(position).Name);
 
 		// Button btn = (Button)convertView.findViewById(R.id.btn);
 		// btn.setOnClickListener(new Button.OnClickListener() {
@@ -89,8 +94,6 @@ public class MyListAdapter extends BaseAdapter {
 		// Toast.makeText(maincon, str, Toast.LENGTH_SHORT).show();
 		// }
 		// });
-
-	
 
 		return convertView;
 	}

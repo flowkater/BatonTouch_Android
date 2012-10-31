@@ -2,17 +2,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    
     android:layout_height="wrap_content" >
 
     <LinearLayout
-        
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="#000000"
-        android:paddingBottom="20dp"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingBottom="20dp" >
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,7 +18,6 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:background="#ffffff"
-
             android:orientation="vertical" >
 
             <TextView
@@ -30,8 +27,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="딜 이름"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/dealName"
@@ -40,8 +37,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="딜 명"
-                android:textSize="20dp"
-                 />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -50,8 +46,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="경유지"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/dealName"
@@ -60,8 +56,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="경유지명"
-                android:textSize="20dp"
-              />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -70,8 +65,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="도착지"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/dealName"
@@ -80,8 +75,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="도착지 명"
-                android:textSize="20dp"
-            />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -93,10 +87,10 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:layout_margin="10dp"
                 android:id="@+id/editText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:enabled="false"
                 android:lineSpacingMultiplier="1.5"
                 android:text="마리오타워에 있는 김민수씨로부터 서류 3봉을 받아서, 도착지에 있는 준영군에게 전달해주세요." >
@@ -107,17 +101,21 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/button1"
+                <EditText
+                    android:id="@+id/editText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="확정 시간" />
+                    android:layout_weight="1"
+                    android:ems="10" >
+
+                    <requestFocus />
+                </EditText>
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="예상 소요시간 10min"
+                    android:text="까지 답장 주세요~"
                     android:textSize="15dp" />
             </LinearLayout>
 
@@ -126,17 +124,18 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/button2"
+                <EditText
+                    android:id="@+id/editText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="완료 시간" />
+                    android:layout_weight="1"
+                    android:ems="10" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="보수 3000 - 4000원"
+                    android:text="까지 끝내주세요~"
                     android:textSize="15dp" />
             </LinearLayout>
         </LinearLayout>

@@ -41,13 +41,14 @@ public class BatonIndexActivity extends Activity {
 
 		arItem = new ArrayList<MyItem2>();
 		MyItem2 mi;
-		mi = new MyItem2(R.drawable.junghyun, "연대 정문 앞으로 장미 배달.");
+		mi = new MyItem2(R.drawable.junghyun, "이대 앞에서 닭 사다 주세요.", 2000, "2013.2.23",
+				"대기중");
 		arItem.add(mi);
-		mi = new MyItem2(R.drawable.ic_launcher, "고대에 들려서 리포트 제출.");
+		mi = new MyItem2(R.drawable.ic_launcher, "고대에 들려서 리포트 제출.", 4000, "2013.3.25", "캐치");
 		arItem.add(mi);
-		mi = new MyItem2(R.drawable.ic_launcher, "세탁물 맡겨주세요.");
+		mi = new MyItem2(R.drawable.ic_launcher, "한양대에 들려서 리포트 제출.", 4000, "2013.3.25", "캐치");
 		arItem.add(mi);
-		mi = new MyItem2(R.drawable.ic_launcher, "신밥 찾아와 주세요.");
+		mi = new MyItem2(R.drawable.ic_launcher, "숭실대에 들려서 리포트 제출.", 4000, "2013.3.25", "캐치");
 		arItem.add(mi);
 
 		MyListAdapter2 MyAdapter = new MyListAdapter2(this,
@@ -100,12 +101,12 @@ public class BatonIndexActivity extends Activity {
 	}
 }
 
-class MyItem2 {
-	MyItem2(int aIcon, String aName) {
-		Icon = aIcon;
-		Name = aName;
-	}
-
-	int Icon;
-	String Name;
-}
+//class MyItem2 {
+//	MyItem2(int aIcon, String aName) {
+//		Icon = aIcon;
+//		Name = aName;
+//	}
+//
+//	int Icon;
+//	String Name;
+//}

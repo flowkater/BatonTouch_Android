@@ -54,7 +54,7 @@
         </activity>
         <activity
             android:name=".homeindex.NMapViewerActivity"
-            android:label="Batontouch" >
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".homeindex.BatonIndexActivity_Detail"
@@ -68,12 +68,24 @@
             android:name=".main.List6"
             android:label="Batontouch" >
         </activity>
+        
+        
+        
         <activity
             android:name=".createbaton.BatonCreate_PostATask1"
             android:label="Batontouch" >
         </activity>
         <activity
+            android:name=".createbaton.BatonCreate_PostATask_Map"
+         android:theme="@android:style/Theme.Dialog"
+            android:label="Batontouch" >
+        </activity>
+        <activity
             android:name=".createbaton.BatonCreate_PostATask2"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_PostALastTask"
             android:label="Batontouch" >
         </activity>
         <activity
@@ -89,6 +101,10 @@
             android:label="Batontouch" >
         </activity>
         <activity
+            android:name=".setting.SettingActivity_KaKao"
+            android:label="Batontouch" >
+        </activity>
+        <activity
             android:name=".setting.SettingActivity"
             android:label="Batontouch" >
         </activity>
@@ -99,6 +115,44 @@
         <activity
             android:name=".main.UserLoginActivity"
             android:label="Batontouch" >
+        </activity>
+        <activity android:name=".setting.Setting_Announcement" >
+        </activity>
+        <activity android:name=".setting.Setting_Dropout" >
+        </activity>
+        <activity android:name=".setting.Setting_FAQ" >
+        </activity>
+        <activity android:name=".setting.Setting_Logout" >
+        </activity>
+        <activity android:name=".setting.Setting_Policy" >
+        </activity>
+        <activity android:name=".setting.Setting_Suggestion" >
+        </activity>
+        <activity android:name=".setting.Setting_Verification" >
+        </activity>
+        <activity android:name=".setting.Setting_PushArea" >
+        </activity>
+        <activity android:name=".setting.Setting_Alarm" >
+        </activity>
+        <activity android:name=".setting.Setting_Payment" >
+        </activity>
+        <activity
+            android:name=".kakaoLink.MainActivity"
+            android:label="Batontouch" >
+        </activity>
+        <activity android:name=".SplashActivity" >
+
+            <!-- custom scheme(execute url) -->
+            <intent-filter>
+                <data
+                    android:host="starActivity"
+                    android:scheme="kakaoLinkTest" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

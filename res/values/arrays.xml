@@ -7,6 +7,14 @@
         <item>걸어서 15분 거리</item>
         <item>걸어서 20분 거리</item>
     </string-array>
+    <string-array name="expecttime">
+        <item>5분</item>
+        <item>10분</item>
+        <item>15분</item>
+        <item>20분</item>
+        <item>25분</item>
+        <item>30분</item>
+    </string-array>
     <string-array name="price">
         <item>3,000원</item>
         <item>6,000원</item>
