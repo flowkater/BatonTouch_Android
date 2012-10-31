@@ -73,10 +73,9 @@ public class UserLoginActivity extends Activity {
 	}
 
 	private void authenticate() throws ClientProtocolException, IOException {
-		String pin = "";
-		HashMap<String, String> sessionTokens = Login();
 		try {
-
+			String pin = "";
+			HashMap<String, String> sessionTokens = Login();
 		} catch (Exception e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "LoginError");
 		}
@@ -115,7 +114,10 @@ public class UserLoginActivity extends Activity {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "3");
 		} catch (IOException e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "4");
+		} catch (Exception e){
+			Log.e("my", e.getClass().getName() + e.getMessage() + "4");
 		}
+		
 
 		ParsedLoginDataSet parsedLoginDataSet = new ParsedLoginDataSet();
 		try {
@@ -128,8 +130,8 @@ public class UserLoginActivity extends Activity {
 			// Store the username and password in SharedPreferences after the
 			// successful login
 			SharedPreferences.Editor editor = mPreferences.edit();
-			editor.putString("UserName", email);
-			editor.putString("PassWord", password);
+//			editor.putString("UserName", email);
+//			editor.putString("PassWord", password);
 			editor.putString("AuthToken", sessionTokens.get("auth_token"));
 			editor.commit();
 			Message myMessage = new Message();
@@ -166,7 +168,6 @@ public class UserLoginActivity extends Activity {
 				Intent intent = new Intent(getApplicationContext(),
 						MainActivity.class);
 				startActivity(intent);
-
 			}
 		}
 	};
