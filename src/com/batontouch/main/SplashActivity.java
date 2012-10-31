@@ -19,8 +19,6 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.intro);
 
-	
-
 		initialize();
 	}
 
@@ -31,11 +29,11 @@ public class SplashActivity extends Activity {
 		progressBar.show();
 		// Handler
 		Handler handler = new Handler() {
-
 			@Override
 			public void handleMessage(Message msg) {
 				finish();
 				startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+				progressBar.dismiss();
 			}
 		};
 		// 2 sec
