@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:enabled="false"
                 android:checked="true" />
 
             <RadioButton
@@ -46,28 +47,79 @@
                 android:layout_marginRight="20dp" />
         </RadioGroup>
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="fill_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/navermap" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="지도에 없으세요? 그러면 아래를 입력 해주세요." />
-
-        <EditText
-            android:id="@+id/editText1"
+        <TableLayout
             android:layout_width="match_parent"
-            android:singleLine="true"
             android:layout_height="wrap_content"
-            android:hint="이대역 3번출구에서 나와서 첫번째 골목 오른쪽 김밥집"
-            android:textSize="10dp" >
+            android:layout_margin="10dp" >
 
-        </EditText>
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:text="여기에서 : "
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/fromHereEt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="ex) 김가네"
+                    android:singleLine="true" >
+                </EditText>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:text="여기로 : "
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/toThereEt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="ex) 서울시 구로구 구로동 마리오타워"
+                    android:singleLine="true" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이것들을 부탁해요!"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="이대역 3번출구에서 나와서 첫번째 골목 오른쪽 김밥집"
+               
+                android:textSize="15dp" >
+            </EditText>
+        </LinearLayout>
 
         <Button
             android:id="@+id/button1"

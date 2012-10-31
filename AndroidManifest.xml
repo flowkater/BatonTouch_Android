@@ -68,8 +68,16 @@
             android:name=".main.List6"
             android:label="Batontouch" >
         </activity>
+        
+        
+        
         <activity
             android:name=".createbaton.BatonCreate_PostATask1"
+            android:label="Batontouch" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_PostATask_Map"
+         android:theme="@android:style/Theme.Dialog"
             android:label="Batontouch" >
         </activity>
         <activity
