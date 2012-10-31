@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical" >
 
         <RadioGroup
@@ -63,10 +65,7 @@
                 android:layout_weight="5"
                 android:hint="잠실 훼밀리아파트 준영이네 집"
                 android:singleLine="true"
-            
                 android:textSize="10dp" >
-
-                <requestFocus />
             </EditText>
 
             <Button
@@ -98,12 +97,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:clickable="true"
-            android:onClick="expectedTime"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-                android:singleLine="true"
-            android:ems="10" />
+            android:clickable="true"
+            android:ems="10"
+            android:singleLine="true" />
 
         <TextView
             android:id="@+id/textView1"

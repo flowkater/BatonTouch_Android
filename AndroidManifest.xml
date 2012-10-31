@@ -54,7 +54,7 @@
         </activity>
         <activity
             android:name=".homeindex.NMapViewerActivity"
-            android:label="Batontouch" >
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".homeindex.BatonIndexActivity_Detail"

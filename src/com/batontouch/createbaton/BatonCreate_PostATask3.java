@@ -28,18 +28,12 @@ public class BatonCreate_PostATask3 extends Activity {
 
 		setContentView(R.layout.batoncreate_postatask3);
 		GridView grid = (GridView) findViewById(R.id.gridView);
-		
+
 		// LayoutInflater li = getLayoutInflater();
-				
-		
-		
 
 		grid.setAdapter(new AppsAdapter());
-		
-		
+
 	}
-
-
 
 	ArrayList<Integer> mApps = new ArrayList<Integer>();
 
@@ -54,22 +48,21 @@ public class BatonCreate_PostATask3 extends Activity {
 		mApps.add(R.drawable.tomntoms);
 		mApps.add(R.drawable.tomntoms);
 		mApps.add(R.drawable.tomntoms);
-		
+
 		mApps.add(R.drawable.coffeebean);
 		mApps.add(R.drawable.coffeebean);
 		mApps.add(R.drawable.coffeebean);
-		
+
 		mApps.add(R.drawable.starbucks);
 		mApps.add(R.drawable.starbucks);
 		mApps.add(R.drawable.starbucks);
 		mApps.add(R.drawable.tomntoms);
 		mApps.add(R.drawable.tomntoms);
 		mApps.add(R.drawable.tomntoms);
-		
+
 		mApps.add(R.drawable.coffeebean);
 		mApps.add(R.drawable.coffeebean);
 		mApps.add(R.drawable.coffeebean);
-		
 
 	}
 
@@ -78,7 +71,7 @@ public class BatonCreate_PostATask3 extends Activity {
 			ImageView i = new ImageView(getApplicationContext());
 
 			final int pos = position;
-			
+
 			int info = mApps.get(position % mApps.size());
 
 			i.setImageResource(info);
@@ -87,14 +80,16 @@ public class BatonCreate_PostATask3 extends Activity {
 			final int h = (int) (90 * getResources().getDisplayMetrics().density + 0.5f);
 			final int w = (int) (90 * getResources().getDisplayMetrics().density + 0.5f);
 			i.setLayoutParams(new GridView.LayoutParams(h, w));
-			
+
 			i.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					
-					Toast.makeText(getApplicationContext(), pos + "", 3000).show();
-					Intent intent = new Intent(getApplicationContext(), BatonCreate_PostALastTask.class);
+
+					Toast.makeText(getApplicationContext(), pos + "", 3000)
+							.show();
+					Intent intent = new Intent(getApplicationContext(),
+							BatonCreate_PostALastTask.class);
 					startActivity(intent);
 				}
 			});
