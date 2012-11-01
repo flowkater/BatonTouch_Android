@@ -112,7 +112,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="alarmSettingBtn"
-            android:text="관심 푸쉬지역 설정" />
+            android:text="위치 및 거리 재설정" />
 
         <Button
             android:id="@+id/pushRangeBtn"

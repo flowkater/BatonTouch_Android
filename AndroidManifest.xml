@@ -68,17 +68,14 @@
             android:name=".main.List6"
             android:label="Batontouch" >
         </activity>
-        
-        
-        
         <activity
             android:name=".createbaton.BatonCreate_PostATask1"
             android:label="Batontouch" >
         </activity>
         <activity
             android:name=".createbaton.BatonCreate_PostATask_Map"
-         android:theme="@android:style/Theme.Dialog"
-            android:label="Batontouch" >
+            android:label="Batontouch"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".createbaton.BatonCreate_PostATask2"
@@ -130,7 +127,9 @@
         </activity>
         <activity android:name=".setting.Setting_Verification" >
         </activity>
-        <activity android:name=".setting.Setting_PushArea" >
+        <activity
+            android:name=".setting.Setting_PushArea"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity android:name=".setting.Setting_Alarm" >
         </activity>

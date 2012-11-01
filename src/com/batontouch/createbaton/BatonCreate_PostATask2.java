@@ -28,7 +28,7 @@ public class BatonCreate_PostATask2 extends Activity {
 	private int year;
 	private int month;
 	private int day;
-	String pmAm = "오전 ";
+	static String pmAm = "오전 ";
 	static final int TIME_DIALOG_ID2 = 1000;
 	static final int TIME_DIALOG_ID = 999;
 	static final int DATE_DIALOG_ID1 = 1002;

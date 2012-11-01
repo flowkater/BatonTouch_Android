@@ -24,7 +24,8 @@ public class SplashActivity extends Activity {
 
 	private void initialize() {
 		progressBar = new ProgressDialog(this);
-		progressBar.setCancelable(true);
+		
+	
 		progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		progressBar.show();
 		// Handler
