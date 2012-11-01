@@ -57,7 +57,7 @@
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".homeindex.BatonIndexActivity_Detail"
+            android:name=".homeindex.BatonShowActivity"
             android:label="Batontouch" >
         </activity>
         <activity

@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.batontouch.R;
 
 public class BatonCreate_PostATask_Map extends Activity {
-
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

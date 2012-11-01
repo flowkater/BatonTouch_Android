@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.batontouch.R;
 
@@ -33,17 +34,26 @@ public class BatonCreate_PostATask2 extends Activity {
 	static final int TIME_DIALOG_ID = 999;
 	static final int DATE_DIALOG_ID1 = 1002;
 	static final int DATE_DIALOG_ID2 = 1001;
-	Button dateToAnswer, timeToAnswer, dateTobeDone, timeTobeDone;
+	private Button dateToAnswer, timeToAnswer, dateTobeDone, timeTobeDone;
 
-	EditText expectedtime;
+	private EditText expectedtime;
+
+	private String spendtime, answerdate, donedate;
+	private Bundle extras;
 
 	// DateFormat formatDateTime = DateFormat.getDateTimeInstance();
 	// Calendar dateTime = Calendar.getInstance();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		// Bundle 전달 받은 extras 저장
+		Intent in = getIntent();
+		extras = new Bundle();
+		extras = in.getExtras();
+		//====
+		
 		setContentView(R.layout.batoncreate_postatask2);
 		expectedtime = (EditText) findViewById(R.id.expectedtime);
 
@@ -61,24 +71,24 @@ public class BatonCreate_PostATask2 extends Activity {
 				case MotionEvent.ACTION_DOWN:
 					new AlertDialog.Builder(BatonCreate_PostATask2.this)
 							.setItems(R.array.expecttime,
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											String[] distance = getResources()
+													.getStringArray(
+															R.array.expecttime);
 
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int which) {
-									String[] distance = getResources()
-											.getStringArray(R.array.expecttime);
-
-									expectedtime.setText(distance[which] + "");
-								}
-							}).setNegativeButton("취소", null).show();
-
+											expectedtime
+													.setText(distance[which]
+															+ "");
+										}
+									}).setNegativeButton("취소", null).show();
 					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 					imm.hideSoftInputFromWindow(expectedtime.getWindowToken(),
 							0);
 					break;
-
 				}
-
 				return true;
 			}
 		});
@@ -86,24 +96,21 @@ public class BatonCreate_PostATask2 extends Activity {
 	}
 
 	// /////////////////////////////// DatePicker Dialog
+	public void setCurrentTimeOnView() {
 
-	 public void setCurrentTimeOnView() {
-	
-//	 final Calendar c = Calendar.getInstance();
-//	 hour = c.get(Calendar.HOUR_OF_DAY);
-//	 minute = c.get(Calendar.MINUTE);
-	 // timePicker1.setCurrentHour(hour);
-	 // timePicker1.setCurrentMinute(minute);
-	
-	 final Calendar c = Calendar.getInstance();
-     year = c.get(Calendar.YEAR);
-     month = c.get(Calendar.MONTH);
-     day = c.get(Calendar.DAY_OF_MONTH);
-//     dateToAnswer.setText(new StringBuilder().append(month + 1 + "월 ")
-//				.append(day + "일").append(" "));
-     
-	 
-	 }
+		// final Calendar c = Calendar.getInstance();
+		// hour = c.get(Calendar.HOUR_OF_DAY);
+		// minute = c.get(Calendar.MINUTE);
+		// timePicker1.setCurrentHour(hour);
+		// timePicker1.setCurrentMinute(minute);
+
+		final Calendar c = Calendar.getInstance();
+		year = c.get(Calendar.YEAR);
+		month = c.get(Calendar.MONTH);
+		day = c.get(Calendar.DAY_OF_MONTH);
+		// dateToAnswer.setText(new StringBuilder().append(month + 1 + "월 ")
+		// .append(day + "일").append(" "));
+	}
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
@@ -162,7 +169,6 @@ public class BatonCreate_PostATask2 extends Activity {
 	};
 
 	private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
-
 		// when dialog box is closed, below method will be called.
 		public void onDateSet(DatePicker view, int selectedYear,
 				int selectedMonth, int selectedDay) {
@@ -181,7 +187,6 @@ public class BatonCreate_PostATask2 extends Activity {
 	};
 
 	private DatePickerDialog.OnDateSetListener datePickerListener2 = new DatePickerDialog.OnDateSetListener() {
-
 		// when dialog box is closed, below method will be called.
 		public void onDateSet(DatePicker view, int selectedYear,
 				int selectedMonth, int selectedDay) {
@@ -207,16 +212,11 @@ public class BatonCreate_PostATask2 extends Activity {
 	}
 
 	public void convertToPm(int mhour) {
-
 		if (mhour > 12) {
-
 			hour = mhour - 12;
 			pmAm = "오후 ";
-
 		}
 	}
-
-	// ////////////////////////////////////////////////
 
 	public void dateToAnswer(View v) {
 		showDialog(DATE_DIALOG_ID1);
@@ -234,12 +234,21 @@ public class BatonCreate_PostATask2 extends Activity {
 		showDialog(TIME_DIALOG_ID2);
 	}
 
-	public void mOnClick(View v) {
+	public void nextBtnClick(View v) {
+		spendtime = expectedtime.getText().toString();
+		answerdate = dateToAnswer.getText().toString() + " "
+				+ timeToAnswer.getText().toString();
+		donedate = dateTobeDone.getText().toString() + " "
+				+ timeTobeDone.getText().toString();
 
 		Intent intent = new Intent(getApplicationContext(),
 				BatonCreate_PostATask3.class);
+
+		extras.putString("spendtime", spendtime);
+		extras.putString("calldate", answerdate);
+		extras.putString("enddate", donedate);
+		intent.putExtras(extras);
+
 		startActivity(intent);
-
 	}
-
 }

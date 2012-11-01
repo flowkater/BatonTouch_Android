@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
-import com.batontouch.homeindex.BatonIndexActivity_Detail;
+import com.batontouch.homeindex.BatonShowActivity;
 
 class MyListAdapter extends BaseAdapter {
 	Context maincon;

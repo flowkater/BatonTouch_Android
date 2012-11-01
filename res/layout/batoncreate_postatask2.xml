@@ -131,13 +131,13 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/nextBtn"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_margin="10dp"
             android:layout_marginTop="5dp"
-            android:onClick="mOnClick"
+            android:onClick="nextBtnClick"
             android:text="다음" />
     </LinearLayout>
 

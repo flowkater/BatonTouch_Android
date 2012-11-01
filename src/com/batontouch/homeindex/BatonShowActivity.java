@@ -7,19 +7,17 @@ import android.widget.TextView;
 
 import com.batontouch.R;
 
-public class BatonIndexActivity_Detail extends Activity {
+public class BatonShowActivity extends Activity {
 
-	TextView dealName;
+	private TextView dealName;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batonindex_detail);
 		dealName = (TextView) findViewById(R.id.dealName);
 		
 		Intent intent = getIntent();
 		dealName.setText(intent.getStringExtra("taskName"));
-		
 	}
 }

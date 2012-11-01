@@ -11,7 +11,6 @@ public class MyItem2 {
 
 	int Icon;
 	int Price;
-
 	
 	String Name;
 	String Status;

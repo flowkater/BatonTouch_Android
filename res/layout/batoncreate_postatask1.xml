@@ -112,7 +112,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/editText1"
+                android:id="@+id/taskDescriptionEt"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:hint="이대역 3번출구에서 나와서 첫번째 골목 오른쪽 김밥집"
@@ -122,11 +122,11 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/nextBtn"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:onClick="mOnClick"
+            android:onClick="nextBtnOnClick"
             android:text="다음" />
     </LinearLayout>
 

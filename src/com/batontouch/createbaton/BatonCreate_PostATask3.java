@@ -5,24 +5,32 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.batontouch.R;
 
 public class BatonCreate_PostATask3 extends Activity {
+	
+	private Bundle extras;
+	private int gifticonNumber;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		// 확인 코드
+//		Toast.makeText(getApplicationContext(), getIntent().getStringExtra("from"), Toast.LENGTH_SHORT).show();
+		
+		//=================== 넘어온 인텐트 받아오기
+		Intent in = getIntent();
+		extras = new Bundle();
+		extras = in.getExtras();
+		//===================
 
 		loadApps();
 
@@ -82,18 +90,19 @@ public class BatonCreate_PostATask3 extends Activity {
 			i.setLayoutParams(new GridView.LayoutParams(h, w));
 
 			i.setOnClickListener(new OnClickListener() {
-
 				@Override
 				public void onClick(View v) {
-
-					Toast.makeText(getApplicationContext(), pos + "", 3000)
-							.show();
+					gifticonNumber = pos;
+//					Toast.makeText(getApplicationContext(), pos + "", 3000)
+//							.show();
 					Intent intent = new Intent(getApplicationContext(),
 							BatonCreate_PostALastTask.class);
+					extras.putInt("gifticonNumber", gifticonNumber);
+					intent.putExtras(extras);
+					
 					startActivity(intent);
 				}
 			});
-
 			return i;
 		}
 

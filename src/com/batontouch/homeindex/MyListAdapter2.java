@@ -1,6 +1,5 @@
 package com.batontouch.homeindex;
 
-
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -21,21 +20,15 @@ public class MyListAdapter2 extends BaseAdapter {
 	LayoutInflater Inflater;
 	ArrayList<MyItem2> arSrc;
 	int layout;
-	
 
-	
-
-	
-
-	public MyListAdapter2(Context context, int alayout, ArrayList<MyItem2> aarSrc) {
+	public MyListAdapter2(Context context, int alayout,
+			ArrayList<MyItem2> aarSrc) {
 		maincon = context;
 		Inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		arSrc = aarSrc;
 		layout = alayout;
-		
-	
-		
+
 	}
 
 	public int getCount() {
@@ -43,9 +36,7 @@ public class MyListAdapter2 extends BaseAdapter {
 	}
 
 	public String getItem(int position) {
-		
-		
-		
+
 		return arSrc.get(position).Name;
 	}
 
@@ -61,7 +52,7 @@ public class MyListAdapter2 extends BaseAdapter {
 		}
 		ImageView img = (ImageView) convertView.findViewById(R.id.image);
 		img.setImageResource(arSrc.get(position).Icon);
-		
+
 		TextView status = (TextView) convertView.findViewById(R.id.status);
 		status.setText(arSrc.get(position).Status);
 
@@ -73,22 +64,21 @@ public class MyListAdapter2 extends BaseAdapter {
 
 		TextView price = (TextView) convertView.findViewById(R.id.price);
 		price.setText(Integer.toString(arSrc.get(position).Price) + "원");
-		
-		
+
 		convertView.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
-				String str = arSrc.get(pos).Name +"";
-				Intent intent = new Intent(maincon, BatonIndexActivity_Detail.class);
+				String str = arSrc.get(pos).Name + "";
+				Intent intent = new Intent(maincon,
+						BatonShowActivity.class);
 				intent.putExtra("taskName", str);
-				
+
 				Toast.makeText(maincon, str, 3000).show();
 				maincon.startActivity(intent);
 			}
 		});
-		
-		
+
 		TextView txt = (TextView) convertView.findViewById(R.id.name);
 		txt.setText(arSrc.get(position).Name);
 
@@ -99,8 +89,6 @@ public class MyListAdapter2 extends BaseAdapter {
 		// Toast.makeText(maincon, str, Toast.LENGTH_SHORT).show();
 		// }
 		// });
-
-	
 
 		return convertView;
 	}

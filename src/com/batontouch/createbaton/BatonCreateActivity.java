@@ -11,19 +11,12 @@ public class BatonCreateActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batoncreate);
-		
-
 	}
-
 	
 	public void mOnClick(View v){
-		
 		Intent intent = new Intent(getApplicationContext(), BatonCreate_PostATask1.class);
 		startActivity(intent);
-		
-		
 	}
 }

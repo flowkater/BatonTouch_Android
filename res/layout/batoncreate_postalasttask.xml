@@ -48,10 +48,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/batonCreateBtn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="mOnClick"
+        android:onClick="batonCreateClick"
         android:text="바톤터치!" />
 
 </LinearLayout>
