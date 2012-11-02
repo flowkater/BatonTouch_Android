@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.Toast;
 import android.widget.TabHost.TabSpec;
 
 import com.batontouch.R;
@@ -72,6 +73,10 @@ public class MainActivity extends TabActivity  {
  
 		//set Windows tab as default (zero based)
 		tabHost.setCurrentTab(0);
+		
+		
+		
     }
+
 
 }

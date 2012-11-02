@@ -1,9 +1,10 @@
-package com.batontouch.homeindex;
+﻿package com.batontouch.homeindex;
 
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,9 +24,18 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+import android.widget.VideoView;
+
+
+import com.batontouch.setting.Setting_PushArea;
+
+
 public class BatonIndexActivity extends Activity {
 
 	private Button mapBtn, distanceBtn, priceBtn;
+
 	private ArrayList<Task> mArrayList;
 	private MyListAdapter2 MyAdapter;
 	
@@ -157,4 +167,16 @@ public class BatonIndexActivity extends Activity {
 					}
 				}).setNegativeButton("취소", null).show();
 	}
+	
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		Intent intent = new Intent(getApplicationContext(), Setting_PushArea.class);
+		startActivity(intent);
+		
+
+		
+	}
+	
 }
+
