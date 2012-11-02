@@ -80,9 +80,6 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-        
-        
-        
         <activity
             android:name=".createbaton.BatonCreate_PostATask1"
             android:label="Batontouch"
@@ -160,8 +157,11 @@
         <activity android:name=".setting.Setting_Verification"
             android:screenOrientation="portrait" >
         </activity>
+
         <activity android:name=".setting.Setting_PushArea"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+android:theme="@android:style/Theme.Dialog" >
+
         </activity>
         <activity android:name=".setting.Setting_Alarm"
             android:screenOrientation="portrait" >

@@ -32,6 +32,7 @@
             <com.batontouch.facebook.LoginButton
                 android:id="@+id/facebook_login"
                 android:layout_width="50dp"
+                android:background="#ffffff"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/facebook" />

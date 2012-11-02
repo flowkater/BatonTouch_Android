@@ -21,6 +21,9 @@ public class MainActivity extends TabActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        
+        
+        
         Resources ressources = getResources(); 
 		TabHost tabHost = getTabHost(); 
  
@@ -30,7 +33,8 @@ public class MainActivity extends TabActivity  {
 		  .newTabSpec("Home")
 		  .setIndicator("홈", null)
 		  .setContent(intentHome);
- 
+		
+
 		// Baton Manager tab
 		Intent intentBatonMng = new Intent().setClass(this, BatonManageActivity.class);
 		TabSpec tabSpecBatonMng = tabHost
@@ -42,7 +46,7 @@ public class MainActivity extends TabActivity  {
 		Intent intentBatonTouch = new Intent().setClass(this, BatonCreateActivity.class);
 		TabSpec tabSpecBatonTouch = tabHost
 		  .newTabSpec("BatonTouch")
-		  .setIndicator("", ressources.getDrawable(R.drawable.logo))
+		  .setIndicator("", getResources().getDrawable(R.drawable.check))
 		  .setContent(intentBatonTouch);
  
 		// Profile tab
