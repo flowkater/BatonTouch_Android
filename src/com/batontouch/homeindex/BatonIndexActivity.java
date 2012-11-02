@@ -6,32 +6,36 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.VideoView;
 
 import com.batontouch.R;
+import com.batontouch.model.Task;
+import com.batontouch.model.Tasks;
+import com.batontouch.utils.Global;
+import com.batontouch.utils.NetHelper;
+import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 public class BatonIndexActivity extends Activity {
 
 	private Button mapBtn, distanceBtn, priceBtn;
-
-	ListView listView;
-	ArrayList<MyItem2> arItem;
-
-	private ArrayList<String> items;
-
-	Button btn;
-
-	RelativeLayout relative;
+	private ArrayList<Task> mArrayList;
+	private MyListAdapter2 MyAdapter;
+	
+	private int mPrevTotalItemCount = 0; // EndlessScrollListener Variable
+	private PullToRefreshListView mlistView; //PullToRefreshListener
+	private String mResult; // AsyncTask
+	private Integer mCurrentPage = 1; // Page
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batonindex);
 
@@ -39,31 +43,85 @@ public class BatonIndexActivity extends Activity {
 		distanceBtn = (Button) findViewById(R.id.distanceBtn);
 		priceBtn = (Button) findViewById(R.id.priceBtn);
 
-		arItem = new ArrayList<MyItem2>();
-		MyItem2 mi;
-		mi = new MyItem2(R.drawable.junghyun, "이대 앞에서 닭 사다 주세요.", 2000, "2013.2.23",
-				"대기중");
-		arItem.add(mi);
-		mi = new MyItem2(R.drawable.ic_launcher, "고대에 들려서 리포트 제출.", 4000, "2013.3.25", "캐치");
-		arItem.add(mi);
-		mi = new MyItem2(R.drawable.ic_launcher, "한양대에 들려서 리포트 제출.", 4000, "2013.3.25", "캐치");
-		arItem.add(mi);
-		mi = new MyItem2(R.drawable.ic_launcher, "숭실대에 들려서 리포트 제출.", 4000, "2013.3.25", "캐치");
-		arItem.add(mi);
+		mArrayList = new ArrayList<Task>();
 
-		MyListAdapter2 MyAdapter = new MyListAdapter2(this,
-				R.layout.featured_adapter, arItem);
-
-		listView = (ListView) findViewById(R.id.listView);
-
-		LayoutInflater inflator = getLayoutInflater();
-
-		// listView.addHeaderView(linear);
-
-		listView.setAdapter(MyAdapter);
-
+		mlistView = (PullToRefreshListView) findViewById(R.id.listView);
+		mlistView.setOnRefreshListener(new OnRefreshListener<ListView>() {
+			@Override
+			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+				new GetMyTaskList().execute();
+				mArrayList.clear();
+			}
+		});
+		new GetMyTaskList().execute();
+		
+		MyAdapter = new MyListAdapter2(this,
+				R.layout.featured_adapter, mArrayList);
+		mlistView.getRefreshableView().setAdapter(MyAdapter);
+//		mlistView.getRefreshableView().setOnScrollListener(
+//				new EndlessScrollListener());
+	}
+	
+	private class GetMyTaskList extends AsyncTask<Void, Void, Void>{
+		@Override
+		protected Void doInBackground(Void... params) {
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl + "tasks.json");
+			return null;
+		}
+		@Override
+		protected void onPostExecute(Void result) {
+			Gson gson = new Gson();
+			Tasks tasks = gson.fromJson(mResult, Tasks.class);
+			try {
+				for (Task task : tasks.getTasks()) {
+					mArrayList.add(task);
+				}
+			} catch (Exception e) {
+				Log.e("batonindex", e.getClass().getName() + e.getMessage() + " BatonIndex Gson Exception");
+			}
+			
+//			mCurrentPage++;
+			mlistView.onRefreshComplete();
+			MyAdapter.notifyDataSetChanged();
+			
+			super.onPostExecute(result);
+		}
 	}
 
+//	public class EndlessScrollListener implements OnScrollListener {
+//		private int visibleThreshold = 5;
+//		private boolean loading = true;
+//
+//		public EndlessScrollListener() {
+//		}
+//
+//		public EndlessScrollListener(int visibleThreshold) {
+//			this.visibleThreshold = visibleThreshold;
+//		}
+//
+//		@Override
+//		public void onScroll(AbsListView view, int firstVisibleItem,
+//				int visibleItemCount, int totalItemCount) {
+//
+//			if (loading) {
+//				if (totalItemCount > mPrevTotalItemCount) {
+//					loading = false;
+//					mPrevTotalItemCount = totalItemCount;
+//				}
+//			}
+//			if (!loading
+//					&& (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+//				new GetMyTaskList().execute(); ///==////
+//				loading = true;
+//			}
+//		}
+//
+//		@Override
+//		public void onScrollStateChanged(AbsListView view, int scrollState) {
+//		}
+//	}
+
+	// android:onClick = "mapClick"
 	public void mapClick(View v) {
 		Intent mapIn = new Intent(getApplicationContext(),
 				NMapViewerActivity.class);
@@ -100,13 +158,3 @@ public class BatonIndexActivity extends Activity {
 				}).setNegativeButton("취소", null).show();
 	}
 }
-
-//class MyItem2 {
-//	MyItem2(int aIcon, String aName) {
-//		Icon = aIcon;
-//		Name = aName;
-//	}
-//
-//	int Icon;
-//	String Name;
-//}

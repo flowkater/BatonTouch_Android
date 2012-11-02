@@ -12,14 +12,15 @@ import com.batontouch.R;
 
 public class BatonCreate_PostATask1 extends Activity {
 
-	private EditText fromHereEt, toThereEt, taskDescriptionEt;
-	private String fromAt, toAt, description;
+	private EditText nameEd,fromHereEt, toThereEt, taskDescriptionEt;
+	private String name, fromAt, toAt, description;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batoncreate_postatask1);
 
+		nameEd = (EditText) findViewById(R.id.nameEd);
 		fromHereEt = (EditText) findViewById(R.id.fromHereEt);
 		toThereEt = (EditText) findViewById(R.id.toThereEt);
 		taskDescriptionEt = (EditText) findViewById(R.id.taskDescriptionEt);
@@ -58,6 +59,7 @@ public class BatonCreate_PostATask1 extends Activity {
 	}
 
 	public void nextBtnOnClick(View v) {
+		name = nameEd.getText().toString();
 		fromAt = fromHereEt.getText().toString();
 		toAt = toThereEt.getText().toString();
 		description = taskDescriptionEt.getText().toString();
@@ -65,6 +67,7 @@ public class BatonCreate_PostATask1 extends Activity {
 		Intent intent = new Intent(getApplicationContext(),
 				BatonCreate_PostATask2.class);
 		Bundle extras = new Bundle();
+		extras.putString("name", name);
 		extras.putString("fromloc", fromAt);
 		extras.putString("toloc", toAt);
 		extras.putString("description", description);

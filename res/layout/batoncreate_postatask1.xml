@@ -51,6 +51,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" >
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/nameTv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:text="이름 : "
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/nameEd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="ex) Task 이름"
+                    android:singleLine="true" >
+                </EditText>
+            </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow1"

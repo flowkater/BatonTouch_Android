@@ -44,6 +44,7 @@ public class BatonCreate_PostALastTask extends Activity {
 		auth_token = mPreferences.getString("AuthToken", "");
 
 		Intent intent = getIntent();
+		name = intent.getStringExtra("name");
 		fromloc = intent.getStringExtra("fromloc");
 		toloc = intent.getStringExtra("toloc");
 		description = intent.getStringExtra("description");
@@ -54,11 +55,12 @@ public class BatonCreate_PostALastTask extends Activity {
 	}
 
 	public void batonCreateClick(View v) {
-//		Toast.makeText(
-//				getApplicationContext(),
-//				fromloc + " "+ toloc + " "+description + " "+spendtime +" " +calldate + enddate
-//						+ " "+giftcon, Toast.LENGTH_SHORT).show();
-		 new Batoncreate().execute();
+		// Toast.makeText(
+		// getApplicationContext(),
+		// fromloc + " "+ toloc + " "+description + " "+spendtime +" " +calldate
+		// + enddate
+		// + " "+giftcon, Toast.LENGTH_SHORT).show();
+		new Batoncreate().execute();
 	}
 
 	// 바톤 생성 모듈
@@ -72,8 +74,8 @@ public class BatonCreate_PostALastTask extends Activity {
 				MultipartEntity reqEntity = new MultipartEntity(
 						HttpMultipartMode.BROWSER_COMPATIBLE);
 
-				// reqEntity.addPart("task[name]",new
-				// StringBody(name,Charset.forName("UTF-8")));
+				reqEntity.addPart("task[name]",
+						new StringBody(name, Charset.forName("UTF-8")));
 				reqEntity.addPart("task[description]", new StringBody(
 						description, Charset.forName("UTF-8")));
 				reqEntity.addPart("task[fromloc]", new StringBody(fromloc,
@@ -110,11 +112,10 @@ public class BatonCreate_PostALastTask extends Activity {
 			} catch (IOException e) {
 				Log.e("baton", e.getClass().getName() + e.getMessage()
 						+ " Asynctask IOException PostTask");
+			} catch (Exception e) {
+				Log.e("baton", e.getClass().getName() + e.getMessage()
+						+ " Asynctask Exception PostTask");
 			}
-			// catch (Exception e) {
-			// Log.e("baton", e.getClass().getName() + e.getMessage() +
-			// " Asynctask Exception PostTask");
-			// }
 			return null;
 		}
 
