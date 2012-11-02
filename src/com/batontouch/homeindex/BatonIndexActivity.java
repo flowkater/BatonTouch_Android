@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +13,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.batontouch.R;
+import com.batontouch.setting.Setting_PushArea;
 
 public class BatonIndexActivity extends Activity {
 
 	private Button mapBtn, distanceBtn, priceBtn;
 
+	static int num = 0;
+	
 	ListView listView;
 	ArrayList<MyItem2> arItem;
 
@@ -99,6 +104,17 @@ public class BatonIndexActivity extends Activity {
 					}
 				}).setNegativeButton("취소", null).show();
 	}
+	
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		Intent intent = new Intent(getApplicationContext(), Setting_PushArea.class);
+		startActivity(intent);
+		
+
+		
+	}
+	
 }
 
 //class MyItem2 {

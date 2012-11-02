@@ -1,9 +1,10 @@
 package com.batontouch.setting;
 
-import com.batontouch.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+
+import com.batontouch.R;
 
 public class Setting_PushArea extends Activity {
 
@@ -13,4 +14,6 @@ public class Setting_PushArea extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setting_pusharea);
 	}
+	
+
 }
