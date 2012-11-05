@@ -26,10 +26,10 @@ public class BatonCreate_PostATask1 extends Activity {
 		taskDescriptionEt = (EditText) findViewById(R.id.taskDescriptionEt);
 
 		// from NaverMap Touch
-//		fromHereEt.setOnTouchListener(new fromTouchOnListener());
+		fromHereEt.setOnTouchListener(new fromTouchOnListener());
 		
 		// to NaverMap Touch
-//		toThereEt.setOnTouchListener(new toTouchOnListener());
+		toThereEt.setOnTouchListener(new toTouchOnListener());
 	}
 
 	private class fromTouchOnListener implements OnTouchListener {
