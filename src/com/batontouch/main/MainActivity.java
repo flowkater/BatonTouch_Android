@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.TabWidget;
 import android.widget.Toast;
 import android.widget.TabHost.TabSpec;
 
@@ -17,11 +18,11 @@ import com.batontouch.setting.SettingActivity;
 
 public class MainActivity extends TabActivity  {
 
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
         
         
         
@@ -47,7 +48,7 @@ public class MainActivity extends TabActivity  {
 		Intent intentBatonTouch = new Intent().setClass(this, BatonCreateActivity.class);
 		TabSpec tabSpecBatonTouch = tabHost
 		  .newTabSpec("BatonTouch")
-		  .setIndicator("", getResources().getDrawable(R.drawable.check))
+		  .setIndicator("", getResources().getDrawable(R.drawable.junghyun))
 		  .setContent(intentBatonTouch);
  
 		// Profile tab

@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.batontouch.R;
+import com.batontouch.main.Logout_Dialog;
 import com.batontouch.model.Task;
 import com.batontouch.model.Tasks;
 import com.batontouch.utils.Global;
@@ -28,9 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-
 import com.batontouch.setting.Setting_PushArea;
-
 
 public class BatonIndexActivity extends Activity {
 
@@ -38,9 +37,9 @@ public class BatonIndexActivity extends Activity {
 
 	private ArrayList<Task> mArrayList;
 	private MyListAdapter2 MyAdapter;
-	
+
 	private int mPrevTotalItemCount = 0; // EndlessScrollListener Variable
-	private PullToRefreshListView mlistView; //PullToRefreshListener
+	private PullToRefreshListView mlistView; // PullToRefreshListener
 	private String mResult; // AsyncTask
 	private Integer mCurrentPage = 1; // Page
 
@@ -64,20 +63,21 @@ public class BatonIndexActivity extends Activity {
 			}
 		});
 		new GetMyTaskList().execute();
-		
-		MyAdapter = new MyListAdapter2(this,
-				R.layout.featured_adapter, mArrayList);
+
+		MyAdapter = new MyListAdapter2(this, R.layout.featured_adapter,
+				mArrayList);
 		mlistView.getRefreshableView().setAdapter(MyAdapter);
-//		mlistView.getRefreshableView().setOnScrollListener(
-//				new EndlessScrollListener());
+		// mlistView.getRefreshableView().setOnScrollListener(
+		// new EndlessScrollListener());
 	}
-	
-	private class GetMyTaskList extends AsyncTask<Void, Void, Void>{
+
+	private class GetMyTaskList extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
 			mResult = NetHelper.DownloadHtml(Global.ServerUrl + "tasks.json");
 			return null;
 		}
+
 		@Override
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
@@ -87,49 +87,51 @@ public class BatonIndexActivity extends Activity {
 					mArrayList.add(task);
 				}
 			} catch (Exception e) {
-				Log.e("batonindex", e.getClass().getName() + e.getMessage() + " BatonIndex Gson Exception");
+				Log.e("batonindex", e.getClass().getName() + e.getMessage()
+						+ " BatonIndex Gson Exception");
 			}
-			
-//			mCurrentPage++;
+
+			// mCurrentPage++;
 			mlistView.onRefreshComplete();
 			MyAdapter.notifyDataSetChanged();
-			
+
 			super.onPostExecute(result);
 		}
 	}
 
-//	public class EndlessScrollListener implements OnScrollListener {
-//		private int visibleThreshold = 5;
-//		private boolean loading = true;
-//
-//		public EndlessScrollListener() {
-//		}
-//
-//		public EndlessScrollListener(int visibleThreshold) {
-//			this.visibleThreshold = visibleThreshold;
-//		}
-//
-//		@Override
-//		public void onScroll(AbsListView view, int firstVisibleItem,
-//				int visibleItemCount, int totalItemCount) {
-//
-//			if (loading) {
-//				if (totalItemCount > mPrevTotalItemCount) {
-//					loading = false;
-//					mPrevTotalItemCount = totalItemCount;
-//				}
-//			}
-//			if (!loading
-//					&& (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
-//				new GetMyTaskList().execute(); ///==////
-//				loading = true;
-//			}
-//		}
-//
-//		@Override
-//		public void onScrollStateChanged(AbsListView view, int scrollState) {
-//		}
-//	}
+	// public class EndlessScrollListener implements OnScrollListener {
+	// private int visibleThreshold = 5;
+	// private boolean loading = true;
+	//
+	// public EndlessScrollListener() {
+	// }
+	//
+	// public EndlessScrollListener(int visibleThreshold) {
+	// this.visibleThreshold = visibleThreshold;
+	// }
+	//
+	// @Override
+	// public void onScroll(AbsListView view, int firstVisibleItem,
+	// int visibleItemCount, int totalItemCount) {
+	//
+	// if (loading) {
+	// if (totalItemCount > mPrevTotalItemCount) {
+	// loading = false;
+	// mPrevTotalItemCount = totalItemCount;
+	// }
+	// }
+	// if (!loading
+	// && (totalItemCount - visibleItemCount) <= (firstVisibleItem +
+	// visibleThreshold)) {
+	// new GetMyTaskList().execute(); ///==////
+	// loading = true;
+	// }
+	// }
+	//
+	// @Override
+	// public void onScrollStateChanged(AbsListView view, int scrollState) {
+	// }
+	// }
 
 	// android:onClick = "mapClick"
 	public void mapClick(View v) {
@@ -167,16 +169,13 @@ public class BatonIndexActivity extends Activity {
 					}
 				}).setNegativeButton("취소", null).show();
 	}
-	
+
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		
-		Intent intent = new Intent(getApplicationContext(), Setting_PushArea.class);
+
+		Intent intent = new Intent(getApplicationContext(), Logout_Dialog.class);
 		startActivity(intent);
-		
 
-		
 	}
-	
-}
 
+}

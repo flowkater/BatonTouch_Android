@@ -30,6 +30,12 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
+         <activity
+            android:name=".main.Logout_Dialog"
+            android:label="Batontouch"
+            android:theme="@android:style/Theme.Dialog"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name=".main.LoginActivity"
             android:label="Batontouch"
@@ -37,6 +43,18 @@
         </activity>
         <activity
             android:name=".managebaton.BatonManageActivity"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".managebaton.BatonManageActivity_ManageTasks_Footer"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        <activity
+            android:name=".managebaton.BatonManageActivity_ClientProfile"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
@@ -62,8 +80,8 @@
         </activity>
         <activity
             android:name=".homeindex.NMapViewerActivity"
-            android:theme="@android:style/Theme.Dialog"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".homeindex.BatonShowActivity"
@@ -87,9 +105,9 @@
         </activity>
         <activity
             android:name=".createbaton.BatonCreate_PostATask_Map"
-         android:theme="@android:style/Theme.Dialog"
             android:label="Batontouch"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".createbaton.BatonCreate_PostATask2"
@@ -136,37 +154,45 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Announcement"
+        <activity
+            android:name=".setting.Setting_Announcement"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Dropout"
+        <activity
+            android:name=".setting.Setting_Dropout"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_FAQ"
+        <activity
+            android:name=".setting.Setting_FAQ"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Logout"
+        <activity
+            android:name=".setting.Setting_Logout"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Policy"
+        <activity
+            android:name=".setting.Setting_Policy"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Suggestion"
+        <activity
+            android:name=".setting.Setting_Suggestion"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Verification"
+        <activity
+            android:name=".setting.Setting_Verification"
             android:screenOrientation="portrait" >
         </activity>
-
-        <activity android:name=".setting.Setting_PushArea"
+        <activity
+            android:name=".setting.Setting_PushArea"
             android:screenOrientation="portrait"
-android:theme="@android:style/Theme.Dialog" >
-
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
-        <activity android:name=".setting.Setting_Alarm"
+        <activity
+            android:name=".setting.Setting_Alarm"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".setting.Setting_Payment"
+        <activity
+            android:name=".setting.Setting_Payment"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -174,7 +200,8 @@ android:theme="@android:style/Theme.Dialog" >
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:screenOrientation="portrait" >
 
             <!-- custom scheme(execute url) -->

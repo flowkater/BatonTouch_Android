@@ -43,7 +43,7 @@ public class BatonManageActivity extends Activity {
 		arItem.add(mi);
 
 		MyListAdapter MyAdapter = new MyListAdapter(this,
-				R.layout.featured_adapter, arItem);
+				R.layout.featured_adapter2, arItem);
 
 		listView = (ListView) findViewById(R.id.listView);
 		listView2 = (ListView) findViewById(R.id.listView2);
@@ -54,6 +54,8 @@ public class BatonManageActivity extends Activity {
 
 		listView.setAdapter(MyAdapter);
 		listView2.setAdapter(MyAdapter);
+		
+		
 		
 		
 		askedButton = (Button) findViewById(R.id.askedTaskBtn);
