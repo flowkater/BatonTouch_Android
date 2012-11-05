@@ -6,7 +6,7 @@ class MyItem {
 		Price = price;
 		Name = aName;
 		Status = status;
-		Date = date;
+		
 	}
 
 	int Icon;

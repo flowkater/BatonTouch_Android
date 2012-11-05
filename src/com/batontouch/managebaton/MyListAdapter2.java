@@ -9,20 +9,26 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
-import com.batontouch.homeindex.BatonShowActivity;
 
-class MyListAdapter extends BaseAdapter {
+class MyListAdapter2 extends BaseAdapter {
 	Context maincon;
 	LayoutInflater Inflater;
-	ArrayList<MyItem> arSrc;
+	ArrayList<MyItem2> arSrc;
 	int layout;
 
-	public MyListAdapter(Context context, int alayout, ArrayList<MyItem> aarSrc) {
+	static boolean checked = true;
+
+	Button chooseIt;
+
+	public MyListAdapter2(Context context, int alayout,
+			ArrayList<MyItem2> aarSrc) {
 		maincon = context;
 		Inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -45,43 +51,49 @@ class MyListAdapter extends BaseAdapter {
 	// 각 항목의 뷰 생성
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final int pos = position;
+
 		if (convertView == null) {
 			convertView = Inflater.inflate(layout, parent, false);
 		}
-	//	ImageView img = (ImageView) convertView.findViewById(R.id.image);
-		//img.setImageResource(arSrc.get(position).Icon);
+		ImageView img = (ImageView) convertView.findViewById(R.id.image);
+		img.setImageResource(arSrc.get(position).Icon);
 
-		TextView status = (TextView) convertView.findViewById(R.id.status);
-		status.setText(arSrc.get(position).Status);
+		// TextView status = (TextView) convertView.findViewById(R.id.status);
+		// status.setText(arSrc.get(position).Status);
 
 		TextView name = (TextView) convertView.findViewById(R.id.name);
 		name.setText(arSrc.get(position).Name);
 
-		TextView date = (TextView) convertView.findViewById(R.id.day);
-		date.setText(arSrc.get(position).Date);
+		Button chooseYou = (Button) convertView.findViewById(R.id.chooseIt);
 
-	//	TextView price = (TextView) convertView.findViewById(R.id.price);
-	//	price.setText(Integer.toString(arSrc.get(position).Price) + "원");
+//		chooseYou.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//
+//				if (checked == true) {
+//					v.setEnabled(false);
+//					checked = false;
+//				} else {
+//
+//					v.setVisibility(View.GONE);
+//					ListView.setEnabled(false)
+//					// Toast.makeText(maincon, pos + "", 3000).show();
+//
+//				}
+//			}
+//		});
 
 		convertView.setOnClickListener(new OnClickListener() {
 
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View v) {
 
 				String str = arSrc.get(pos).Name + "";
-				String str2 = arSrc.get(pos).Status + "";
-				String str3 = arSrc.get(pos).Date + "";
-				String str4 = Integer.toString(arSrc.get(pos).Price) + "원";
-				
-				
-				Intent intent = new Intent(maincon,
-						BatonManageActivity_ManageTasks_Footer.class);
-				intent.putExtra("taskName", str);
-				intent.putExtra("status", str2);
-				intent.putExtra("date", str3);
-				intent.putExtra("price", str4);
 
-				Toast.makeText(maincon, str, 3000).show();
+				Intent intent = new Intent(maincon,
+						BatonManageActivity_ClientProfile.class);
+
 				maincon.startActivity(intent);
 
 			}

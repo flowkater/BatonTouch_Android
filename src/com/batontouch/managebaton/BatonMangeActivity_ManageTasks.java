@@ -17,8 +17,8 @@ public class BatonMangeActivity_ManageTasks extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batonmanage_managetasks);
 		
-		dealName1 = (TextView) findViewById(R.id.dealName);
-		price1 = (TextView) findViewById(R.id.price);
+		dealName1 = (TextView) findViewById(R.id.name);
+	//	price1 = (TextView) findViewById(R.id.price);
 		date1 = (TextView) findViewById(R.id.date);
 		status1 = (TextView) findViewById(R.id.status);
 		
@@ -27,11 +27,11 @@ public class BatonMangeActivity_ManageTasks extends Activity {
 		String taskName = intent.getStringExtra("taskName");
 		String status = intent.getStringExtra("status");
 		String date = intent.getStringExtra("date");
-		String price = intent.getStringExtra("price");
+	//	String price = intent.getStringExtra("price");
 		
 		
 		dealName1.setText(taskName);
-		price1.setText(price);
+	//	price1.setText(price);
 		date1.setText(date);
 		status1.setText(status);
 		
