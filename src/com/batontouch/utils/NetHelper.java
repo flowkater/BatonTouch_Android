@@ -20,6 +20,8 @@ public class NetHelper {
 			if (conn != null) {
 				conn.setConnectTimeout(5000);
 				conn.setUseCaches(false);
+				conn.setRequestProperty("Accept", "application/vnd.batontouch." + Global.version); // Header 세팅
+				conn.setRequestProperty("Authorization", Global.AuthorizationToken);
 				if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
 					BufferedReader brReader = new BufferedReader(
 							new InputStreamReader(conn.getInputStream()));

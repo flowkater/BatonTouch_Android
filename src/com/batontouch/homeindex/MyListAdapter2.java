@@ -2,7 +2,6 @@ package com.batontouch.homeindex;
 
 import java.util.ArrayList;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,33 +31,36 @@ public class MyListAdapter2 extends ArrayAdapter<Task> {
 	}
 
 	// 각 항목의 뷰 생성
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		task = mTasks.get(position);
 		if (convertView == null) {
-			this.mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			this.mInflater = (LayoutInflater) mContext
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = mInflater.inflate(mResource, null);
 			holder = new ViewHolder();
-			
-			holder.imageProfile = (ImageView) convertView.findViewById(R.id.image);
+
+			holder.imageProfile = (ImageView) convertView
+					.findViewById(R.id.image);
 			holder.name = (TextView) convertView.findViewById(R.id.name);
 			holder.day = (TextView) convertView.findViewById(R.id.day);
 			holder.status = (TextView) convertView.findViewById(R.id.status);
-			
+
 			convertView.setTag(holder);
-		}else{
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		
+
 		if (task != null) {
 			holder.name.setText(task.getName());
 			holder.day.setText(task.getDay());
 			holder.status.setText(task.getStatus());
 		}
-		
+
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View v) {
+				task = mTasks.get(position);
 				Intent intent = new Intent(mContext, BatonShowActivity.class);
 				Bundle extras = new Bundle();
 				extras.putString("task_id", task.getId());
@@ -69,34 +71,11 @@ public class MyListAdapter2 extends ArrayAdapter<Task> {
 
 		return convertView;
 	}
-	
-	class ViewHolder{
+
+	class ViewHolder {
 		ImageView imageProfile;
 		TextView name;
 		TextView day;
 		TextView status;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

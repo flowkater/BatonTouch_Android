@@ -16,8 +16,6 @@ public class Logout_Dialog extends Activity {
 	}
 	
 	public void mOnClick(View v){
-		
 		finish();
-		
 	}
 }

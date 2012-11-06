@@ -12,16 +12,17 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.batontouch.R;
+import com.batontouch.homeindex.MyItem2;
+import com.batontouch.homeindex.MyListAdapter2;
+import com.batontouch.model.Task;
 
 public class BatonManageActivity_ManageTasks_Footer extends Activity {
 	ListView listView;
 
-	ArrayList<String> thing;
-
 	static boolean checked = true;
 
 	Button chooseYou;
-	ArrayList<MyItem2> arItem;
+	ArrayList<Task> mArrayList;
 
 	private ArrayList<String> items;
 
@@ -31,19 +32,8 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batonmanage_managetasks_footer);
 
-		arItem = new ArrayList<MyItem2>();
-		MyItem2 mi;
-		mi = new MyItem2(R.drawable.junghyun, "다니엘", 5);
-		arItem.add(mi);
-		mi = new MyItem2(R.drawable.junghyun, "준영", 3);
-		arItem.add(mi);
-		mi = new MyItem2(R.drawable.junghyun, "정현", 2);
-		arItem.add(mi);
-		mi = new MyItem2(R.drawable.junghyun, "정현", 2);
-		arItem.add(mi);
-
 		MyListAdapter2 MyAdapter = new MyListAdapter2(this,
-				R.layout.featured_adapter_footer, arItem);
+				R.layout.featured_adapter_footer, mArrayList);
 
 		chooseYou = (Button) findViewById(R.id.chooseIt);
 

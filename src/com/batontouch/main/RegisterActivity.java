@@ -63,7 +63,7 @@ public class RegisterActivity extends Activity {
 						+ password_confirmation);
 				HttpClient httpClient = new DefaultHttpClient();
 				HttpPost postRequest = new HttpPost(Global.ServerUrl
-						+ "users.json");
+						+ "registrations");
 				MultipartEntity reqEntity = new MultipartEntity(
 						HttpMultipartMode.BROWSER_COMPATIBLE);
 
@@ -77,6 +77,8 @@ public class RegisterActivity extends Activity {
 								.forName("UTF-8")));
 
 				postRequest.setEntity(reqEntity);
+				postRequest.setHeader("Accept", "application/vnd.batontouch."
+						+ Global.version);
 				HttpResponse response = httpClient.execute(postRequest);
 
 				StatusCode = response.getStatusLine().getStatusCode();
@@ -104,7 +106,8 @@ public class RegisterActivity extends Activity {
 			if (StatusCode == 201) {
 				Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다.",
 						Toast.LENGTH_SHORT).show();
-				Intent in = new Intent(getApplicationContext(), UserLoginActivity.class);
+				Intent in = new Intent(getApplicationContext(),
+						UserLoginActivity.class);
 				Bundle extras = new Bundle();
 				extras.putString("email", email);
 				extras.putString("password", password);
@@ -118,26 +121,3 @@ public class RegisterActivity extends Activity {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

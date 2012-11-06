@@ -13,7 +13,6 @@
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="Batontouch"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".main.SplashActivity"
@@ -75,7 +74,6 @@
         </activity>
         <activity
             android:name=".homeindex.BatonIndexActivity"
-            android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity

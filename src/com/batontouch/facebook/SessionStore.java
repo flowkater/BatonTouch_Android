@@ -22,8 +22,11 @@ import java.util.HashMap;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -109,11 +112,14 @@ public class SessionStore {
 	}
 
 	private static void FacebookServerLogin(String token) {
+		Log.d("my", token);
 		HashMap<String, String> sessionTokens = null;
 		mPreferences = mcontext.getSharedPreferences("CurrentUser", mcontext.MODE_PRIVATE);
 
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpGet get = new HttpGet(Global.FacebookSendToken + token);
+		
+		get.setHeader("Accept", "application/vnd.batontouch." + Global.version);
 
 		String response = null;
 		try {

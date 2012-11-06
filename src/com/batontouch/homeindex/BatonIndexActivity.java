@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -24,12 +25,6 @@ import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-import android.widget.VideoView;
-
-import com.batontouch.setting.Setting_PushArea;
 
 public class BatonIndexActivity extends Activity {
 
@@ -58,23 +53,26 @@ public class BatonIndexActivity extends Activity {
 		mlistView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				new GetMyTaskList().execute();
 				mArrayList.clear();
+				mCurrentPage = 1;
+				mPrevTotalItemCount = 0;
 			}
 		});
-		new GetMyTaskList().execute();
+		// new GetMyTaskList().execute();
 
 		MyAdapter = new MyListAdapter2(this, R.layout.featured_adapter,
 				mArrayList);
 		mlistView.getRefreshableView().setAdapter(MyAdapter);
-		// mlistView.getRefreshableView().setOnScrollListener(
-		// new EndlessScrollListener());
+		mlistView.getRefreshableView().setOnScrollListener(
+				new EndlessScrollListener());
 	}
 
 	private class GetMyTaskList extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
-			mResult = NetHelper.DownloadHtml(Global.ServerUrl + "tasks.json");
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl
+					+ "tasks.json?page=" + mCurrentPage.toString());
+			Log.d("batonindex", Global.ServerUrl + "tasks.json" + mResult + "");
 			return null;
 		}
 
@@ -87,11 +85,12 @@ public class BatonIndexActivity extends Activity {
 					mArrayList.add(task);
 				}
 			} catch (Exception e) {
-				Log.e("batonindex", e.getClass().getName() + e.getMessage()
-						+ " BatonIndex Gson Exception");
+				Log.e("batonindex",
+						e.getClass().getName() + " " + e.getMessage()
+								+ " BatonIndex Gson Exception");
 			}
 
-			// mCurrentPage++;
+			mCurrentPage++;
 			mlistView.onRefreshComplete();
 			MyAdapter.notifyDataSetChanged();
 
@@ -99,39 +98,39 @@ public class BatonIndexActivity extends Activity {
 		}
 	}
 
-	// public class EndlessScrollListener implements OnScrollListener {
-	// private int visibleThreshold = 5;
-	// private boolean loading = true;
-	//
-	// public EndlessScrollListener() {
-	// }
-	//
-	// public EndlessScrollListener(int visibleThreshold) {
-	// this.visibleThreshold = visibleThreshold;
-	// }
-	//
-	// @Override
-	// public void onScroll(AbsListView view, int firstVisibleItem,
-	// int visibleItemCount, int totalItemCount) {
-	//
-	// if (loading) {
-	// if (totalItemCount > mPrevTotalItemCount) {
-	// loading = false;
-	// mPrevTotalItemCount = totalItemCount;
-	// }
-	// }
-	// if (!loading
-	// && (totalItemCount - visibleItemCount) <= (firstVisibleItem +
-	// visibleThreshold)) {
-	// new GetMyTaskList().execute(); ///==////
-	// loading = true;
-	// }
-	// }
-	//
-	// @Override
-	// public void onScrollStateChanged(AbsListView view, int scrollState) {
-	// }
-	// }
+	// EndlessScroll 적용 클래스
+	public class EndlessScrollListener implements OnScrollListener {
+		private int visibleThreshold = 5;
+		private boolean loading = true;
+
+		public EndlessScrollListener() {
+		}
+
+		public EndlessScrollListener(int visibleThreshold) {
+			this.visibleThreshold = visibleThreshold;
+		}
+
+		@Override
+		public void onScroll(AbsListView view, int firstVisibleItem,
+				int visibleItemCount, int totalItemCount) {
+
+			if (loading) {
+				if (totalItemCount > mPrevTotalItemCount) {
+					loading = false;
+					mPrevTotalItemCount = totalItemCount;
+				}
+			}
+			if (!loading
+					&& (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+				new GetMyTaskList().execute(); //
+				loading = true;
+			}
+		}
+
+		@Override
+		public void onScrollStateChanged(AbsListView view, int scrollState) {
+		}
+	}
 
 	// android:onClick = "mapClick"
 	public void mapClick(View v) {

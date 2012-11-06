@@ -7,6 +7,42 @@ public class Task {
 	private String status;
 	private String imageProfile;
 	private String description;
+	private String fromloc;
+	private String toloc;
+	private String calldate;
+	private String enddate;
+
+	public String getCalldate() {
+		return calldate;
+	}
+
+	public void setCalldate(String calldate) {
+		this.calldate = calldate;
+	}
+
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
+	public String getFromloc() {
+		return fromloc;
+	}
+
+	public void setFromloc(String fromloc) {
+		this.fromloc = fromloc;
+	}
+
+	public String getToloc() {
+		return toloc;
+	}
+
+	public void setToloc(String toloc) {
+		this.toloc = toloc;
+	}
 
 	public String getDescription() {
 		return description;

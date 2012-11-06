@@ -70,7 +70,7 @@ public class BatonCreate_PostALastTask extends Activity {
 			try {
 				HttpClient httpClient = new DefaultHttpClient();
 				HttpPost postRequest = new HttpPost(Global.ServerUrl
-						+ "tasks.json?auth_token=" + auth_token);
+						+ "tasks?auth_token=" + auth_token);
 				MultipartEntity reqEntity = new MultipartEntity(
 						HttpMultipartMode.BROWSER_COMPATIBLE);
 
@@ -88,12 +88,12 @@ public class BatonCreate_PostALastTask extends Activity {
 						Charset.forName("UTF-8")));
 				reqEntity.addPart("task[enddate]", new StringBody(enddate,
 						Charset.forName("UTF-8")));
-				reqEntity.addPart("task[giftcon]", new StringBody(giftcon,
-						Charset.forName("UTF-8")));
 				// reqEntity.addPart("task[price]",
 				// new StringBody(price, Charset.forName("UTF-8")));
 
 				postRequest.setEntity(reqEntity);
+				postRequest.setHeader("Accept", Global.Acceptversion);
+				postRequest.setHeader("Authorization", Global.AuthorizationToken);
 				HttpResponse response = httpClient.execute(postRequest);
 
 				StatusCode = response.getStatusLine().getStatusCode();

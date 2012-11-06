@@ -88,7 +88,7 @@ public class UserLoginActivity extends Activity {
 		password = pwEdit.getText().toString();
 
 		DefaultHttpClient client = new DefaultHttpClient();
-		HttpPost post = new HttpPost(Global.ServerUrl + "users/login");
+		HttpPost post = new HttpPost(Global.ServerUrl + "sessions");
 		JSONObject holder = new JSONObject();
 		JSONObject userObj = new JSONObject();
 
@@ -98,8 +98,9 @@ public class UserLoginActivity extends Activity {
 			holder.put("user", userObj);
 			StringEntity se = new StringEntity(holder.toString());
 			post.setEntity(se);
-			post.setHeader("Accept", "application/json");
-			post.setHeader("Content-Type", "application/json");
+			post.setHeader("Content-type","application/json");
+			post.setHeader("Accept", Global.Acceptversion);
+			post.setHeader("Authorization", Global.AuthorizationToken );
 		} catch (UnsupportedEncodingException e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "1");
 		} catch (JSONException e) {
