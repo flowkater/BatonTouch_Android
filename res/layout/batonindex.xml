@@ -3,8 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:layout_marginBottom="60dp"
+    android:background="@drawable/background"
     android:orientation="vertical" >
-
+
+    <ImageView
+        android:id="@+id/upper_line"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/upper_line_mini" >
+    </ImageView>
+
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -15,44 +23,18 @@
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/linearLayout1"
-            android:layout_width="wrap_content"
+            android:gravity="left|center_vertical"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/distanceBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:background="#000000"
-                android:onClick="distanceClick"
-                android:padding="3dp"
-                android:text="거리 설정"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/priceBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#000000"
-                android:onClick="priceClick"
-                android:padding="3dp"
-                android:text="가격 설정"
-                android:textColor="#ffffff"
-                android:textSize="20dp" />
+            <ImageButton
+               
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:background="@drawable/batontouch_logo_upper" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/mapBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:onClick="mapClick"
-            android:text="지도" />
-
     </RelativeLayout>
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView

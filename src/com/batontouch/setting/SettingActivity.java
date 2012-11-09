@@ -32,11 +32,11 @@ public class SettingActivity extends Activity {
 			Intent intent2 = new Intent();
 		//	startActivity(intent2);
 			break;
-		case R.id.varificationBtn:
-			Toast.makeText(getApplicationContext(), "인증 전화번호 수정", 3000).show();
-			Intent intent3 = new Intent(getApplicationContext(), Setting_Verification.class);
-			startActivity(intent3);
-			break;
+//		case R.id.varificationBtn:
+//			Toast.makeText(getApplicationContext(), "인증 전화번호 수정", 3000).show();
+//			Intent intent3 = new Intent(getApplicationContext(), Setting_Verification.class);
+//			startActivity(intent3);
+//			break;
 		case R.id.paymentBtn:
 			Toast.makeText(getApplicationContext(), "결제정보 수정/확인", 3000).show();
 			Intent intent4 = new Intent(getApplicationContext(), Setting_Payment.class);
@@ -63,11 +63,11 @@ public class SettingActivity extends Activity {
 //			Toast.makeText(getApplicationContext(), "바톤터치를 친구에게 추천", 3000).show();
 //			break;
 
-		case R.id.talkInKakao:
-			Toast.makeText(getApplicationContext(), "카톡에서 얘기합시다!", 3000).show();
-			Intent intent = new Intent(getApplicationContext(), SettingActivity_KaKao.class);
-			startActivity(intent);
-			break;
+//		case R.id.talkInKakao:
+//			Toast.makeText(getApplicationContext(), "카톡에서 얘기합시다!", 3000).show();
+//			Intent intent = new Intent(getApplicationContext(), SettingActivity_KaKao.class);
+//			startActivity(intent);
+//			break;
 		
 		
 		case R.id.FAQBtn:

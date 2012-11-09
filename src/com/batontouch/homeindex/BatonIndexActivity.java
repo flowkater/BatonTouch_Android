@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -46,9 +47,12 @@ public class BatonIndexActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		setContentView(R.layout.batonindex);
 
-		mapBtn = (Button) findViewById(R.id.mapBtn);
+	//	mapBtn = (Button) findViewById(R.id.mapBtn);
 		distanceBtn = (Button) findViewById(R.id.distanceBtn);
 		priceBtn = (Button) findViewById(R.id.priceBtn);
 
@@ -58,11 +62,13 @@ public class BatonIndexActivity extends Activity {
 		mlistView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				new GetMyTaskList().execute();
-				mArrayList.clear();
+//				new GetMyTaskList().execute();
+//				mArrayList.clear();
 			}
 		});
-		new GetMyTaskList().execute();
+//		new GetMyTaskList().execute();
+		
+//		mArrayList.add(new Tast());//
 
 		MyAdapter = new MyListAdapter2(this, R.layout.featured_adapter,
 				mArrayList);

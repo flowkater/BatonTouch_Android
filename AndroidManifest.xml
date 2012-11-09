@@ -13,8 +13,8 @@
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="Batontouch"
-        android:theme="@style/AppTheme" >
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
             android:name=".main.SplashActivity"
             android:label="Batontouch"
@@ -30,11 +30,11 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name=".main.Logout_Dialog"
             android:label="Batontouch"
-            android:theme="@android:style/Theme.Dialog"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".main.LoginActivity"
@@ -51,8 +51,6 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-        
-        
         <activity
             android:name=".managebaton.BatonManageActivity_ClientProfile"
             android:label="Batontouch"
@@ -76,7 +74,8 @@
         <activity
             android:name=".homeindex.BatonIndexActivity"
             android:label="Batontouch"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".homeindex.NMapViewerActivity"
@@ -111,6 +110,11 @@
         </activity>
         <activity
             android:name=".createbaton.BatonCreate_PostATask2"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_Gift"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>

@@ -35,6 +35,10 @@ public class BatonManageActivity extends Activity {
 		arItem.add(mi);
 		mi = new MyItem(R.drawable.junghyun, "연대에서 물건 가져다 주세요.", 3000, "2010.2.25", "대기중");
 		arItem.add(mi);
+		mi = new MyItem(R.drawable.junghyun, "연대에서 물건 가져다 주세요.", 3000, "2010.2.25", "대기중");
+		arItem.add(mi);
+		mi = new MyItem(R.drawable.junghyun, "연대에서 물건 가져다 주세요.", 3000, "2010.2.25", "대기중");
+		arItem.add(mi);
 		mi = new MyItem(R.drawable.junghyun, "밥줘", 5000, "2011.4.23", "확정");
 		arItem.add(mi);
 		mi = new MyItem(R.drawable.junghyun, "밥줘", 6000, "2012.2.24", "대기중");

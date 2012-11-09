@@ -8,25 +8,24 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
         android:orientation="vertical" >
-
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/main_upper_line" />
+
         <ImageButton
             android:id="@+id/recommendToFriendsBtn"
             android:layout_width="fill_parent"
+            android:layout_height="50dp"
             android:layout_gravity="left"
-            android:layout_height="wrap_content"
-            android:src="@drawable/btn_kakaotalk_logo_andr"
             android:background="@drawable/btn_width_android"
             android:onClick="sendUrlLink"
-            android:text="바톤터치를 친구에게 추천" />
-
-        <Button
-            android:id="@+id/talkInKakao"
-            android:layout_width="fill_parent"
-             android:onClick="generalSettingBtn"
-            android:layout_height="wrap_content"
-            android:text="카톡에서 대화 하실라우?" />
+            android:src="@drawable/btn_kakaotalk_logo_andr"
+            android:text="친구에게 바톤터치 추천하기!" />
 
         <Button
             android:id="@+id/FAQBtn"
@@ -67,13 +66,6 @@
             android:layout_height="wrap_content"
             android:onClick="privacySettingBtn"
             android:text="페이스북 연동" />
-
-        <Button
-            android:id="@+id/varificationBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="privacySettingBtn"
-            android:text="인증 전화번호 수정" />
 
         <Button
             android:id="@+id/paymentBtn"
