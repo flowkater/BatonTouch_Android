@@ -3,7 +3,7 @@
     android:id="@+id/featured_adapter"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="#000000"
+    android:background="@drawable/box_click_style_footer"
     android:onClick="mOnClick"
     android:orientation="vertical" >
 
@@ -26,7 +26,6 @@
         android:singleLine="true"
         android:text="ID : 다니엘"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ffffff"
         android:textSize="15dp" />
 
     <Button

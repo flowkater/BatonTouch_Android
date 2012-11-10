@@ -17,17 +17,8 @@
             android:layout_height="wrap_content"
             layout="@layout/main_upper_line" />
 
-        <ImageButton
-            android:id="@+id/recommendToFriendsBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="left"
-            android:background="@drawable/btn_width_android"
-            android:onClick="sendUrlLink"
-            android:src="@drawable/btn_kakaotalk_logo_andr"
-            android:text="친구에게 바톤터치 추천하기!" />
-
         <Button
+            android:layout_marginTop="30dp"
             android:id="@+id/FAQBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -41,45 +32,14 @@
             android:onClick="generalSettingBtn"
             android:text="문의/ 제안/ 신고" />
 
-        <Button
-            android:id="@+id/button1"
-            style="?android:attr/buttonStyleSmall"
+        <ImageButton
+            android:id="@+id/recommendToFriendsBtn"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="#000000"
-            android:gravity="left|center_vertical"
-            android:text="개인정보"
-            android:textColor="#ffffff"
-            android:textSize="25dp" />
-
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="privacySettingBtn"
-            android:text="로그아웃" />
-
-        <Button
-            android:id="@+id/faebookBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="privacySettingBtn"
-            android:text="페이스북 연동" />
-
-        <Button
-            android:id="@+id/paymentBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="privacySettingBtn"
-            android:text="결제정보 수정/확인" />
-
-        <Button
-            android:id="@+id/dropoutBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="privacySettingBtn"
-            android:text="회원탈퇴" />
+            android:layout_height="50dp"
+            android:background="@drawable/btn_width_android"
+            android:onClick="sendUrlLink"
+            android:src="@drawable/btn_kakaotalk_logo_andr"
+            android:text="친구에게 바톤터치 추천하기!" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -93,6 +53,13 @@
             android:textSize="25dp" />
 
         <Button
+            android:id="@+id/paymentBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="privacySettingBtn"
+            android:text="결제정보 수정/확인" />
+
+        <Button
             android:id="@+id/alarmBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -100,18 +67,11 @@
             android:text="알림 설정" />
 
         <Button
-            android:id="@+id/pushAreaBtn"
+            android:id="@+id/logoutBtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="alarmSettingBtn"
-            android:text="위치 및 거리 재설정" />
-
-        <Button
-            android:id="@+id/pushRangeBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="alarmSettingBtn"
-            android:text="푸쉬 범위 설정" />
+            android:onClick="privacySettingBtn"
+            android:text="로그아웃" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
