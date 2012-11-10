@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@id/upper_line"
-        android:background="@drawable/top_line" >
+        android:background="@drawable/topline_myaccount" >
     </ImageView>
 
 </LinearLayout>
