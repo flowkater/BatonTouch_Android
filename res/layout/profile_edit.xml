@@ -3,13 +3,18 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#000000" >
+    android:background="@drawable/background" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/main_upper_line" />
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,22 +31,20 @@
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:background="#000000"
                     android:id="@+id/uploadImage"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
+                    android:background="#000000"
                     android:src="@drawable/ic_action_search" />
 
                 <Button
-                    android:layout_marginTop="50dp"
                     android:id="@+id/button2"
-                    android:background="@drawable/add"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:onClick="mOnClick"
-          />
-
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/add"
+                    android:onClick="mOnClick" />
             </LinearLayout>
 
             <Button
@@ -67,7 +70,7 @@
                     android:id="@+id/imageView2"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:src="@drawable/facebook" />
+                    android:src="@drawable/btnfacebook_logo" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -116,7 +119,7 @@
                 android:id="@+id/editText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                   android:layout_margin="10dp"
+                android:layout_margin="10dp"
                 android:ems="10" >
 
                 <requestFocus />
@@ -124,16 +127,16 @@
 
             <EditText
                 android:id="@+id/editText3"
-                   android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:ems="10" />
 
             <EditText
                 android:id="@+id/editText2"
-                   android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:ems="10" >
             </EditText>
 
@@ -153,9 +156,9 @@
 
                 <Button
                     android:id="@+id/editCompleteBtn"
-                    android:onClick="editCompleteBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="editCompleteBtn"
                     android:text="수정 완료!" />
             </LinearLayout>
         </LinearLayout>

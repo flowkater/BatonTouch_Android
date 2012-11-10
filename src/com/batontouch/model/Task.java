@@ -44,6 +44,16 @@ public class Task {
 		this.toloc = toloc;
 	}
 
+	public Task(String id, String name, String day, String status,
+			 String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.day = day;
+		this.status = status;
+		this.description = description;
+	}
+
 	public String getDescription() {
 		return description;
 	}

@@ -1,15 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="60dp" >
+    android:layout_marginBottom="60dp"
+    android:background="@drawable/background" >
+
+    <include
+        android:id="@+id/main_upper_line"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/main_upper_line" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:background="#8b8989"
+        android:layout_below="@id/main_upper_line"
+        android:background="@drawable/background"
         android:orientation="horizontal" >
 
         <Button
@@ -18,10 +25,10 @@
             android:layout_height="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="#000000"
             android:onClick="BatonManageBtnClick"
+            android:background="#ffffff"
             android:text="내가 시킨 일"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="15dp" />
 
         <Button
@@ -30,10 +37,11 @@
             android:layout_height="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="#000000"
+
             android:onClick="BatonManageBtnClick"
+         android:background="#ffffff"
             android:text="내가 할 일"
-            android:textColor="#ffffff"
+        android:textColor="#000000"
             android:textSize="15dp" />
     </LinearLayout>
 
@@ -49,14 +57,16 @@
 
         <FrameLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent"
+            android:background="@drawable/background" >
 
             <com.handmark.pulltorefresh.library.PullToRefreshListView
                 android:id="@+id/listView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:divider="@android:color/white"
-                android:dividerHeight="1dp" />
+                android:dividerHeight="1dp"
+android:background="@drawable/background" />
 
             <com.handmark.pulltorefresh.library.PullToRefreshListView
                 android:id="@+id/listView2"
@@ -64,8 +74,8 @@
                 android:layout_height="wrap_content"
                 android:divider="@android:color/white"
                 android:dividerHeight="1dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:background="@drawable/background" />
         </FrameLayout>
     </LinearLayout>
-
 </RelativeLayout>

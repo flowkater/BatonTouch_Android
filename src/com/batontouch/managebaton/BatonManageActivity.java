@@ -1,4 +1,4 @@
-package com.batontouch.managebaton;
+﻿package com.batontouch.managebaton;
 
 import java.util.ArrayList;
 
@@ -41,6 +41,8 @@ public class BatonManageActivity extends Activity {
 		mPreferences = getSharedPreferences("CurrentUser",
 				MODE_PRIVATE);
 		auth_token = mPreferences.getString("AuthToken", "");
+
+	//	relative = (RelativeLayout) findViewById(R.id.featured_adapter);
 
 		askedButton = (Button) findViewById(R.id.askedTaskBtn);
 		myTaskBtn = (Button) findViewById(R.id.myTaskBtn);

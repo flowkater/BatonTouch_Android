@@ -17,20 +17,20 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/yesBtn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:onClick="mOnClick"
             android:layout_height="wrap_content"
-            android:text="끝꼬양??" />
+            android:text="끌래" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/noBtn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:onClick="mOnClick"
             android:layout_height="wrap_content"
-            android:text="끄지망!!" />
+            android:text="말래" />
     </LinearLayout>
 
 </LinearLayout>

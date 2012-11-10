@@ -1,4 +1,4 @@
-package com.batontouch.setting;
+﻿package com.batontouch.setting;
 
 import android.app.Activity;
 import android.os.Bundle;

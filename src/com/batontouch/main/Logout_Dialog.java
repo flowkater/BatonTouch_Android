@@ -14,8 +14,19 @@ public class Logout_Dialog extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.logoutdialog);
 	}
-	
-	public void mOnClick(View v){
-		finish();
+
+	public void mOnClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.yesBtn:
+
+			finish();
+			System.exit(0);
+
+			break;
+		case R.id.noBtn:
+			finish();
+			break;
+		}
 	}
 }
