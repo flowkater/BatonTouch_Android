@@ -88,7 +88,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".homeindex.MyListAdapter2"
+            android:name=".homeindex.BatonListAdapter"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>

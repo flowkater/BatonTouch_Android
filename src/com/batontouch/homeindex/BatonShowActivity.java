@@ -3,17 +3,17 @@ package com.batontouch.homeindex;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -24,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
-import com.batontouch.main.MainActivity;
 import com.batontouch.model.Task;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.NetHelper;
@@ -85,7 +84,7 @@ public class BatonShowActivity extends Activity {
 	}
 
 	public void SuggestButtonClick(View v) {
-		new TradestatCreate().execute();
+		SuggestDialog();
 	}
 
 	// Client 가 Task에 제안을 할때 이 클래스 호출
@@ -94,8 +93,8 @@ public class BatonShowActivity extends Activity {
 		protected Void doInBackground(Void... params) {
 			try {
 				HttpClient httpClient = new DefaultHttpClient();
-				HttpPost postRequest = new HttpPost(Global.ServerUrl
-						+ "tasks/" + task_id + "/tradestats?auth_token=" + auth_token);
+				HttpPost postRequest = new HttpPost(Global.ServerUrl + "tasks/"
+						+ task_id + "/tradestats?auth_token=" + auth_token);
 				MultipartEntity reqEntity = new MultipartEntity(
 						HttpMultipartMode.BROWSER_COMPATIBLE);
 
@@ -134,5 +133,23 @@ public class BatonShowActivity extends Activity {
 					Toast.LENGTH_SHORT).show();
 			super.onPostExecute(result);
 		}
+	}
+
+	// 제안 다이얼로그 method
+	private void SuggestDialog() {
+		AlertDialog.Builder altBld = new AlertDialog.Builder(this);
+		altBld.setMessage("제안 하시겠습니까?").setCancelable(false)
+				.setPositiveButton("넹", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						new TradestatCreate().execute();
+					}
+				})
+				.setNegativeButton("아뇨", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+					}
+				});
+		AlertDialog alert = altBld.create();
+		alert.show();
 	}
 }

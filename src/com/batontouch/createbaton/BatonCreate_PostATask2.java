@@ -47,13 +47,13 @@ public class BatonCreate_PostATask2 extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		// Bundle 전달 받은 extras 저장
 		Intent in = getIntent();
 		extras = new Bundle();
 		extras = in.getExtras();
-		//====
-		
+		// ====
+
 		setContentView(R.layout.batoncreate_postatask2);
 		expectedtime = (EditText) findViewById(R.id.expectedtime);
 

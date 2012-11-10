@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.batontouch.R;
@@ -23,101 +24,104 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 public class BatonManageActivity extends Activity {
-	private PullToRefreshListView askedlistView, myTasklistView;
-	private ArrayList<Task> askedArrayList, myTaskArrayList;
-	private MyBatonManageAdapter askedManageadapter, myTaskManageAdapter;
+	private PullToRefreshListView mListView;
+	private ArrayList<Task> mArrayList;
+	private MyBatonManageAdapter mManageadapter;
+	private String mResult;
 
-	private String askedResult, myTaskResult;
-
-	private Button btn, askedButton, myTaskBtn;
+	private Button askedButton, myTaskBtn;
+	private LinearLayout btnLinearManage;
 	
 	private String auth_token;
 	private SharedPreferences mPreferences;
+	
+	private Boolean btnStatus = false;
+	private Boolean clientStatus;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batonmanage);
 		
-		mPreferences = getSharedPreferences("CurrentUser",
-				MODE_PRIVATE);
-		auth_token = mPreferences.getString("AuthToken", "");
-
-	//	relative = (RelativeLayout) findViewById(R.id.featured_adapter);
-
+		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+		auth_token = mPreferences.getString("AuthToken", ""); // auth_token 가져오기
+		
+		btnLinearManage = (LinearLayout) findViewById(R.id.btnLinearManage);
 		askedButton = (Button) findViewById(R.id.askedTaskBtn);
 		myTaskBtn = (Button) findViewById(R.id.myTaskBtn);
 		
-		askedArrayList = new ArrayList<Task>();
-		myTaskArrayList = new ArrayList<Task>();
+		clientStatus = false; // 클라이언트 체크를 해서 버튼을 없앤다.
+		
+		if (!clientStatus) {
+			btnLinearManage.setVisibility(View.GONE);
+		}
+		
+		mArrayList = new ArrayList<Task>();
 
-		askedlistView = (PullToRefreshListView) findViewById(R.id.listView);
-		askedlistView.setOnRefreshListener(new OnRefreshListener<ListView>() {
+		mListView = (PullToRefreshListView) findViewById(R.id.listView);
+		mListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				askedArrayList.clear();
-				new GetAskedTaskList().execute();
-			}
-		});
-		myTasklistView = (PullToRefreshListView) findViewById(R.id.listView2);
-		myTasklistView.setOnRefreshListener(new OnRefreshListener<ListView>() {
-			@Override
-			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				myTaskArrayList.clear();
-				new GetMyTaskBidList().execute();
+				if (btnStatus) {
+					mArrayList.clear();
+					new GetMyTaskBidList().execute();
+				} else{
+					mArrayList.clear();
+					new GetAskedTaskList().execute();
+				}
 			}
 		});
 		new GetAskedTaskList().execute();
 
-		askedManageadapter = new MyBatonManageAdapter(this,
-				R.layout.featured_adapter2, askedArrayList);
-		myTaskManageAdapter = new MyBatonManageAdapter(this,
-				R.layout.featured_adapter2, myTaskArrayList);
+		mManageadapter = new MyBatonManageAdapter(this,
+				R.layout.featured_adapter2, mArrayList);
 		
-		askedlistView.getRefreshableView().setAdapter(askedManageadapter);
-		myTasklistView.getRefreshableView().setAdapter(myTaskManageAdapter);
+		mListView.getRefreshableView().setAdapter(mManageadapter);
 	}
 	
+	// 내가 시킨 일 가져오기 리스트
 	private class GetAskedTaskList extends AsyncTask<Void, Void, Void>{
 		@Override
 		protected Void doInBackground(Void... params) {
-			askedResult = NetHelper.DownloadHtml(Global.ServerUrl+ "tasks/askedbatons?auth_token=" + auth_token);
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl+ "tasks/askedbatons?auth_token=" + auth_token);
 			return null;
 		}
 		
 		@Override
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
-			Tasks tasks = gson.fromJson(askedResult, Tasks.class);
+			Tasks tasks = gson.fromJson(mResult, Tasks.class);
 			try {
 				for (Task task : tasks.getTasks()) {
-					askedArrayList.add(task);
+					mArrayList.add(task);
 				}
 			} catch (Exception e) {
 				Log.e("batonmanage", e.getClass().getName() + " " + e.getMessage()
 								+ " BatonManage Asked Gson Exception");
 			}
 			
-			askedlistView.onRefreshComplete();
-			askedManageadapter.notifyDataSetChanged();
+			mListView.onRefreshComplete();
+			mManageadapter.notifyDataSetChanged();
 			
 			super.onPostExecute(result);
 		}
 	}
 	
+	// 내가 할 일 가져오기 리스트
 	private class GetMyTaskBidList extends AsyncTask<Void, Void, Void>{
 		@Override
 		protected Void doInBackground(Void... params) {
-			myTaskResult = NetHelper.DownloadHtml(Global.ServerUrl+ "tasks/mytaskbatons?auth_token=" + auth_token);
-			Log.d("batonmanage", myTaskResult+"");
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl+ "tasks/mytaskbatons?auth_token=" + auth_token);
+			Log.d("batonmanage", mResult+"");
 			return null;
 		}
 		@Override
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
-			Tasks tasks = gson.fromJson(myTaskResult, Tasks.class);
+			Tasks tasks = gson.fromJson(mResult, Tasks.class);
 			try {
 				for (Task task : tasks.getTasks()) {
-					myTaskArrayList.add(task);
+					mArrayList.add(task);
 					Log.d("batonmanage", task.getName());
 				}
 			} catch (Exception e) {
@@ -125,41 +129,31 @@ public class BatonManageActivity extends Activity {
 								+ " BatonManage Asked Gson Exception");
 			}
 			
-			myTasklistView.onRefreshComplete();
-			myTaskManageAdapter.notifyDataSetChanged();
+			mListView.onRefreshComplete();
+			mManageadapter.notifyDataSetChanged();
 			
 			super.onPostExecute(result);
 		}
 	}
-
+	
+	
+	// Client Status 가 변할 때 가져온다.
 	public void BatonManageBtnClick(View v) {
 		switch (v.getId()) {
 		case R.id.askedTaskBtn:
-
-			// Toast.makeText(getApplicationContext(), "btnCollections",
-			// 3000).show();
-			// #8b8989
-			myTaskArrayList.clear();
-			askedArrayList.clear();
+			btnStatus = false;
+			mArrayList.clear();
 			new GetAskedTaskList().execute();
 			myTaskBtn.setBackgroundColor(Color.BLACK);
 			askedButton.setBackgroundColor(Color.rgb(89, 89, 89));
-			askedlistView.setVisibility(View.INVISIBLE);
-			askedlistView.setVisibility(View.VISIBLE);
 			break;
 
 		case R.id.myTaskBtn:
-
-			// Toast.makeText(getApplicationContext(), "btnVideos",
-			// 3000).show();
-			
-			myTaskArrayList.clear();
-			askedArrayList.clear();
+			btnStatus = true;
+			mArrayList.clear();
 			new GetMyTaskBidList().execute();
 			askedButton.setBackgroundColor(Color.BLACK);
 			myTaskBtn.setBackgroundColor(Color.rgb(89, 89, 89));
-			myTasklistView.setVisibility(View.INVISIBLE);
-			myTasklistView.setVisibility(View.VISIBLE);
 			break;
 		}
 	}

@@ -12,6 +12,4 @@ public class Tasks {
 	public void setTasks(ArrayList<Task> tasks) {
 		this.tasks = tasks;
 	}
-	
-	
 }

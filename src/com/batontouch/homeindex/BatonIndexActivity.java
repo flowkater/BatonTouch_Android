@@ -32,7 +32,7 @@ public class BatonIndexActivity extends Activity {
 	private Button mapBtn, distanceBtn, priceBtn;
 
 	private ArrayList<Task> mArrayList;
-	private MyListAdapter2 MyAdapter;
+	private BatonListAdapter MyAdapter;
 
 	private int mPrevTotalItemCount = 0; // EndlessScrollListener Variable
 	private PullToRefreshListView mlistView; // PullToRefreshListener
@@ -64,7 +64,7 @@ public class BatonIndexActivity extends Activity {
 		});
 		// new GetMyTaskList().execute();
 
-		MyAdapter = new MyListAdapter2(this, R.layout.featured_adapter,
+		MyAdapter = new BatonListAdapter(this, R.layout.featured_adapter,
 				mArrayList);
 		mlistView.getRefreshableView().setAdapter(MyAdapter);
 		mlistView.getRefreshableView().setOnScrollListener(

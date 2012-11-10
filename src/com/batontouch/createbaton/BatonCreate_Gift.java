@@ -83,8 +83,6 @@ public class BatonCreate_Gift extends Activity {
 		mi = new MyItem(R.drawable.icon);
 		thumbnails.add(mi);
 
-
-
 		this.arrPath = new String[this.count];
 		this.thumbnailsselection = new boolean[this.count];
 		GridView imagegrid = (GridView) findViewById(R.id.PhoneImageGrid);
@@ -108,25 +106,22 @@ public class BatonCreate_Gift extends Activity {
 					Toast.makeText(getApplicationContext(),
 							"í•œ ê°œ ì�´ìƒ�ì�€ ê³¨ë�¼ì•¼ì£ !",
 							Toast.LENGTH_LONG).show();
-				} else if(cnt <= 3) {
+				} else if (cnt <= 3) {
 					Toast.makeText(getApplicationContext(),
 							"ì„ ë¬¼ " + cnt + "ê°€ì§€ë¥¼ ê³¨ëž�ì–´ìš”!",
 							Toast.LENGTH_LONG).show();
 					// Log.d("SelectedImages", selectImages);
-				} else{
-					
-					Toast.makeText(getApplicationContext(), "3ê°œë§Œ ê³¨ë�¼ì£¼ì„¸ìš”!", 3000).show();
+				} else {
+
+					Toast.makeText(getApplicationContext(),
+							"3ê°œë§Œ ê³¨ë�¼ì£¼ì„¸ìš”!", 3000).show();
 				}
-				
 
 			}
 		});
 	}
 
 	public class ImageAdapter extends BaseAdapter {
-		
-
-
 		private LayoutInflater mInflater;
 
 		public ImageAdapter() {
@@ -161,9 +156,9 @@ public class BatonCreate_Gift extends Activity {
 			}
 			holder.checkbox.setId(position);
 			holder.imageview.setId(position);
-			
-			//imageview.setLayoutParams(new GridView.LayoutParams(h, w));
-			
+
+			// imageview.setLayoutParams(new GridView.LayoutParams(h, w));
+
 			holder.checkbox.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
@@ -183,7 +178,6 @@ public class BatonCreate_Gift extends Activity {
 						thumbnailsselection[id] = true;
 					}
 
-					
 					/*
 					 * if (num <= 3) {
 					 * 
@@ -237,8 +231,6 @@ public class BatonCreate_Gift extends Activity {
 	}
 
 	class MyItem {
-		
-		
 
 		MyItem(int image) {
 

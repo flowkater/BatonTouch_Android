@@ -16,14 +16,14 @@ import android.widget.TextView;
 import com.batontouch.R;
 import com.batontouch.model.Task;
 
-public class MyListAdapter2 extends ArrayAdapter<Task> {
+public class BatonListAdapter extends ArrayAdapter<Task> {
 	private Context mContext;
 	private int mResource;
 	private ArrayList<Task> mTasks;
 	private LayoutInflater mInflater;
 	private Task task;
 
-	public MyListAdapter2(Context context, int mResource, ArrayList<Task> mTasks) {
+	public BatonListAdapter(Context context, int mResource, ArrayList<Task> mTasks) {
 		super(context, mResource, mTasks);
 		this.mContext = context;
 		this.mResource = mResource;

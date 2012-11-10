@@ -2,7 +2,6 @@
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.TabHost.TabSpec;
 import com.batontouch.R;
 import com.batontouch.createbaton.BatonCreateActivity;
 import com.batontouch.homeindex.BatonIndexActivity;
-import com.batontouch.managebaton.BatonManageActivity;
 import com.batontouch.profile.ProfileActivity;
 import com.batontouch.setting.SettingActivity;
 
@@ -30,8 +28,6 @@ public class MainActivity extends TabActivity {
 		View createView = layout.inflate(R.layout.main_tab_home, null);
 		View profileView = layout.inflate(R.layout.main_tab_profile, null);
 		View settingView = layout.inflate(R.layout.main_tab_setting, null);
-
-
 
 		// Baton Home tab
 		Intent intentHome = new Intent(this,
