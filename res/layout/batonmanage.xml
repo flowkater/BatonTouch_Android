@@ -51,22 +51,20 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
 
-            <ListView
+            <com.handmark.pulltorefresh.library.PullToRefreshListView
                 android:id="@+id/listView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:divider="@android:color/white"
-                android:dividerHeight="1dp" >
-            </ListView>
+                android:dividerHeight="1dp" />
 
-            <ListView
+            <com.handmark.pulltorefresh.library.PullToRefreshListView
                 android:id="@+id/listView2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:divider="@android:color/white"
                 android:dividerHeight="1dp"
-                android:visibility="invisible" >
-            </ListView>
+                android:visibility="invisible" />
         </FrameLayout>
     </LinearLayout>
 
