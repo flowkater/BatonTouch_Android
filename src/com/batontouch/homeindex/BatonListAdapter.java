@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.batontouch.R;
 import com.batontouch.model.Task;
+import com.batontouch.utils.Global;
 
 public class BatonListAdapter extends ArrayAdapter<Task> {
 	private Context mContext;
@@ -54,7 +55,7 @@ public class BatonListAdapter extends ArrayAdapter<Task> {
 		if (task != null) {
 			holder.name.setText(task.getName());
 			holder.day.setText(task.getDay());
-			holder.status.setText(task.getStatus());
+			holder.status.setText(Global.userJudge(task.getStatus()));
 		}
 
 		convertView.setOnClickListener(new OnClickListener() {

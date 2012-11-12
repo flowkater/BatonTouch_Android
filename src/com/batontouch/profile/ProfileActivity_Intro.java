@@ -30,7 +30,6 @@ public class ProfileActivity_Intro extends Activity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		SharedPreferences myPref = getSharedPreferences("myPref",
 				Activity.MODE_WORLD_WRITEABLE);

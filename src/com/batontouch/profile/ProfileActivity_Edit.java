@@ -1,6 +1,5 @@
 package com.batontouch.profile;
 
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import android.app.Activity;

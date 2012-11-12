@@ -12,12 +12,10 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.batontouch.R;
 import com.batontouch.model.Task;
 import com.batontouch.model.User;
-import com.batontouch.model.Users;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.NetHelper;
 import com.google.gson.Gson;
@@ -48,7 +46,7 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 		mUserList = new ArrayList<User>();
 
 		clientAdapter = new BatonManageClientAdapter(this,
-				R.layout.featured_adapter_footer, mUserList);
+				R.layout.featured_adapter_footer, mUserList, task_id);
 
 		mClientListView = (ListView) findViewById(R.id.mClientListView);
 
@@ -81,12 +79,10 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
 			Task task = gson.fromJson(mResult, Task.class);
-			Users users = gson.fromJson(mResult, Users.class);
+			ArrayList<User> users = task.getUsers();
 			try {
-				for (User user : users.getUsers()) {
+				for (User user : users) {
 					mUserList.add(user);
-					Toast.makeText(getApplicationContext(), user.getName(),
-							Toast.LENGTH_SHORT).show();
 				}
 			} catch (Exception e) {
 				Log.e("batonmanage",
@@ -98,7 +94,7 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 				try {
 					tvName.setText(task.getName());
 					tvDate.setText(task.getDay());
-					tvStatus.setText(task.getStatus());
+					tvStatus.setText(Global.userJudge(task.getStatus()));
 					tvDescription.setText(task.getDescription());
 					tvResttime.setText(task.getEnddate());
 				} catch (Exception e) {
