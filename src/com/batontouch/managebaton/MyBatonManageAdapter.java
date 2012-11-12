@@ -74,7 +74,7 @@ class MyBatonManageAdapter extends ArrayAdapter<Task> {
 					extras.putString("task_id", task_id);
 					intent.putExtras(extras);
 					mContext.startActivity(intent);
-				} else if(status == 1){
+				} else if (status == 1) {
 					Intent intent = new Intent(mContext,
 							BatonManageShowActivity.class);
 					Bundle extras = new Bundle();
