@@ -43,7 +43,6 @@ public class BatonIndexActivity extends Activity {
 	private String auth_token;
 	private SharedPreferences mPreferences;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -181,11 +180,8 @@ public class BatonIndexActivity extends Activity {
 	}
 
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
-
 		Intent intent = new Intent(getApplicationContext(), Logout_Dialog.class);
 		startActivity(intent);
 
 	}
-
 }
