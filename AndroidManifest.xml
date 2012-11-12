@@ -131,6 +131,12 @@
         
 
         
+         <activity
+            android:name=".profile.ProfileActivity_Intro"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        
         <activity
             android:name=".profile.ProfileActivity"
             android:label="Batontouch"

@@ -203,6 +203,31 @@
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
+         <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/finish"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:gravity="center_horizontal"
+                android:text="일이 끝났어요?"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="finishedBtn"
+                android:text="끝났어요!" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

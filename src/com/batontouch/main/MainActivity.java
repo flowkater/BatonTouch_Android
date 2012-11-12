@@ -13,6 +13,7 @@ import com.batontouch.createbaton.BatonCreateActivity;
 import com.batontouch.homeindex.BatonIndexActivity;
 import com.batontouch.managebaton.BatonManageActivity;
 import com.batontouch.profile.ProfileActivity;
+import com.batontouch.profile.ProfileActivity_Intro;
 import com.batontouch.setting.SettingActivity;
 
 public class MainActivity extends TabActivity {
@@ -52,7 +53,7 @@ public class MainActivity extends TabActivity {
 
 		// Profile tab
 		Intent intentProfile = new Intent().setClass(this,
-				ProfileActivity.class);
+				ProfileActivity_Intro.class);
 		
 	//	intentProfile.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		
