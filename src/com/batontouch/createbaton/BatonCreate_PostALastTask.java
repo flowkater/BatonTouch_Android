@@ -40,7 +40,6 @@ public class BatonCreate_PostALastTask extends Activity {
 		setContentView(R.layout.batoncreate_postalasttask);
 
 		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
-
 		auth_token = mPreferences.getString("AuthToken", "");
 
 		Intent intent = getIntent();

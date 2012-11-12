@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,7 +30,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 public class BatonIndexActivity extends Activity {
 
-	private Button mapBtn, distanceBtn, priceBtn;
+	private Button distanceBtn, priceBtn;
 
 	private ArrayList<Task> mArrayList;
 	private BatonListAdapter MyAdapter;
@@ -38,6 +39,10 @@ public class BatonIndexActivity extends Activity {
 	private PullToRefreshListView mlistView; // PullToRefreshListener
 	private String mResult; // AsyncTask
 	private Integer mCurrentPage = 1; // Page
+	
+	private String auth_token;
+	private SharedPreferences mPreferences;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +51,10 @@ public class BatonIndexActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		setContentView(R.layout.batonindex);
+		
+		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+		auth_token = mPreferences.getString("AuthToken", ""); // auth_token 가져오기
 
-	//	mapBtn = (Button) findViewById(R.id.mapBtn);
 		distanceBtn = (Button) findViewById(R.id.distanceBtn);
 		priceBtn = (Button) findViewById(R.id.priceBtn);
 
@@ -75,7 +82,7 @@ public class BatonIndexActivity extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			mResult = NetHelper.DownloadHtml(Global.ServerUrl
-					+ "tasks.json?page=" + mCurrentPage.toString());
+					+ "tasks?page=" + mCurrentPage.toString() + "&auth_token=" + auth_token);
 			Log.d("batonindex", Global.ServerUrl + "tasks.json" + mResult + "");
 			return null;
 		}

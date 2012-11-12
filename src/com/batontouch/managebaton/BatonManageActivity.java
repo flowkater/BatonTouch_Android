@@ -31,31 +31,31 @@ public class BatonManageActivity extends Activity {
 
 	private Button askedButton, myTaskBtn;
 	private LinearLayout btnLinearManage;
-	
+
 	private String auth_token;
 	private SharedPreferences mPreferences;
-	
+
 	private Boolean btnStatus = false;
 	private Boolean clientStatus;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batonmanage);
-		
+
 		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 		auth_token = mPreferences.getString("AuthToken", ""); // auth_token 가져오기
-		
+
 		btnLinearManage = (LinearLayout) findViewById(R.id.btnLinearManage);
 		askedButton = (Button) findViewById(R.id.askedTaskBtn);
 		myTaskBtn = (Button) findViewById(R.id.myTaskBtn);
-		
+
 		clientStatus = false; // 클라이언트 체크를 해서 버튼을 없앤다.
-		
+
 		if (!clientStatus) {
 			btnLinearManage.setVisibility(View.GONE);
 		}
-		
+
 		mArrayList = new ArrayList<Task>();
 
 		mListView = (PullToRefreshListView) findViewById(R.id.listView);
@@ -65,7 +65,7 @@ public class BatonManageActivity extends Activity {
 				if (btnStatus) {
 					mArrayList.clear();
 					new GetMyTaskBidList().execute();
-				} else{
+				} else {
 					mArrayList.clear();
 					new GetAskedTaskList().execute();
 				}
@@ -75,18 +75,19 @@ public class BatonManageActivity extends Activity {
 
 		mManageadapter = new MyBatonManageAdapter(this,
 				R.layout.featured_adapter2, mArrayList);
-		
+
 		mListView.getRefreshableView().setAdapter(mManageadapter);
 	}
-	
+
 	// 내가 시킨 일 가져오기 리스트
-	private class GetAskedTaskList extends AsyncTask<Void, Void, Void>{
+	private class GetAskedTaskList extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
-			mResult = NetHelper.DownloadHtml(Global.ServerUrl+ "tasks/askedbatons?auth_token=" + auth_token);
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl
+					+ "tasks/askedbatons?auth_token=" + auth_token);
 			return null;
 		}
-		
+
 		@Override
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
@@ -96,25 +97,28 @@ public class BatonManageActivity extends Activity {
 					mArrayList.add(task);
 				}
 			} catch (Exception e) {
-				Log.e("batonmanage", e.getClass().getName() + " " + e.getMessage()
+				Log.e("batonmanage",
+						e.getClass().getName() + " " + e.getMessage()
 								+ " BatonManage Asked Gson Exception");
 			}
-			
+
 			mListView.onRefreshComplete();
 			mManageadapter.notifyDataSetChanged();
-			
+
 			super.onPostExecute(result);
 		}
 	}
-	
+
 	// 내가 할 일 가져오기 리스트
-	private class GetMyTaskBidList extends AsyncTask<Void, Void, Void>{
+	private class GetMyTaskBidList extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
-			mResult = NetHelper.DownloadHtml(Global.ServerUrl+ "tasks/mytaskbatons?auth_token=" + auth_token);
-			Log.d("batonmanage", mResult+"");
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl
+					+ "tasks/mytaskbatons?auth_token=" + auth_token);
+			Log.d("batonmanage", mResult + "");
 			return null;
 		}
+
 		@Override
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
@@ -125,18 +129,18 @@ public class BatonManageActivity extends Activity {
 					Log.d("batonmanage", task.getName());
 				}
 			} catch (Exception e) {
-				Log.e("batonmanage", e.getClass().getName() + " " + e.getMessage()
+				Log.e("batonmanage",
+						e.getClass().getName() + " " + e.getMessage()
 								+ " BatonManage Asked Gson Exception");
 			}
-			
+
 			mListView.onRefreshComplete();
 			mManageadapter.notifyDataSetChanged();
-			
+
 			super.onPostExecute(result);
 		}
 	}
-	
-	
+
 	// Client Status 가 변할 때 가져온다.
 	public void BatonManageBtnClick(View v) {
 		switch (v.getId()) {
