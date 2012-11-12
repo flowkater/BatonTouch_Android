@@ -2,9 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:layout_marginBottom="60dp"
-    android:background="@drawable/background" >
+    android:background="@drawable/background_square" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,66 +21,49 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/FAQBtn"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@drawable/setting_notice_icon_style"
                 android:onClick="generalSettingBtn"
                 android:text="QnA" />
 
             <Button
                 android:id="@+id/suggestionBtn"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/setting_notice_icon_style"
                 android:onClick="generalSettingBtn"
-                android:text="문의랑 제안" />
+                android:text="문의 제안" />
 
             <ImageButton
                 android:id="@+id/recommendToFriendsBtn"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
+                android:layout_margin="1dp"
                 android:background="@drawable/btn_width_android"
                 android:onClick="sendUrlLink"
                 android:src="@drawable/btn_kakaotalk_logo_andr"
                 android:text="친구에게 바톤터치 추천하기!" />
-        </LinearLayout>
-
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/paymentBtn"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_margin="1dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
+                android:background="@drawable/setting_notice_icon_style"
                 android:onClick="privacySettingBtn"
-                android:text="결제하기" />
-
-            <Button
-                android:id="@+id/alarmBtn"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:onClick="alarmSettingBtn"
-                android:text="알림 설정" />
-
-            <ImageButton
-                android:id="@+id/logoutBtn"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:background="@drawable/login_out"
-                android:onClick="privacySettingBtn"
-            />
+                android:text="결제 하기" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,28 +73,48 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/alarmBtn"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/setting_alarm_icon_style"
+                android:onClick="alarmSettingBtn" />
+
+            <ImageButton
+                android:id="@+id/logoutBtn"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/setting_notice_icon_style"
+                android:onClick="privacySettingBtn" />
+
+            <Button
                 android:id="@+id/annoucementBtn"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:onClick="buttontouchSettingBtn"
-                android:text="공지사항" />
+                android:background="@drawable/setting_notice_icon_style"
+                android:onClick="buttontouchSettingBtn" />
 
             <Button
                 android:id="@+id/policyBtn"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_margin="1dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
+                android:background="@drawable/setting_notice_icon_style"
                 android:onClick="buttontouchSettingBtn"
-                android:text="이용약관" />
+                android:text="이용 약관" />
+        </LinearLayout>
 
-            <Button
-                android:id="@+id/logoutBtn"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:onClick="privacySettingBtn"
-                android:text="로그아웃" />
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
         </LinearLayout>
     </LinearLayout>
 

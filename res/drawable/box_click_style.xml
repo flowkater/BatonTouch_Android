@@ -3,6 +3,6 @@
 
     <item android:drawable="@drawable/deal_box_underdotted_touched" android:state_selected="true"></item>
     <item android:drawable="@drawable/deal_box_underdotted_touched" android:state_pressed="true"></item>
-    <item android:drawable="@drawable/deal_box_note_2"></item>
+    <item android:drawable="@drawable/deal_box_note"></item>
 
 </selector>

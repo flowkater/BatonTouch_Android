@@ -37,6 +37,7 @@ public class ProfileActivity extends Activity {
 
 		if (myPref != null && myPref.contains("name")) {
 			String name = myPref.getString("name", "");
+			name = "";
 			textViewIntroduce.setText(name);
 		}
 

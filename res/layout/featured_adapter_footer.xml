@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:onClick="mOnClick"
+    android:background="@drawable/box_click_style"
     android:orientation="vertical" >
 
     <ImageView
@@ -12,12 +13,12 @@
         android:layout_height="70dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="50dp"
         android:src="@drawable/ic_launcher" />
 
     <TextView
         android:id="@+id/userName"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="22dp"
@@ -31,9 +32,8 @@
         android:id="@+id/selectBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/userName"
-        android:layout_alignBottom="@+id/userName"
-        android:layout_toRightOf="@+id/userName"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:text="선택!" />
 
 </RelativeLayout>

@@ -98,24 +98,28 @@ public class ProfileActivity_Edit extends Activity {
 				String filePath = cursor.getString(columnIndex);
 				cursor.close();
 
-				Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath);
-
+				//======================== Bug
+				Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath); //Error (Camera Upload)
+				//========================
+				
 				uploadImg.setImageBitmap(yourSelectedImage);
 				uploadImg.setScaleType(ImageView.ScaleType.FIT_XY);
 				uploadImg.setAdjustViewBounds(true);
-				
-//	            Uri selectedImage = imageReturnedIntent.getData();
-//
-//				try {
-//					imageStream = getContentResolver().openInputStream(selectedImage);
-//				} catch (FileNotFoundException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//	            Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
-//		
-	            uploadImg.setImageBitmap(yourSelectedImage);
-	            
+
+				// Uri selectedImage = imageReturnedIntent.getData();
+				//
+				// try {
+				// imageStream =
+				// getContentResolver().openInputStream(selectedImage);
+				// } catch (FileNotFoundException e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				// Bitmap yourSelectedImage =
+				// BitmapFactory.decodeStream(imageStream);
+				//
+				uploadImg.setImageBitmap(yourSelectedImage);
+
 				Toast.makeText(getApplicationContext(), "Done!", 3000).show();
 			}
 
@@ -124,11 +128,7 @@ public class ProfileActivity_Edit extends Activity {
 				Toast.makeText(getApplicationContext(), "fail", 3000).show();
 
 			}
-			
-			
-		
-		
-			
+
 		}
 	}
 }
