@@ -36,7 +36,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/ic_action_search" />
+                    android:src="@drawable/ic_launcher" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -220,7 +220,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_action_search" />
+                    android:src="@drawable/ic_launcher" />
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -230,7 +230,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_action_search" />
+                    android:src="@drawable/ic_launcher" />
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -240,7 +240,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_action_search" />
+                    android:src="@drawable/ic_launcher" />
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -250,7 +250,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/ic_action_search" />
+                    android:background="@drawable/ic_launcher" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
