@@ -242,7 +242,7 @@ public class BatonCreate_PostATask2 extends Activity {
 				+ timeTobeDone.getText().toString();
 
 		Intent intent = new Intent(getApplicationContext(),
-				BatonCreate_Gift.class);
+				BatonCreate_PostATask_Choose.class);
 
 		extras.putString("spendtime", spendtime);
 		extras.putString("calldate", answerdate);

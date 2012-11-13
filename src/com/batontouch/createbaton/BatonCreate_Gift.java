@@ -79,9 +79,9 @@ public class BatonCreate_Gift extends Activity {
 
 		this.arrPath = new String[this.count];
 		this.thumbnailsselection = new boolean[this.count];
-		GridView imagegrid = (GridView) findViewById(R.id.PhoneImageGrid);
+	//	GridView imagegrid = (GridView) findViewById(R.id.PhoneImageGrid);
 		imageAdapter = new ImageAdapter();
-		imagegrid.setAdapter(imageAdapter);
+	//	imagegrid.setAdapter(imageAdapter);
 
 		final Button selectBtn = (Button) findViewById(R.id.selectBtn);
 		selectBtn.setOnClickListener(new OnClickListener() {

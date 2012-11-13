@@ -1,54 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:gravity="center_horizontal"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <ImageView
-        
-        android:layout_marginTop="50dp"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/alarm_setting" />
+        android:src="@drawable/add" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item name"
-        android:layout_margin="5dp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="아이스 카라멜 마키아토"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Code XXXX"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="커피빈의 초 맛있는 카라멜로 뒤범벅이 된 돼지 되기 딱! 좋은 카라멜 마키야로~ 하지만, 돼지가 되어도 좋으니 맜있는 아 더이상 뭐라고.." />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_margin="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="사용기간 2012. 11. 11"
+        android:text="쿠키 25개"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_margin="10dp"
+        android:id="@+id/selectGift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Store name" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="썼어요~" />
+        android:text="선택하기" />
 
 </LinearLayout>

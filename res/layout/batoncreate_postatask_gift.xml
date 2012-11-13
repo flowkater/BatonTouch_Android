@@ -1,15 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent">
-	<Button android:id="@+id/selectBtn"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="Select" android:layout_alignParentBottom="true"
-		android:layout_centerHorizontal="true"
-		android:minWidth="200px" />
-	<GridView android:id="@+id/PhoneImageGrid"
-		android:layout_width="fill_parent" android:layout_height="fill_parent"
-		android:numColumns="3" android:verticalSpacing="10dp"
-		android:horizontalSpacing="10dp" android:columnWidth="90dp"
-		android:stretchMode="columnWidth" android:gravity="center"
-		android:layout_above="@id/selectBtn" />
-</RelativeLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="로고를 눌러주시면, 더 빨리 찾아갑니다." />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="커밍순" />
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/button1"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/starbucks"
+                android:onClick="giftClicked" />
+
+            <ImageView
+                android:id="@+id/button1"
+                 android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/starbucks"
+                android:onClick="giftClicked" />
+
+            <ImageView
+                android:id="@+id/button1"
+                 android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/starbucks"
+                android:onClick="giftClicked" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="지금 가능한 곳" />
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/button1"
+               android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/coffeebean"
+                android:onClick="giftClicked" />
+
+            <ImageView
+                android:id="@+id/button1"
+               android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/coffeebean"
+                android:onClick="giftClicked" />
+
+            <ImageView
+                android:id="@+id/button1"
+                 android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/coffeebean"
+                android:onClick="giftClicked" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

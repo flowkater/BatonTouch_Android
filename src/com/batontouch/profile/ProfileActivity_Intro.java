@@ -2,12 +2,11 @@ package com.batontouch.profile;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
-import android.widget.TabHost.TabSpec;
 
 import com.batontouch.R;
-import com.batontouch.homeindex.BatonIndexActivity;
 
 public class ProfileActivity_Intro extends TabActivity {
 
@@ -18,68 +17,35 @@ public class ProfileActivity_Intro extends TabActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile_intro);
 		
-		TabHost tabHost = getTabHost();
+		Resources res = getResources(); // Resource object to get Drawables
+	    TabHost tabHost = getTabHost();  // The activity TabHost
+	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
+	    Intent intent;  // Reusable Intent for each tab
 
-//		LayoutInflater layout = getLayoutInflater();
-//		View homeView = layout.inflate(R.layout.main_tab_home, null);
-//		View manageView = layout.inflate(R.layout.main_tab_dealmanage, null);
-//		View createView = layout.inflate(R.layout.main_tab_home, null);
-//		View profileView = layout.inflate(R.layout.main_tab_profile, null);
-//		View settingView = layout.inflate(R.layout.main_tab_setting, null);
+	    // Create an Intent to launch an Activity for the tab (to be reused)
+	    intent = new Intent().setClass(this, ProfileActivity.class);
 
-		// Baton Home tab
-		Intent intentHome = new Intent(this,
-				BatonIndexActivity.class);
-		TabSpec tabSpecHome = tabHost.newTabSpec("home")
-				.setIndicator("profile").setContent(intentHome);
-		
-		
-		// Baton Manage tab
-		Intent intentBatonMng = new Intent(this, ProfileActivity_Edit.class);
-		TabSpec tabSpecBatonMng = tabHost.newTabSpec("BatonMng")
-				.setIndicator("cuki").setContent(intentBatonMng);
+	    // Initialize a TabSpec for each tab and add it to the TabHost
+	    spec = tabHost.newTabSpec("artists").setIndicator("프로필", null)
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
 
-		// Baton Touch tab
-		
-		
-		Intent intentBatonTouch = new Intent().setClass(this,
-				ProfileActivity_Edit.class);
-		TabSpec tabSpecBatonTouch = tabHost
-				.newTabSpec("BatonTouch")
-				.setIndicator("Gift")
-				.setContent(intentBatonTouch);
+	    // Do the same for the other tabs
+	    
+	    intent = new Intent().setClass(this, ProfileActivity_Manage_Gifticon.class);
+	    spec = tabHost.newTabSpec("songs").setIndicator("기프티콘", null)
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
+	    
+	    intent = new Intent().setClass(this, ProfileActivity_Manage_Cukis.class);
+	    spec = tabHost.newTabSpec("albums").setIndicator("쿠키", null)
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
 
-		// Profile tab
-//		Intent intentProfile = new Intent().setClass(this,
-//				ProfileActivity.class);
-		
-	//	intentProfile.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		
-		
-//		TabSpec tabSpecProfile = tabHost.newTabSpec("Profile")
-//				.setIndicator(profileView).setContent(intentProfile);
+	    
 
-		// Preference tab
-//		Intent intentPreference = new Intent().setClass(this,
-//				SettingActivity.class);
-		
-		//intentPreference.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		
-//		TabSpec tabSpecPreference = tabHost.newTabSpec("Preference")
-//				.setIndicator(settingView).setContent(intentPreference);
+	    tabHost.setCurrentTab(0);
 
-		// add all tabs
-		tabHost.addTab(tabSpecHome);
-		tabHost.addTab(tabSpecBatonMng);
-		tabHost.addTab(tabSpecBatonTouch);
-//		tabHost.addTab(tabSpecProfile);
-//		tabHost.addTab(tabSpecPreference);
-
-		// set Windows tab as default (zero based)
-		tabHost.setCurrentTab(1);
-		
 	}
-
-	
 
 }

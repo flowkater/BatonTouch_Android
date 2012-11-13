@@ -1,11 +1,15 @@
 eclipse.preferences.version=1
 encoding//src/com/batontouch/createbaton/BatonCreate_Gift.java=UTF-8
 encoding//src/com/batontouch/createbaton/BatonCreate_PostATask3.java=UTF-8
+encoding//src/com/batontouch/createbaton/BatonCreate_PostATask_Choose.java=UTF-8
+encoding//src/com/batontouch/createbaton/BatonCreate_PostATask_Selected.java=UTF-8
+encoding//src/com/batontouch/createbaton/MyListAdapter_Createbaton.java=UTF-8
 encoding//src/com/batontouch/homeindex/BatonIndexActivity.java=UTF-8
 encoding//src/com/batontouch/homeindex/BatonListAdapter.java=UTF-8
 encoding//src/com/batontouch/main/LoginActivity.java=UTF-8
 encoding//src/com/batontouch/main/MainActivity.java=UTF-8
 encoding//src/com/batontouch/managebaton/BatonManageActivity.java=UTF-8
+encoding//src/com/batontouch/profile/MyListAdapter.java=UTF-8
 encoding//src/com/batontouch/profile/ProfileActivity_Edit.java=UTF-8
 encoding//src/com/batontouch/setting/SettingActivity.java=UTF-8
 encoding//src/com/batontouch/setting/SettingActivity_KaKao.java=UTF-8
