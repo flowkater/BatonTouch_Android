@@ -13,22 +13,24 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.batontouch.R;
+import com.batontouch.homeindex.BatonShowActivity;
 import com.batontouch.model.Task;
-import com.batontouch.utils.Global;
 
-class MyBatonManageAdapter extends ArrayAdapter<Task> {
+class BatonManageAdapter extends ArrayAdapter<Task> {
 	private Context mContext;
 	private ArrayList<Task> mTasks;
 	private int mResource;
 	private LayoutInflater mInflater;
 	private Task task;
+	private boolean auth_client;
 
-	public MyBatonManageAdapter(Context context, int mResource,
-			ArrayList<Task> mTasks) {
+	public BatonManageAdapter(Context context, int mResource,
+			ArrayList<Task> mTasks, boolean auth_client) {
 		super(context, mResource, mTasks);
 		this.mContext = context;
 		this.mResource = mResource;
 		this.mTasks = mTasks;
+		this.auth_client = auth_client;
 	}
 
 	// 각 항목의 뷰 생성
@@ -45,8 +47,6 @@ class MyBatonManageAdapter extends ArrayAdapter<Task> {
 			holder.dealDay = (TextView) convertView.findViewById(R.id.day);
 			holder.dealStatus = (TextView) convertView
 					.findViewById(R.id.status);
-			holder.dealClientSize = (TextView) convertView
-					.findViewById(R.id.client_size);
 
 			convertView.setTag(holder);
 		} else {
@@ -56,31 +56,37 @@ class MyBatonManageAdapter extends ArrayAdapter<Task> {
 		if (task != null) {
 			holder.dealName.setText(task.getName());
 			holder.dealDay.setText(task.getDay());
-			holder.dealStatus.setText(Global.userJudge(task.getStatus()));
-			holder.dealClientSize.setText(task.getClientSize());
+			holder.dealStatus.setText(task.getClient_size_status(task
+					.getStatus()));
+			// 하나의 TextView 로 통합해서 status 명시
 		}
 
+		// client status 부분
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				task = mTasks.get(position);
 				int status = task.getStatus();
 				String task_id = task.getId();
-
-				if (status == 0) {
-					Intent intent = new Intent(mContext,
-							BatonManageActivity_ManageTasks_Footer.class);
-					Bundle extras = new Bundle();
-					extras.putString("task_id", task_id);
-					intent.putExtras(extras);
-					mContext.startActivity(intent);
-				} else if (status == 1) {
-					Intent intent = new Intent(mContext,
-							BatonManageShowActivity.class);
-					Bundle extras = new Bundle();
-					extras.putString("task_id", task_id);
-					intent.putExtras(extras);
-					mContext.startActivity(intent);
+				if (auth_client) {
+					// client 일때
+					if (status == 0) {
+						startAct(BatonShowActivity.class, task_id);
+					} else if (status == 1 || status == 2) {
+						startAct(BatonManageShowActivity_Client.class, task_id);
+					} else if (status == 3) {
+						startAct(BatonManageReviewActivity.class, task_id);
+					}
+				} else {
+					// user 일때
+					if (status == 0) {
+						startAct(BatonManageActivity_ManageTasks_Footer.class,
+								task_id);
+					} else if (status == 1 || status == 2) {
+						startAct(BatonManageShowActivity_User.class, task_id);
+					} else if (status == 3) {
+						startAct(BatonManageReviewActivity.class, task_id);
+					}
 				}
 			}
 		});
@@ -88,10 +94,17 @@ class MyBatonManageAdapter extends ArrayAdapter<Task> {
 		return convertView;
 	}
 
+	public void startAct(Class<?> cls, String task_id) {
+		Intent in = new Intent(mContext, cls);
+		Bundle extras = new Bundle();
+		extras.putString("task_id", task_id);
+		in.putExtras(extras);
+		mContext.startActivity(in);
+	}
+
 	class ViewHolder {
 		TextView dealName;
 		TextView dealDay;
 		TextView dealStatus;
-		TextView dealClientSize;
 	}
 }

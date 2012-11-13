@@ -3,6 +3,7 @@ package com.batontouch.managebaton;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -31,6 +32,8 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 	private String auth_token;
 
 	private BatonManageClientAdapter clientAdapter;
+	
+	private ProgressDialog progressdialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 
 		mClientListView.setAdapter(clientAdapter);
 
+		DialogProgress();
 		new GetBatonShow().execute();
 	}
 
@@ -103,8 +107,15 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 									+ " BatonManageShow Gson Exception");
 				}
 			}
+			progressdialog.dismiss();
 			super.onPostExecute(result);
 		}
+	}
+	public void DialogProgress() {
+		progressdialog = ProgressDialog.show(BatonManageActivity_ManageTasks_Footer.this, "",
+				"잠시만 기다려 주세요 ...", true);
+		// 창을 내린다.
+		// progressdialog.dismiss();
 	}
 
 }

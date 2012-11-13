@@ -14,11 +14,15 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +50,8 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 	private String auth_token;
 	
 	private int StatusCode;
+	
+	private ProgressDialog progressdialog;
 
 	public BatonManageClientAdapter(Context context, int mResource,
 			ArrayList<User> mUsers, String task_id) {
@@ -96,11 +102,16 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 			});
 		}
 
+		// 선택된 클라이언트의 프로필 사진을 보여준다.
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				user = mUsers.get(position);
-
+				Intent in = new Intent(mContext, BatonManageProfileActivity.class);
+				Bundle extras = new Bundle();
+				extras.putString("user_id", user.getId());
+				in.putExtras(extras);
+				mContext.startActivity(in);
 			}
 		});
 
@@ -121,6 +132,7 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 		altBld.setMessage("이 러너를 선택하시겠습니까?").setCancelable(false)
 				.setPositiveButton("넹", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
+						DialogProgress();
 						new SelectRunner().execute(params[0]);
 					}
 				})
@@ -176,7 +188,24 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 
 		@Override
 		protected void onPostExecute(Void result) {
+			progressdialog.dismiss();
+			if (StatusCode == 200) {
+				Toast.makeText(mContext, "러너가 선택되었습니다.", Toast.LENGTH_SHORT).show();
+				Intent in = new Intent(mContext, BatonManageShowActivity_User.class);
+				in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				Bundle extras = new Bundle();
+				extras.putString("task_id", task_id);
+				in.putExtras(extras);
+				mContext.startActivity(in);
+				((Activity)mContext).finish();
+			}
 			super.onPostExecute(result);
 		}
+	}
+	public void DialogProgress() {
+		progressdialog = ProgressDialog.show(mContext, "",
+				"잠시만 기다려 주세요 ...", true);
+		// 창을 내린다.
+		// progressdialog.dismiss();
 	}
 }

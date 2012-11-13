@@ -1,7 +1,11 @@
 package com.batontouch.setting;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +13,13 @@ import android.widget.Toast;
 
 import com.batontouch.R;
 import com.batontouch.kakaoLink.KakaoLink;
+import com.batontouch.main.LoginActivity;
+import com.batontouch.main.UserLoginActivity;
 
 public class SettingActivity extends Activity {
 	private String encoding = "UTF-8";
+	private SharedPreferences mPreferences;
+	private ProgressDialog progressdialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +32,7 @@ public class SettingActivity extends Activity {
 
 		switch (v.getId()) {
 		case R.id.logoutBtn:
-			Toast.makeText(getApplicationContext(), "로그아웃", 3000).show();
-			Intent intent1 = new Intent(getApplicationContext(),
-					Setting_Logout.class);
-			startActivity(intent1);
+			LogoutDialog();
 			break;
 		case R.id.paymentBtn:
 			Toast.makeText(getApplicationContext(), "결제정보 수정/확인", 3000).show();
@@ -46,7 +51,7 @@ public class SettingActivity extends Activity {
 		// Setting_Verification.class);
 		// startActivity(intent3);
 		// break;
-		
+
 		// case R.id.dropoutBtn:
 		// Toast.makeText(getApplicationContext(), "회원탈퇴", 3000).show();
 		// Intent intent5 = new Intent(getApplicationContext(),
@@ -103,15 +108,15 @@ public class SettingActivity extends Activity {
 			startActivity(intent1);
 			break;
 
-//		case R.id.pushAreaBtn:
-//			Toast.makeText(getApplicationContext(), "관심 푸쉬지역 설정", 3000).show();
-//			Intent intent2 = new Intent(getApplicationContext(),
-//					Setting_PushArea.class);
-//			startActivity(intent2);
-//			break;
-//		case R.id.pushRangeBtn:
-//			Toast.makeText(getApplicationContext(), "푸쉬 범위 설정", 3000).show();
-//			break;
+		// case R.id.pushAreaBtn:
+		// Toast.makeText(getApplicationContext(), "관심 푸쉬지역 설정", 3000).show();
+		// Intent intent2 = new Intent(getApplicationContext(),
+		// Setting_PushArea.class);
+		// startActivity(intent2);
+		// break;
+		// case R.id.pushRangeBtn:
+		// Toast.makeText(getApplicationContext(), "푸쉬 범위 설정", 3000).show();
+		// break;
 		}
 	}
 
@@ -162,4 +167,43 @@ public class SettingActivity extends Activity {
 
 	}
 
+	// 다이얼로그 method
+	private void LogoutDialog() {
+		AlertDialog.Builder altBld = new AlertDialog.Builder(this);
+		altBld.setMessage("로그아웃 하시겠습니까?")
+				.setCancelable(false)
+				.setPositiveButton("넹", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						Logout();
+						finish();
+					}
+				})
+				.setNegativeButton("아뇨", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+					}
+				});
+		AlertDialog alert = altBld.create();
+		alert.show();
+	}
+
+	// 값(ALL Data) 삭제하기
+	private void Logout() {
+		SharedPreferences preftoken = getSharedPreferences("CurrentUser",
+				MODE_PRIVATE);
+		SharedPreferences.Editor editortoken = preftoken.edit();
+		editortoken.clear();
+		editortoken.commit();
+		
+		Intent in = new Intent(getApplicationContext(),
+				LoginActivity.class);
+		startActivity(in);
+	}
+
+	public void DialogProgress() {
+		progressdialog = ProgressDialog.show(SettingActivity.this, "",
+				"잠시만 기다려 주세요 ...", true);
+		// 창을 내린다.
+		// progressdialog.dismiss();
+	}
 }
