@@ -67,6 +67,21 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name=".createbaton.BatonCreate_PostATask_Selected"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_PostATask_Choose"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".createbaton.BatonCreate_PostATask_Detail"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name=".createbaton.BatonCreateActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
@@ -128,15 +143,31 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-        
-
-        
-         <activity
+        <activity
             android:name=".profile.ProfileActivity_Intro"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-        
+        <activity
+            android:name=".profile.ProfileActivity_Manage_Cukis"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".profile.ProfileActivity_Manage_Gifticon"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".profile.ProfileActivity_Manage_Gifticonpage"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".profile.ProfileActivity_Manage_Gifticonpage_Storeinfo"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name=".profile.ProfileActivity"
             android:label="Batontouch"
@@ -229,9 +260,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name=".managebaton.BatonManageShowActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
