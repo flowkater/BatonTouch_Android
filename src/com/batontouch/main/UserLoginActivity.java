@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class UserLoginActivity extends Activity {
 	private JSONObject jObject;
 	private SharedPreferences mPreferences;
 	private String email, password;
+	private ProgressDialog progressdialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class UserLoginActivity extends Activity {
 	}
 
 	public void LoginClick(View v) {
+		DialogProgress();
 		t = new Thread() {
 			public void run() {
 				try {
@@ -134,6 +137,7 @@ public class UserLoginActivity extends Activity {
 //			editor.putString("UserName", email);
 //			editor.putString("PassWord", password);
 			editor.putString("AuthToken", sessionTokens.get("auth_token"));
+			editor.putBoolean("AuthClient", Boolean.valueOf(sessionTokens.get("client_status")));
 			editor.commit();
 			Message myMessage = new Message();
 			myMessage.obj = "SUCCESS";
@@ -152,8 +156,10 @@ public class UserLoginActivity extends Activity {
 			JSONObject sessionObject = jObject.getJSONObject("session");
 			String attributeError = sessionObject.getString("error");
 			String attributeToken = sessionObject.getString("auth_token");
+			String attributeClientStatus = sessionObject.getString("client_status");
 			sessionTokens.put("error", attributeError);
 			sessionTokens.put("auth_token", attributeToken);
+			sessionTokens.put("client_status",attributeClientStatus);
 		} else {
 			sessionTokens.put("error", "Error");
 		}
@@ -165,11 +171,18 @@ public class UserLoginActivity extends Activity {
 		public void handleMessage(Message msg) {
 			String loginmsg = (String) msg.obj;
 			if (loginmsg.equals("SUCCESS")) {
-
 				Intent intent = new Intent(getApplicationContext(),
 						MainActivity.class);
 				startActivity(intent);
+				progressdialog.dismiss();
 			}
 		}
 	};
+	
+	public void DialogProgress() {
+		progressdialog = ProgressDialog.show(UserLoginActivity.this, "",
+				"잠시만 기다려 주세요 ...", true);
+		// 창을 내린다.
+		// progressdialog.dismiss();
+	}
 }

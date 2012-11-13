@@ -52,7 +52,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageActivity_ClientProfile"
+            android:name=".managebaton.BatonManageProfileActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
@@ -230,7 +230,13 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name=".managebaton.BatonManageShowActivity"
+            android:name=".managebaton.BatonManageShowActivity_User"
+            android:screenOrientation="portrait"></activity>
+        <activity 
+            android:name=".managebaton.BatonManageShowActivity_Client"
+            android:screenOrientation="portrait"></activity>
+        <activity 
+            android:name=".managebaton.BatonManageReviewActivity"
             android:screenOrientation="portrait"></activity>
     </application>
 

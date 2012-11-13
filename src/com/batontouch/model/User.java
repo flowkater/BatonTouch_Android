@@ -3,8 +3,22 @@ package com.batontouch.model;
 public class User {
 	private String id;
 	private String name;
+	private String introduce;
 	private String tradestat_id;
+	private boolean client_status; 
 	
+	public boolean isClient_status() {
+		return client_status;
+	}
+	public void setClient_status(boolean client_status) {
+		this.client_status = client_status;
+	}
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
 	public String getId() {
 		return id;
 	}

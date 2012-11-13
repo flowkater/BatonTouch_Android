@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
@@ -102,7 +101,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:enabled="false"
             android:lineSpacingMultiplier="2"
             android:text="안녕하세요. 이화여대 정문에 위치한 밥풀이라는 음식점에서 양념통닭 3마리 사와주시고요. 오는 길에 콜라도 사와주세요."
             android:textSize="20dp" />
@@ -124,11 +122,11 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내가 준 기프티콘"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -142,7 +140,6 @@
             android:id="@+id/featured_adapter"
             android:layout_width="fill_parent"
             android:layout_height="80dp"
-
             android:onClick="mOnClick"
             android:orientation="vertical" >
 
@@ -184,8 +181,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="전화하기"
                         android:layout_marginLeft="10dp"
+                        android:text="전화하기"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#000000"
                         android:textSize="12dp" />
@@ -203,12 +200,14 @@
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
-         <LinearLayout
+
+        <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/finish"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
 

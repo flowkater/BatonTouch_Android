@@ -2,6 +2,8 @@ package com.batontouch.model;
 
 import java.util.ArrayList;
 
+import com.batontouch.utils.Global;
+
 public class Task {
 	private String id;
 	private String name;
@@ -13,10 +15,36 @@ public class Task {
 	private String toloc;
 	private String calldate;
 	private String enddate;
-	private String client_size;
+	private int client_size;
 	private ArrayList<User> users;
+	private boolean current_user;
+	private boolean client_status;
 	private User user;
 	private User client;
+	
+	public String getClient_size_status(int status){
+		if (status == 0) {
+			return this.client_size + "명  " + Global.userJudge(status);
+		} else {
+			return Global.userJudge(status)+"";
+		}
+	}
+	
+	public boolean isClient_status() {
+		return client_status;
+	}
+
+	public void setClient_status(boolean client_status) {
+		this.client_status = client_status;
+	}
+
+	public boolean isCurrent_user() {
+		return current_user;
+	}
+
+	public void setCurrent_user(boolean current_user) {
+		this.current_user = current_user;
+	}
 
 	public User getUser() {
 		return user;
@@ -32,14 +60,6 @@ public class Task {
 
 	public void setClient(User client) {
 		this.client = client;
-	}
-
-	public String getClientSize() {
-		return client_size + "명";
-	}
-
-	public void setClientSize(String clientSize) {
-		this.client_size = clientSize;
 	}
 
 	public ArrayList<User> getUsers() {

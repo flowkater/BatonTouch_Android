@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -19,24 +20,22 @@ import com.batontouch.model.Tasks;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.NetHelper;
 import com.google.gson.Gson;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 public class BatonManageActivity extends Activity {
-	private PullToRefreshListView mListView;
+	private ListView mListView;
 	private ArrayList<Task> mArrayList;
-	private MyBatonManageAdapter mManageadapter;
+	private BatonManageAdapter mManageadapter;
 	private String mResult;
 
 	private Button askedButton, myTaskBtn;
 	private LinearLayout btnLinearManage;
 
 	private String auth_token;
+	private boolean auth_client;
 	private SharedPreferences mPreferences;
 
 	private Boolean btnStatus = false;
-	private Boolean clientStatus;
+	private ProgressDialog progressdialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,38 +44,26 @@ public class BatonManageActivity extends Activity {
 
 		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 		auth_token = mPreferences.getString("AuthToken", ""); // auth_token 가져오기
+		auth_client = mPreferences.getBoolean("AuthClient", false);
 
 		btnLinearManage = (LinearLayout) findViewById(R.id.btnLinearManage);
 		askedButton = (Button) findViewById(R.id.askedTaskBtn);
 		myTaskBtn = (Button) findViewById(R.id.myTaskBtn);
 
-		clientStatus = false; // 클라이언트 체크를 해서 버튼을 없앤다.
-
-		if (!clientStatus) {
-			btnLinearManage.setVisibility(View.GONE);
+		if (auth_client) {// 클라이언트 체크를 해서 버튼을 없앤다.
+			btnLinearManage.setVisibility(View.VISIBLE);
 		}
 
 		mArrayList = new ArrayList<Task>();
 
-		mListView = (PullToRefreshListView) findViewById(R.id.listView);
-		mListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
-			@Override
-			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				if (btnStatus) {
-					mArrayList.clear();
-					new GetMyTaskBidList().execute();
-				} else {
-					mArrayList.clear();
-					new GetAskedTaskList().execute();
-				}
-			}
-		});
+		mListView = (ListView) findViewById(R.id.listView);
+
 		new GetAskedTaskList().execute();
 
-		mManageadapter = new MyBatonManageAdapter(this,
-				R.layout.featured_adapter2, mArrayList);
+		mManageadapter = new BatonManageAdapter(this,
+				R.layout.featured_adapter2, mArrayList, auth_client);
 
-		mListView.getRefreshableView().setAdapter(mManageadapter);
+		mListView.setAdapter(mManageadapter);
 	}
 
 	// 내가 시킨 일 가져오기 리스트
@@ -102,9 +89,7 @@ public class BatonManageActivity extends Activity {
 								+ " BatonManage Asked Gson Exception");
 			}
 
-			mListView.onRefreshComplete();
 			mManageadapter.notifyDataSetChanged();
-
 			super.onPostExecute(result);
 		}
 	}
@@ -133,8 +118,6 @@ public class BatonManageActivity extends Activity {
 						e.getClass().getName() + " " + e.getMessage()
 								+ " BatonManage Asked Gson Exception");
 			}
-
-			mListView.onRefreshComplete();
 			mManageadapter.notifyDataSetChanged();
 
 			super.onPostExecute(result);
@@ -160,5 +143,12 @@ public class BatonManageActivity extends Activity {
 			myTaskBtn.setBackgroundColor(Color.rgb(89, 89, 89));
 			break;
 		}
+	}
+
+	public void DialogProgress() {
+		progressdialog = ProgressDialog.show(BatonManageActivity.this, "",
+				"잠시만 기다려 주세요 ...", true);
+		// 창을 내린다.
+		// progressdialog.dismiss();
 	}
 }

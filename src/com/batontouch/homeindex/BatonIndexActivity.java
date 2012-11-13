@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.batontouch.R;
-import com.batontouch.main.Logout_Dialog;
 import com.batontouch.model.Task;
 import com.batontouch.model.Tasks;
 import com.batontouch.utils.Global;
@@ -76,6 +75,15 @@ public class BatonIndexActivity extends Activity {
 		mlistView.getRefreshableView().setOnScrollListener(
 				new EndlessScrollListener());
 	}
+	
+//	@Override
+//	protected void onResume() {
+//		super.onResume();
+//		mArrayList.clear();
+//		mCurrentPage = 1;
+//		mPrevTotalItemCount = 0;
+//		new GetMyTaskList().execute();
+//	}
 
 	private class GetMyTaskList extends AsyncTask<Void, Void, Void> {
 		@Override
@@ -179,9 +187,9 @@ public class BatonIndexActivity extends Activity {
 				}).setNegativeButton("취소", null).show();
 	}
 
-	public void onBackPressed() {
-		Intent intent = new Intent(getApplicationContext(), Logout_Dialog.class);
-		startActivity(intent);
-
-	}
+//	public void onBackPressed() {
+//		Intent intent = new Intent(getApplicationContext(), Logout_Dialog.class);
+//		startActivity(intent);
+//
+//	}
 }

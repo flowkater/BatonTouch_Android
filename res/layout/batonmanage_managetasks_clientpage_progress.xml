@@ -17,14 +17,14 @@
             android:orientation="horizontal" >
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/userProfileImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_launcher" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/userCompanyImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
@@ -35,12 +35,12 @@
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageView11"
+                android:layout_toRightOf="@id/userProfileImage"
                 android:gravity="center_vertical"
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/userName"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -59,11 +59,10 @@
                         android:id="@+id/callBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/imageView1"
                         android:text="전화걸기" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/smsBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="문자하기" />
@@ -91,7 +90,7 @@
                     android:text="딜 이름" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/deal_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -112,7 +111,7 @@
                     android:text="상태" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/deal_status"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -133,7 +132,7 @@
                     android:text="자세사항" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/deal_description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -154,7 +153,7 @@
                     android:text="경유장소" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/deal_fromloc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -175,7 +174,7 @@
                     android:text="도착장소" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/deal_toloc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -196,7 +195,7 @@
                     android:text="남은 시간" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/rest_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -213,15 +212,16 @@
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textClientStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="일이 진짜 끝났나요?" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/confirmBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="ClientConfirmBtnClick"
                 android:layout_marginLeft="20dp"
                 android:text="네!" />
         </LinearLayout>
