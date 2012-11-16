@@ -11,7 +11,7 @@ public class ProfileActivity_Manage_Cukis extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.profile_manage_gifticonpage);
+		setContentView(R.layout.profile_manage_cukis);
 	}
 
 }

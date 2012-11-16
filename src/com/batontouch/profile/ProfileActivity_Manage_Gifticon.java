@@ -21,10 +21,21 @@ public class ProfileActivity_Manage_Gifticon extends Activity{
 		
 		arItem = new ArrayList<MyItem4>();
 		MyItem4 mi;
-		mi = new MyItem4(R.drawable.ic_launcher, "민수");
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
 		arItem.add(mi);
-		mi = new MyItem4(R.drawable.ic_launcher, "민수");
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
 		arItem.add(mi);
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
+		arItem.add(mi);
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
+		arItem.add(mi);
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
+		arItem.add(mi);
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
+		arItem.add(mi);
+		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
+		arItem.add(mi);
+
 
 
 		MyListAdapter MyAdapter = new MyListAdapter(this, R.layout.featured_adapter_gift, arItem);
