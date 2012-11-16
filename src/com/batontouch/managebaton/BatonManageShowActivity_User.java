@@ -54,7 +54,7 @@ public class BatonManageShowActivity_User extends Activity {
 		tvStatus = (TextView) findViewById(R.id.status);
 		tvDescription = (TextView) findViewById(R.id.dealDescription);
 		tvResttime = (TextView) findViewById(R.id.dealResttime);
-		linearfinish = (LinearLayout) findViewById(R.id.finish);
+//		linearfinish = (LinearLayout) findViewById(R.id.finish);
 
 		new GetBatonShow().execute();
 	}

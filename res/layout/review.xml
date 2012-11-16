@@ -11,14 +11,14 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/user_profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:src="@drawable/ic_launcher" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/user_company_image"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -26,50 +26,52 @@
             android:src="@drawable/ic_launcher" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/user_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/imageView11"
+            android:layout_toRightOf="@+id/user_profile_image"
             android:text="배수지"
             android:textSize="25dp" />
     </RelativeLayout>
 
     <RatingBar
-        android:id="@+id/ratingBar1"
+        android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:numStars="5"
         android:rating="3.0"
-        android:stepSize="1.0" />
+        android:stepSize="0.5" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/content_edit"
         android:layout_width="match_parent"
-        android:layout_height="200dp" 
+        android:layout_height="200dp"
         android:gravity="top"
-        android:hint="고마운 사람을 위해 리뷰써주세요.">
-        
+        android:hint="고마운 사람을 위해 리뷰써주세요." >
     </EditText>
-<!-- 클라이언트 리뷰 -->    <LinearLayout
+    <!-- 클라이언트 리뷰 -->
+
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/giftconTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="기트티콘 받기" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/clientcomBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -82,18 +84,19 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textV"
+            android:id="@+id/reviewTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="리뷰를 완료해주세요" />
 
         <Button
-            android:id="@+id/but"
+            android:id="@+id/usercompBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
