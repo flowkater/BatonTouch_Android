@@ -10,6 +10,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/top_line" />
+
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
@@ -34,40 +39,41 @@
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/user_image"
                 android:gravity="center_vertical"
                 android:orientation="vertical" >
 
                 <TextView
-                    android:layout_marginTop="30dp"
                     android:id="@+id/user_name"
-                    android:gravity="left|center_vertical"
                     android:layout_width="fill_parent"
-                    android:layout_marginLeft="10dp"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
-                    android:text="배수지" />
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="배수지"
+                    android:textColor="#aa0000"
+                    android:textSize="25dp" />
 
                 <LinearLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal" >
 
                     <Button
                         android:id="@+id/callBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/imageView1"
-                        android:text="전화걸기" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/call_btn" />
 
                     <Button
                         android:id="@+id/smsBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="문자하기" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/message_btn" />
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
@@ -86,41 +92,55 @@
                 android:gravity="left|center_vertical"
                 android:text="뭐뭐 인증 했니?" />
 
-            <Button
-                android:id="@+id/phoneCheck"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center_vertical"
-                android:text="핸드폰 인증 완료!" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/facebookCheck"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center_vertical"
-                android:text="페북 인증 완료!" />
+                <Button
+                    android:id="@+id/phoneCheck"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/call_btn" />
+
+                <Button
+                    android:id="@+id/facebookCheck"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/btnfacebook_logo" />
+            </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:text="저는 이래요!" />
 
         <TextView
             android:id="@+id/user_introduce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="나는 이래요 : 정말 성실히 일을 잘 합니다!" />
+            android:text="정말 성실히 일을 잘 합니다!"
+            android:textSize="20sp" />
 
         <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
+            
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:text="Review" />
+                android:text="리뷰"
+                android:textSize="20sp"
+                android:background="#00ff00" />
 
+            <!-- 리뷰 해준 사람의 프로필 사진이 뜬다. -->
 
-<!--             리뷰 해준 사람의 프로필 사진이 뜬다. -->
             <ImageView
                 android:id="@+id/writer_image"
                 android:layout_width="80dp"
@@ -147,7 +167,8 @@
             </LinearLayout>
         </RelativeLayout>
 
-<!--         활동사진 -->
+        <!-- 활동사진 -->
+
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
@@ -195,31 +216,33 @@
                 android:background="@drawable/ic_launcher" />
         </LinearLayout>
 
-<!--         <LinearLayout -->
-<!--             xmlns:android="http://schemas.android.com/apk/res/android" -->
-<!--             android:id="@+id/finish" -->
-<!--             android:layout_width="fill_parent" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_marginTop="20dp" -->
-<!--             android:gravity="center_horizontal" -->
-<!--             android:orientation="horizontal" > -->
+        <!-- <LinearLayout -->
+        <!-- xmlns:android="http://schemas.android.com/apk/res/android" -->
+        <!-- android:id="@+id/finish" -->
+        <!-- android:layout_width="fill_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginTop="20dp" -->
+        <!-- android:gravity="center_horizontal" -->
+        <!-- android:orientation="horizontal" > -->
 
-<!--             <TextView -->
-<!--                 android:id="@+id/textView2" -->
-<!--                 android:layout_width="wrap_content" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_marginRight="20dp" -->
-<!--                 android:gravity="center_horizontal" -->
-<!--                 android:text="일이 끝났어요?" -->
-<!--                 android:textSize="20dp" /> -->
 
-<!--             <Button -->
-<!--                 android:id="@+id/button3" -->
-<!--                 android:layout_width="wrap_content" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:onClick="finishedBtn" -->
-<!--                 android:text="끝났어요!" /> -->
-<!--         </LinearLayout> -->
+        <!-- <TextView -->
+        <!-- android:id="@+id/textView2" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginRight="20dp" -->
+        <!-- android:gravity="center_horizontal" -->
+        <!-- android:text="일이 끝났어요?" -->
+        <!-- android:textSize="20dp" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+id/button3" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:onClick="finishedBtn" -->
+        <!-- android:text="끝났어요!" /> -->
+        <!-- </LinearLayout> -->
     </LinearLayout>
 
 </ScrollView>
