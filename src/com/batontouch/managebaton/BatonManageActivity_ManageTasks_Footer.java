@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.batontouch.R;
@@ -55,10 +56,11 @@ public class BatonManageActivity_ManageTasks_Footer extends Activity {
 
 		LayoutInflater li = getLayoutInflater();
 
-		LinearLayout linear = (LinearLayout) li.inflate(
+		///
+		ScrollView linear = (ScrollView) li.inflate(
 				R.layout.batonmanage_managetasks, null);
 		mClientListView.addHeaderView(linear);
-
+///
 		tvName = (TextView) linear.findViewById(R.id.name);
 		tvDate = (TextView) linear.findViewById(R.id.date);
 		tvStatus = (TextView) linear.findViewById(R.id.status);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/tab_profile_ivory_contrast" android:state_checked="true"/>
-    <item android:drawable="@drawable/tab_profile_ivory" android:state_checked="false"/>
-    <item android:drawable="@drawable/tab_profile_ivory"></item>
+    <item android:drawable="@drawable/gifticon_confirm_btn_after_using" android:state_checked="true"/>
+    <item android:drawable="@drawable/gifticon_confirm_btn_before_using" android:state_checked="false"/>
+    <item android:drawable="@drawable/gifticon_confirm_btn_before_using"></item>
 
 </selector>

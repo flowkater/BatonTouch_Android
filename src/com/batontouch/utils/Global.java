@@ -2,19 +2,21 @@ package com.batontouch.utils;
 
 public class Global {
 	// public static String ServerUrl = "http://192.168.0.154:3000/api/";
-	// public static String ServerUrl = "http://14.63.222.63:3333//api/";
-	public static String ServerUrl = "http://192.168.0.2:3000/api/";
+	 public static String ServerUrl = "http://14.63.222.63:3333/api/";
+//	public static String ServerUrl = "http://192.168.0.2:3000/api/";
 	public static String FacebookSendToken = ServerUrl
 			+ "check_mobile_login.json?token=";
 	// == API Versioning
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
-	public static String AuthorizationToken = "Token token=\"1ada089cf516f14ca7802d227799699a\""; // Authorization
+	public static String AuthorizationToken = "Token token=\"c0b9599186c6a8912f38b86594f9699f\""; // Authorization
 
 	public static String clientJudge(int taskStatus, boolean tradeStatus) {
 		/*
 		 * tradeStatus => Client && taskStatus => Deal t f # taskStatus # 0 :
-		 * 대기중 # 1 : 진행중 # 2 : 클라이언트 완료 # 3 : Task 완료 -- 2, 3 똑같은 완료 # -1 : 만료 #
+		 * 대기중 # 1 : 진행중 # 2 : 클라이언트 완료 # 3 : Task 완료 -- 2, 3 똑같
+		 * 
+		은 완료 # -1 : 만료 #
 		 * etc : Error
 		 * 
 		 * # tradeStatus # false : non select # true : select

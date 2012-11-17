@@ -12,6 +12,7 @@
             layout="@layout/main_upper_line" />
 
     <TableLayout
+        android:background="@drawable/running_boy"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_margin="30dp"
@@ -29,20 +30,20 @@
                 android:layout_height="100dp"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/basket_full"
                 android:onClick="mOnClick"
+             
                 android:text="음식"
                 android:textSize="30dp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/button2"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/pharmacy"
                 android:onClick="mOnClick"
                 android:textSize="30dp" />
+
         </TableRow>
 
         <TableRow
@@ -50,23 +51,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/button5"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/users"
                 android:onClick="mOnClick"
                 android:textSize="30dp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/button4"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="@drawable/right"
                 android:onClick="mOnClick"
                 android:text="그 외에"
                 android:textSize="30dp" />

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/notice_contrast" android:state_selected="true"></item>
-    <item android:drawable="@drawable/notice_contrast" android:state_pressed="true"></item>
-    <item android:drawable="@drawable/notice"></item>
+    <item android:drawable="@drawable/more_tab_btns_notice_contrast" android:state_selected="true"></item>
+    <item android:drawable="@drawable/more_tab_btns_notice_contrast" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/more_tab_btns_notice"></item>
 
 </selector>

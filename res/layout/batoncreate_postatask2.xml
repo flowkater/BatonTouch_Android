@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
-    android:background="@drawable/background_square"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_square" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,9 +25,10 @@
                 android:id="@+id/radio0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"       android:enabled="false"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:checked="true" />
+                android:checked="true"
+                android:enabled="false" />
 
             <RadioButton
                 android:id="@+id/radio1"
@@ -35,15 +36,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:enabled="false"
-                android:checked="true" />
+                android:checked="true"
+                android:enabled="false" />
 
             <RadioButton
                 android:id="@+id/radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"       android:enabled="false"
-                android:layout_marginRight="20dp" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:enabled="false" />
         </RadioGroup>
 
         <LinearLayout
@@ -52,22 +54,29 @@
             android:layout_margin="10dp"
             android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="예상소요시간"
-                android:textSize="15dp" />
+                android:orientation="horizontal" >
 
-            <EditText
-                android:id="@+id/expectedtime"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:ems="10"
-                android:singleLine="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="예상소요시간"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/expectedtime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+               
+                    android:layout_weight="1"
+                    android:background="@drawable/underline_box"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:singleLine="true" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,18 +93,18 @@
 
                 <Button
                     android:id="@+id/dateToAnswer"
-                    android:onClick="dateToAnswer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
+                    android:onClick="dateToAnswer"
                     android:text="2012년 11월 9일" />
 
                 <Button
                     android:id="@+id/timeToAnswer"
                     android:layout_width="0dp"
-                    android:onClick="timeToAnswer"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    android:onClick="timeToAnswer"
                     android:text="오후 2시10분" />
             </LinearLayout>
 
@@ -115,17 +124,17 @@
                 <Button
                     android:id="@+id/dateTobeDone"
                     android:layout_width="0dp"
-                    android:onClick="dateTobeDone"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
+                    android:onClick="dateTobeDone"
                     android:text="2012년 11월 10일" />
 
                 <Button
                     android:id="@+id/timeTobeDone"
                     android:layout_width="0dp"
-                    android:onClick="timeTobeDone"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    android:onClick="timeTobeDone"
                     android:text="오전 11시50분" />
             </LinearLayout>
         </LinearLayout>

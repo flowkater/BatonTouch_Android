@@ -12,8 +12,6 @@
         android:layout_height="fill_parent"
         android:orientation="vertical" >
 
-
-
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
@@ -59,17 +57,26 @@
                     android:text="Edit" />
             </LinearLayout>
 
-            <Button
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_thick" />
+
+            <TextView
                 android:id="@+id/button1"
-                style="?android:attr/buttonStyleSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#000000"
                 android:gravity="left|center_vertical"
-                android:text="인증"
-                android:textColor="#ffffff"
+                android:text="뭐뭐 인증했니?"
                 android:textSize="25dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_thick" />
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -105,16 +112,19 @@
                     android:enabled="false" />
             </LinearLayout>
 
-            <Button
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_thick" />
+
+            <TextView
                 android:id="@+id/button1"
-                style="?android:attr/buttonStyleSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#000000"
                 android:gravity="left|center_vertical"
-                android:text="저는 이래요"
-                android:textColor="#ffffff"
+                android:text="저는 이래요!"
                 android:textSize="25dp" />
 
             <TextView
@@ -124,16 +134,19 @@
                 android:layout_margin="10dp"
                 android:text="저는 아주 빠른 발을 자지고 있습니다!" />
 
-            <Button
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_thick" />
+
+            <TextView
                 android:id="@+id/button1"
-                style="?android:attr/buttonStyleSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#000000"
                 android:gravity="left|center_vertical"
                 android:text="최근활동"
-                android:textColor="#ffffff"
                 android:textSize="25dp" />
 
             <TextView
@@ -157,17 +170,26 @@
                 android:layout_margin="10dp"
                 android:text="정현이 정신 차리게하기" />
 
-            <Button
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_thick" />
+
+            <TextView
                 android:id="@+id/button1"
-                style="?android:attr/buttonStyleSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#000000"
                 android:gravity="left|center_vertical"
                 android:text="리뷰"
-                android:textColor="#ffffff"
                 android:textSize="25dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/line_thick" />
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
