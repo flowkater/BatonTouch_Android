@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:layout_marginBottom="60dp"
-    android:background="@drawable/background_square"
+    android:background="#ffffff"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -37,12 +37,12 @@
             <ImageView
                 
                 android:id="@+id/upper_line"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_width="fill_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/txt_batons_waiting" >
+                android:layout_height="40dp"
+                android:background="@drawable/waiting_batontouch" >
             </ImageView>
         </RelativeLayout>
 
@@ -50,7 +50,7 @@
             android:id="@+id/upper_line"
             android:layout_width="fill_parent"
             android:layout_height="65dp"
-            android:background="@drawable/become_client" >
+            android:background="@drawable/become_runner" >
         </ImageView>
     </LinearLayout>
 

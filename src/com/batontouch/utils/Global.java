@@ -2,14 +2,14 @@ package com.batontouch.utils;
 
 public class Global {
 	// public static String ServerUrl = "http://192.168.0.154:3000/api/";
-	// public static String ServerUrl = "http://14.63.222.63:3333/api/";
-	public static String ServerUrl = "http://192.168.0.2:3000/api/";
+	 public static String ServerUrl = "http://14.63.222.63:3333/api/";
+	//public static String ServerUrl = "http://192.168.0.2:3000/api/";
 	public static String FacebookSendToken = ServerUrl
 			+ "check_mobile_login.json?token=";
 	// == API Versioning
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
-	public static String AuthorizationToken = "Token token=\"f6a863a6657994a0d8dacd894a13ab05\""; // Authorization
+	public static String AuthorizationToken = "Token token=\"c0b9599186c6a8912f38b86594f9699f\""; // Authorization
 
 	public static String userJudge(int taskStatus) {
 		/*
