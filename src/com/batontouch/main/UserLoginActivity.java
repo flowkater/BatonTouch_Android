@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.batontouch.R;
+import com.batontouch.utils.AlertDialogManager;
 import com.batontouch.utils.Global;
 
 public class UserLoginActivity extends Activity {
@@ -36,6 +37,7 @@ public class UserLoginActivity extends Activity {
 	private SharedPreferences mPreferences;
 	private String email, password;
 	private ProgressDialog progressdialog;
+	private AlertDialogManager alert = new AlertDialogManager();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +66,16 @@ public class UserLoginActivity extends Activity {
 					authenticate();
 				} catch (ClientProtocolException e) {
 					Log.e("my", e.getClass().getName() + e.getMessage() + "cl");
+					progressdialog.dismiss();
+					dialog_handler.sendEmptyMessage(0);
 				} catch (IOException e) {
 					Log.e("my", e.getClass().getName() + e.getMessage() + "io");
+					progressdialog.dismiss();
+					dialog_handler.sendEmptyMessage(0);
 				} catch (Exception e){
 					Log.e("my", e.getClass().getName() + e.getMessage() + "io");
+					progressdialog.dismiss();
+					dialog_handler.sendEmptyMessage(0);
 				}
 
 			}
@@ -81,6 +89,8 @@ public class UserLoginActivity extends Activity {
 			HashMap<String, String> sessionTokens = Login();
 		} catch (Exception e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "LoginError");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		}
 	}
 
@@ -106,8 +116,12 @@ public class UserLoginActivity extends Activity {
 			post.setHeader("Authorization", Global.AuthorizationToken );
 		} catch (UnsupportedEncodingException e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "1");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		} catch (JSONException e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "2");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		}
 
 		String response = null;
@@ -116,10 +130,16 @@ public class UserLoginActivity extends Activity {
 			response = client.execute(post, responseHandler);
 		} catch (ClientProtocolException e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "3");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		} catch (IOException e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "4");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		} catch (Exception e){
 			Log.e("my", e.getClass().getName() + e.getMessage() + "4");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		}
 		
 
@@ -128,6 +148,8 @@ public class UserLoginActivity extends Activity {
 			sessionTokens = parseToken(response);
 		} catch (Exception e) {
 			Log.e("my", e.getClass().getName() + e.getMessage() + "5");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		}
 		parsedLoginDataSet.setExtractedString(sessionTokens.get("error"));
 		if (parsedLoginDataSet.getExtractedString().equals("Success")) {
@@ -144,6 +166,8 @@ public class UserLoginActivity extends Activity {
 			handler.sendMessage(myMessage);
 		} else {
 			Log.e("my", "Login Error!");
+			progressdialog.dismiss();
+			dialog_handler.sendEmptyMessage(0);
 		}
 		return sessionTokens;
 	}
@@ -179,10 +203,16 @@ public class UserLoginActivity extends Activity {
 		}
 	};
 	
+	private Handler dialog_handler = new Handler(){
+		public void handleMessage(Message msg) {
+			alert.showAlertDialog(UserLoginActivity.this,
+					"User Login Error",
+					"Please login again later.", false);
+		};
+	};
+	
 	public void DialogProgress() {
 		progressdialog = ProgressDialog.show(UserLoginActivity.this, "",
 				"잠시만 기다려 주세요 ...", true);
-		// 창을 내린다.
-		// progressdialog.dismiss();
 	}
 }
