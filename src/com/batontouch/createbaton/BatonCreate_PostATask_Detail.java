@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.batontouch.R;
-import com.batontouch.profile.MyListAdapter;
 
 public class BatonCreate_PostATask_Detail extends Activity {
 

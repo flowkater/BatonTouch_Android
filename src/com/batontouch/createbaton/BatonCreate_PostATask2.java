@@ -63,7 +63,6 @@ public class BatonCreate_PostATask2 extends Activity {
 		timeTobeDone = (Button) findViewById(R.id.timeTobeDone);
 		setCurrentTimeOnView();
 		expectedtime.setOnTouchListener(new OnTouchListener() {
-
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				// TODO Auto-generated method stub
@@ -242,7 +241,7 @@ public class BatonCreate_PostATask2 extends Activity {
 				+ timeTobeDone.getText().toString();
 
 		Intent intent = new Intent(getApplicationContext(),
-				BatonCreate_PostATask_Choose.class);
+				BatonCreate_PostATask3.class);
 
 		extras.putString("spendtime", spendtime);
 		extras.putString("calldate", answerdate);
