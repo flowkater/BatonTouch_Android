@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import com.batontouch.R;
 
 public class BatonCreate_PostATask3 extends Activity {
-	
+
 	private Bundle extras;
 	private int gifticonNumber;
 
@@ -23,13 +23,14 @@ public class BatonCreate_PostATask3 extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 확인 코드
-//		Toast.makeText(getApplicationContext(), getIntent().getStringExtra("from"), Toast.LENGTH_SHORT).show();
-		
-		//=================== 넘어온 인텐트 받아오기
+		// Toast.makeText(getApplicationContext(),
+		// getIntent().getStringExtra("from"), Toast.LENGTH_SHORT).show();
+
+		// =================== 넘어온 인텐트 받아오기
 		Intent in = getIntent();
 		extras = new Bundle();
 		extras = in.getExtras();
-		//===================
+		// ===================
 
 		loadApps();
 
@@ -70,7 +71,6 @@ public class BatonCreate_PostATask3 extends Activity {
 		mApps.add(R.drawable.coffeebean);
 		mApps.add(R.drawable.coffeebean);
 		mApps.add(R.drawable.coffeebean);
-
 	}
 
 	public class AppsAdapter extends BaseAdapter {
@@ -92,13 +92,13 @@ public class BatonCreate_PostATask3 extends Activity {
 				@Override
 				public void onClick(View v) {
 					gifticonNumber = pos;
-//					Toast.makeText(getApplicationContext(), pos + "", 3000)
-//							.show();
+					// Toast.makeText(getApplicationContext(), pos + "", 3000)
+					// .show();
 					Intent intent = new Intent(getApplicationContext(),
 							BatonCreate_PostALastTask.class);
 					extras.putInt("gifticonNumber", gifticonNumber);
 					intent.putExtras(extras);
-					
+
 					startActivity(intent);
 				}
 			});

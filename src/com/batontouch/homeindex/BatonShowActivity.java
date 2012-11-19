@@ -192,8 +192,6 @@ public class BatonShowActivity extends Activity {
 	public void DialogProgress() {
 		progressdialog = ProgressDialog.show(BatonShowActivity.this, "",
 				"잠시만 기다려 주세요 ...", true);
-		// 창을 내린다.
-		// progressdialog.dismiss();
 	}
 
 }
