@@ -53,38 +53,12 @@
         android:gravity="top"
         android:hint="고마운 사람을 위해 리뷰써주세요." >
     </EditText>
-    <!-- 클라이언트 리뷰 -->
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:visibility="gone"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/giftconTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기트티콘 받기" />
-
-        <Button
-            android:id="@+id/clientcomBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="콕!" />
-    </LinearLayout>
 
     <!-- 유저 리뷰 -->
-
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >

@@ -273,11 +273,19 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name=".managebaton.BatonManageReviewActivity_Client"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name=".managebaton.BatonManageActivity_Intro"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".managebaton.BatonManageClientActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".managebaton.BatonManageAdapter_Client"
             android:screenOrientation="portrait" >
         </activity>
     </application>

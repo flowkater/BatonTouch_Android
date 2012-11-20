@@ -25,7 +25,7 @@ public class BatonManageReviewActivity_User extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.review);
+		setContentView(R.layout.review_user);
 		
 		Intent in = getIntent();
 		task_id = in.getStringExtra("task_id");
