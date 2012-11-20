@@ -3,46 +3,18 @@
     android:id="@+id/layoutForPostATask"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_square"
+    android:background="@drawable/rectangle_background_400"
     android:orientation="vertical" >
     <include
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             layout="@layout/include_createbaton" />
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/radio0"
+    <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:checked="true"
-            android:enabled="false" />
-
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:enabled="false" />
-
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:checked="true"
-            android:enabled="false" />
-    </RadioGroup>
+            android:src="@drawable/status_bar3" />
 
     <TextView
         android:id="@+id/textView1"

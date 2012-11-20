@@ -12,7 +12,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -22,7 +24,9 @@ public class ProfileActivity_Edit extends Activity {
 	final int ACTIVITY_SELECT_IMAGE = 100;
 	EditText editTextIntroduce;
 	InputStream imageStream;
+	ImageButton uploadButton;
 	ImageView uploadImg;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class ProfileActivity_Edit extends Activity {
 
 		editTextIntroduce = (EditText) findViewById(R.id.editTextIntroduce);
 		uploadImg = (ImageView) findViewById(R.id.uploadImage);
+	//	uploadButton = (ImageButton) findViewById(R.id.uploadbutton);
 	}
 
 	protected void onResume() {

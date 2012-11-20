@@ -3,7 +3,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background_square" >
+    android:background="@drawable/rectangle_background_400" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,44 +12,18 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical" >
-    <include
+
+        <include
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             layout="@layout/include_createbaton" />
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="fill_parent"
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/radio0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:checked="true"
-                android:enabled="false" />
-
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:checked="true"
-                android:enabled="false" />
-
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:enabled="false" />
-        </RadioGroup>
+            android:layout_margin="10dp"
+            android:src="@drawable/status_bar2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,7 +47,6 @@
                     android:id="@+id/expectedtime"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-               
                     android:layout_weight="1"
                     android:background="@drawable/underline_box"
                     android:clickable="true"
@@ -142,15 +115,14 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/nextBtn"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="right"
-            android:layout_margin="10dp"
-            android:layout_marginTop="5dp"
-            android:onClick="nextBtnClick"
-            android:text="다음" />
+            android:layout_marginRight="10dp"
+        android:background="@drawable/createbaton_nextbtn_style"
+            android:onClick="nextBtnClick" />
     </LinearLayout>
 
 </ScrollView>
