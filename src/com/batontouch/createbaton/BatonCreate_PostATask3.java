@@ -4,117 +4,63 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.util.Log;
 import android.widget.GridView;
-import android.widget.ImageView;
 
 import com.batontouch.R;
+import com.batontouch.model.Store;
+import com.batontouch.model.Stores;
+import com.batontouch.utils.Global;
+import com.batontouch.utils.NetHelper;
+import com.google.gson.Gson;
 
 public class BatonCreate_PostATask3 extends Activity {
-
-	private Bundle extras;
-	private int gifticonNumber;
+	private String mResult;
+	private ArrayList<Store> mStores = new ArrayList<Store>();
+	private BatonCreate_StoreAdapter mAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// 확인 코드
-		// Toast.makeText(getApplicationContext(),
-		// getIntent().getStringExtra("from"), Toast.LENGTH_SHORT).show();
-
-		// =================== 넘어온 인텐트 받아오기
+		
 		Intent in = getIntent();
-		extras = new Bundle();
+		Bundle extras = new Bundle();
 		extras = in.getExtras();
-		// ===================
-
-		loadApps();
 
 		setContentView(R.layout.batoncreate_postatask3);
 		GridView grid = (GridView) findViewById(R.id.gridView);
-
-		// LayoutInflater li = getLayoutInflater();
-
-		grid.setAdapter(new AppsAdapter());
-
+		
+		mAdapter = new BatonCreate_StoreAdapter(getApplicationContext(), mStores);
+		grid.setAdapter(mAdapter);
+		
+		new GetStoreList().execute();
 	}
-
-	ArrayList<Integer> mApps = new ArrayList<Integer>();
-
-	private void loadApps() {
-		Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-		mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-		// mApps = getPackageManager().queryIntentActivities(mainIntent, 0);
-		mApps.add(R.drawable.starbucks);
-		mApps.add(R.drawable.starbucks);
-		mApps.add(R.drawable.starbucks);
-		mApps.add(R.drawable.tomntoms);
-		mApps.add(R.drawable.tomntoms);
-		mApps.add(R.drawable.tomntoms);
-
-		mApps.add(R.drawable.coffeebean);
-		mApps.add(R.drawable.coffeebean);
-		mApps.add(R.drawable.coffeebean);
-
-		mApps.add(R.drawable.starbucks);
-		mApps.add(R.drawable.starbucks);
-		mApps.add(R.drawable.starbucks);
-		mApps.add(R.drawable.tomntoms);
-		mApps.add(R.drawable.tomntoms);
-		mApps.add(R.drawable.tomntoms);
-
-		mApps.add(R.drawable.coffeebean);
-		mApps.add(R.drawable.coffeebean);
-		mApps.add(R.drawable.coffeebean);
-	}
-
-	public class AppsAdapter extends BaseAdapter {
-		public View getView(int position, View convertView, ViewGroup parent) {
-			ImageView i = new ImageView(getApplicationContext());
-
-			final int pos = position;
-
-			int info = mApps.get(position % mApps.size());
-
-			i.setImageResource(info);
-			i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-
-			final int h = (int) (90 * getResources().getDisplayMetrics().density + 0.5f);
-			final int w = (int) (90 * getResources().getDisplayMetrics().density + 0.5f);
-			i.setLayoutParams(new GridView.LayoutParams(h, w));
-
-			i.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					gifticonNumber = pos;
-					// Toast.makeText(getApplicationContext(), pos + "", 3000)
-					// .show();
-					Intent intent = new Intent(getApplicationContext(),
-							BatonCreate_PostALastTask.class);
-					extras.putInt("gifticonNumber", gifticonNumber);
-					intent.putExtras(extras);
-
-					startActivity(intent);
+	
+	private class GetStoreList extends AsyncTask<Void, Void,Void>{
+		@Override
+		protected Void doInBackground(Void... params) {
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl + "stores");
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Void result) {
+			Log.d("batoncreate", mResult+"");
+			Gson gson = new Gson();
+			Stores stores = gson.fromJson(mResult, Stores.class);
+			try {
+				for (Store store : stores.getStores()) {
+					mStores.add(store);
 				}
-			});
-			return i;
-		}
-
-		public final int getCount() {
-			return Math.min(32, mApps.size());
-		}
-
-		public final Object getItem(int position) {
-			return mApps.get(position % mApps.size());
-		}
-
-		public final long getItemId(int position) {
-			return position;
+			} catch (Exception e) {
+				Log.d("batoncreate", "gson error baton stores");
+			}
+			
+			mAdapter.notifyDataSetChanged();
+			
+			super.onPostExecute(result);
 		}
 	}
 }

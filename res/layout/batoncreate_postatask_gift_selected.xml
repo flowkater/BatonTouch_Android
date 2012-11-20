@@ -6,26 +6,26 @@
     android:orientation="vertical" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/giftitem_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/add" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/giftitem_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="아이스 카라멜 마키아토"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/giftitem_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="커피빈의 초 맛있는 카라멜로 뒤범벅이 된 돼지 되기 딱! 좋은 카라멜 마키야로~ 하지만, 돼지가 되어도 좋으니 맜있는 아 더이상 뭐라고.." />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/giftitem_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="쿠키 25개"
@@ -33,6 +33,7 @@
 
     <Button
         android:id="@+id/selectGift"
+        android:onClick="selectGift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="선택하기" />
