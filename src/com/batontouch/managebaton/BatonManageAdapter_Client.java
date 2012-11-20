@@ -14,9 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
+import com.batontouch.homeindex.BatonShowActivity;
 import com.batontouch.model.Task;
 
-class BatonManageAdapter extends ArrayAdapter<Task> {
+class BatonManageAdapter_Client extends ArrayAdapter<Task> {
 	private Context mContext;
 	private ArrayList<Task> mTasks;
 	private int mResource;
@@ -24,7 +25,7 @@ class BatonManageAdapter extends ArrayAdapter<Task> {
 	private Task task;
 	private boolean auth_client;
 
-	public BatonManageAdapter(Context context, int mResource,
+	public BatonManageAdapter_Client(Context context, int mResource,
 			ArrayList<Task> mTasks, boolean auth_client) {
 		super(context, mResource, mTasks);
 		this.mContext = context;
@@ -68,20 +69,21 @@ class BatonManageAdapter extends ArrayAdapter<Task> {
 				task = mTasks.get(position);
 				int status = task.getStatus();
 				String task_id = task.getId();
-				// user 일때
-				if (status == 0) {
-					startAct(BatonManageActivity_ManageTasks_Footer.class,
-							task_id);
-					Toast.makeText(mContext, task_id + "", Toast.LENGTH_SHORT)
-							.show();
-				} else if (status == 1 || status == 2) {
-					startAct(BatonManageShowActivity_User.class, task_id);
-					Toast.makeText(mContext, task_id + "", Toast.LENGTH_SHORT)
-							.show();
-				} else if (status == 3) {
-					startAct(BatonManageReviewActivity_User.class, task_id);
-					Toast.makeText(mContext, task_id + "", Toast.LENGTH_SHORT)
-							.show();
+				if (auth_client) {
+					// client 일때
+					if (status == 0) {
+						startAct(BatonShowActivity.class, task_id);
+						Toast.makeText(mContext, task_id + "",
+								Toast.LENGTH_SHORT).show();
+					} else if (status == 1 || status == 2) {
+						startAct(BatonManageShowActivity_Client.class, task_id);
+						Toast.makeText(mContext, task_id + "",
+								Toast.LENGTH_SHORT).show();
+					} else if (status == 3) {
+						startAct(BatonManageReviewActivity_User.class, task_id);
+						Toast.makeText(mContext, task_id + "",
+								Toast.LENGTH_SHORT).show();
+					}
 				}
 			}
 		});

@@ -45,7 +45,7 @@ public class BatonCreate_PostATask_Detail extends Activity {
 		mGiftitems = new ArrayList<Giftitem>();
 
 		mAdapter = new BatonCreate_GiftitemAdapter(this,
-				R.layout.featured_adapter_gift, mGiftitems);
+				R.layout.featured_adapter_gift, mGiftitems, extras);
 
 		listView = (ListView) findViewById(R.id.giftList);
 		listView.setAdapter(mAdapter);

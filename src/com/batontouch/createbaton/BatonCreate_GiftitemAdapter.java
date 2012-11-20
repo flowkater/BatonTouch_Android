@@ -24,14 +24,16 @@ public class BatonCreate_GiftitemAdapter extends ArrayAdapter<Giftitem> {
 	private LayoutInflater Inflater;
 	private ArrayList<Giftitem> mGiftitems;
 	private Giftitem giftitem;
+	private Bundle extras;
 	int mResource;
 
 	public BatonCreate_GiftitemAdapter(Context context, int mResource,
-			ArrayList<Giftitem> mGiftitems) {
+			ArrayList<Giftitem> mGiftitems, Bundle extras) {
 		super(context, mResource, mGiftitems);
 		this.context = context;
 		this.mResource = mResource;
 		this.mGiftitems = mGiftitems;
+		this.extras = extras;
 	}
 
 	// 각 항목의 뷰 생성
@@ -71,14 +73,13 @@ public class BatonCreate_GiftitemAdapter extends ArrayAdapter<Giftitem> {
 				giftitem = mGiftitems.get(position);
 				Intent intent = new Intent(context,
 						BatonCreate_PostATask_Selected.class);
-				Bundle extras = new Bundle();
-				extras.putString("id", giftitem.getId());
-				extras.putString("image", giftitem.getImage());
-				extras.putString("name", giftitem.getName());
-				extras.putString("description", giftitem.getDescription());
-				extras.putString("price", giftitem.getPrice());
-				extras.putString("fromdate", giftitem.getFromdate());
-				extras.putString("todate", giftitem.getTodate());
+				extras.putString("gift_id", giftitem.getId());
+				extras.putString("gift_image", giftitem.getImage());
+				extras.putString("gift_name", giftitem.getName());
+				extras.putString("gift_description", giftitem.getDescription());
+				extras.putString("gift_price", giftitem.getPrice());
+				extras.putString("gift_fromdate", giftitem.getFromdate());
+				extras.putString("gift_todate", giftitem.getTodate());
 				intent.putExtras(extras);
 				context.startActivity(intent);
 			}

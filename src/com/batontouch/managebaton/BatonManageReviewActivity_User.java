@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
 
-public class BatonManageReviewActivity extends Activity {
+public class BatonManageReviewActivity_User extends Activity {
 	private String mResult;
 	private String task_id;
 	private String auth_token;

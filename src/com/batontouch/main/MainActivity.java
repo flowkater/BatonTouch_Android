@@ -11,7 +11,8 @@ import android.widget.TabHost.TabSpec;
 import com.batontouch.R;
 import com.batontouch.createbaton.BatonCreateActivity;
 import com.batontouch.homeindex.BatonIndexActivity;
-import com.batontouch.managebaton.BatonManageActivity;
+import com.batontouch.managebaton.BatonManageActivity_Intro;
+import com.batontouch.managebaton.BatonManageAskedActivity;
 import com.batontouch.profile.ProfileActivity;
 import com.batontouch.profile.ProfileActivity_Intro;
 import com.batontouch.setting.SettingActivity;
@@ -39,7 +40,7 @@ public class MainActivity extends TabActivity {
 		
 		
 		// Baton Manage tab
-		Intent intentBatonMng = new Intent(this, BatonManageActivity.class);
+		Intent intentBatonMng = new Intent(this, BatonManageActivity_Intro.class);
 		TabSpec tabSpecBatonMng = tabHost.newTabSpec("BatonMng")
 				.setIndicator(manageView).setContent(intentBatonMng);
 

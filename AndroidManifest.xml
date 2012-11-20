@@ -42,7 +42,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageActivity"
+            android:name=".managebaton.BatonManageAskedActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
@@ -260,15 +260,26 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name=".managebaton.BatonManageShowActivity_User"
-            android:screenOrientation="portrait"></activity>
-        <activity 
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name=".managebaton.BatonManageShowActivity_Client"
-            android:screenOrientation="portrait"></activity>
-        <activity 
-            android:name=".managebaton.BatonManageReviewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".managebaton.BatonManageReviewActivity_User"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".managebaton.BatonManageActivity_Intro"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".managebaton.BatonManageClientActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

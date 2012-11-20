@@ -35,8 +35,11 @@ public class BatonCreate_PostATask_Selected extends Activity {
 	private ImageView giftitem_image;
 	private TextView giftitem_name, giftitem_description, giftitem_price;
 
-	private String id,image, name, description, price, fromdate, todate;
-	
+	private String gift_id, gift_image, gift_name, gift_description,
+			gift_price, gift_fromdate, gift_todate;
+	private String store_id, name, description, fromloc, toloc, spendtime,
+			calldate, enddate;
+
 	private String auth_token;
 	private SharedPreferences mPreferences;
 	private int StatusCodeCheck;
@@ -46,19 +49,10 @@ public class BatonCreate_PostATask_Selected extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Intent intent = getIntent();
-		Bundle extras = intent.getExtras();
-		
+		settingVariable();
+
 		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 		auth_token = mPreferences.getString("AuthToken", "");
-
-		id = extras.getString("id");
-		image = extras.getString("image");
-		name = extras.getString("name");
-		description = extras.getString("description");
-		price = extras.getString("price");
-		fromdate = extras.getString("fromdate");
-		todate = extras.getString("todate");
 
 		setContentView(R.layout.batoncreate_postatask_gift_selected);
 
@@ -67,16 +61,40 @@ public class BatonCreate_PostATask_Selected extends Activity {
 		giftitem_description = (TextView) findViewById(R.id.giftitem_description);
 		giftitem_price = (TextView) findViewById(R.id.giftitem_price);
 
-		if (image != null) {
-			ImageDownloader.download(Global.ServerOriginalUrl + image,
+		if (gift_image != null) {
+			ImageDownloader.download(Global.ServerOriginalUrl + gift_image,
 					giftitem_image);
 		} else {
 			giftitem_image.setImageResource(R.drawable.ic_launcher);
 		}
 
-		giftitem_name.setText(name);
-		giftitem_description.setText(description);
-		giftitem_price.setText(price);
+		giftitem_name.setText(gift_name);
+		giftitem_description.setText(gift_description);
+		giftitem_price.setText(gift_price);
+	}
+
+	public void settingVariable() {
+		Intent intent = getIntent();
+		Bundle extras = intent.getExtras();
+
+		name = extras.getString("name");
+		description = extras.getString("description");
+		fromloc = extras.getString("fromloc");
+		toloc = extras.getString("toloc");
+		spendtime = extras.getString("spendtime");
+		calldate = extras.getString("calldate");
+		enddate = extras.getString("enddate");
+		gift_id = extras.getString("gift_id");
+		gift_image = extras.getString("gift_image");
+		gift_name = extras.getString("gift_name");
+		gift_description = extras.getString("gift_description");
+		gift_price = extras.getString("gift_price");
+		gift_fromdate = extras.getString("gift_fromdate");
+		gift_todate = extras.getString("gift_todate");
+		store_id = extras.getString("store_id");
+		
+		Toast.makeText(getApplicationContext(), name+"", Toast.LENGTH_SHORT).show();
+		
 	}
 
 	public void selectGift(View v) {
@@ -100,21 +118,26 @@ public class BatonCreate_PostATask_Selected extends Activity {
 		AlertDialog alert = altBld.create();
 		alert.show();
 	}
-	
-	private class CheckPrice extends AsyncTask<Void, Void, Void>{
+
+	private class CheckPrice extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
 			try {
 				HttpClient httpClient = new DefaultHttpClient();
-				HttpGet getRequest = new HttpGet(Global.ServerUrl + "giftitems/" + id +"/check?auth_token=" + auth_token);
+				HttpGet getRequest = new HttpGet(Global.ServerUrl
+						+ "giftitems/" + gift_id + "/check?auth_token="
+						+ auth_token);
 				getRequest.setHeader("Accept", Global.Acceptversion);
-				getRequest.setHeader("Authorization", Global.AuthorizationToken);
+				getRequest
+						.setHeader("Authorization", Global.AuthorizationToken);
 				HttpResponse response = httpClient.execute(getRequest);
-				
+
 				StatusCodeCheck = response.getStatusLine().getStatusCode();
-				
-				BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-				
+
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(
+								response.getEntity().getContent(), "UTF-8"));
+
 				String sResponse;
 				StringBuilder s = new StringBuilder();
 				while ((sResponse = reader.readLine()) != null) {
@@ -122,8 +145,8 @@ public class BatonCreate_PostATask_Selected extends Activity {
 				}
 				Log.d("batoncreate", "StatusCode : " + StatusCodeCheck + ", "
 						+ "Response : " + s);
-				
-			}  catch (IOException e) {
+
+			} catch (IOException e) {
 				Log.e("baton", e.getClass().getName() + e.getMessage()
 						+ " Asynctask IOException CheckPrice");
 			} catch (Exception e) {
@@ -132,20 +155,25 @@ public class BatonCreate_PostATask_Selected extends Activity {
 			}
 			return null;
 		}
+
 		@Override
 		protected void onPostExecute(Void result) {
 			if (StatusCodeCheck == 200) {
-				Toast.makeText(getApplicationContext(), "쿠키가 충분합니다.", Toast.LENGTH_SHORT).show();
-			}else if(StatusCodeCheck == 422){
-				Toast.makeText(getApplicationContext(), "쿠키가 부족합니다.", Toast.LENGTH_SHORT).show();
-			}else{
-				Toast.makeText(getApplicationContext(), "에러입니다.", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "쿠키가 충분합니다.",
+						Toast.LENGTH_SHORT).show();
+				new TaskCreate().execute();
+			} else if (StatusCodeCheck == 422) {
+				Toast.makeText(getApplicationContext(), "쿠키가 부족합니다.",
+						Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(getApplicationContext(), "에러입니다.",
+						Toast.LENGTH_SHORT).show();
 			}
 			super.onPostExecute(result);
 		}
 	}
-	
-	private class TaskCreate extends AsyncTask<Void, Void, Void>{
+
+	private class TaskCreate extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
 			try {
@@ -155,44 +183,72 @@ public class BatonCreate_PostATask_Selected extends Activity {
 				MultipartEntity reqEntity = new MultipartEntity(
 						HttpMultipartMode.BROWSER_COMPATIBLE);
 
-//				reqEntity.addPart("task[name]",
-//						new StringBody(name, Charset.forName("UTF-8")));
-//				reqEntity.addPart("task[description]", new StringBody(
-//						description, Charset.forName("UTF-8")));
-//				reqEntity.addPart("task[fromloc]", new StringBody(fromloc,
-//						Charset.forName("UTF-8")));
-//				reqEntity.addPart("task[toloc]",
-//						new StringBody(toloc, Charset.forName("UTF-8")));
-//				reqEntity.addPart("task[spendtime]", new StringBody(spendtime,
-//						Charset.forName("UTF-8")));
-//				reqEntity.addPart("task[calldate]", new StringBody(calldate,
-//						Charset.forName("UTF-8")));
-//				reqEntity.addPart("task[enddate]", new StringBody(enddate,
-//						Charset.forName("UTF-8")));
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
+				reqEntity.addPart("task[name]",
+						new StringBody(name, Charset.forName("UTF-8")));
+				reqEntity.addPart("task[description]", new StringBody(
+						description, Charset.forName("UTF-8")));
+				reqEntity.addPart("task[fromloc]", new StringBody(fromloc,
+						Charset.forName("UTF-8")));
+				reqEntity.addPart("task[toloc]",
+						new StringBody(toloc, Charset.forName("UTF-8")));
+				reqEntity.addPart("task[spendtime]", new StringBody(spendtime,
+						Charset.forName("UTF-8")));
+				reqEntity.addPart("task[calldate]", new StringBody(calldate,
+						Charset.forName("UTF-8")));
+				reqEntity.addPart("task[enddate]", new StringBody(enddate,
+						Charset.forName("UTF-8")));
+				reqEntity.addPart("price",
+						new StringBody(gift_price, Charset.forName("UTF-8")));
+				reqEntity.addPart("store_id",
+						new StringBody(store_id, Charset.forName("UTF-8")));
+				reqEntity.addPart("giftitem_id",
+						new StringBody(gift_id, Charset.forName("UTF-8")));
+
+				postRequest.setEntity(reqEntity);
+				postRequest.setHeader("Accept", Global.Acceptversion);
+				postRequest.setHeader("Authorization",
+						Global.AuthorizationToken);
+
+				HttpResponse response = httpClient.execute(postRequest);
+
+				StatusCodeCreate = response.getStatusLine().getStatusCode();
+
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(
+								response.getEntity().getContent(), "UTF-8"));
+
+				String sResponse;
+				StringBuilder s = new StringBuilder();
+				while ((sResponse = reader.readLine()) != null) {
+					s = s.append(sResponse);
+				}
+				Log.d("batoncreate", "StatusCode : " + StatusCodeCreate + ", "
+						+ "Response : " + s);
+
+			} catch (IOException e) {
+				Log.e("batoncreate", e.getClass().getName() + e.getMessage()
+						+ " Asynctask IOException Batoncreate");
+			} 
+//			catch (Exception e) {
+//				Log.e("batoncreate", e.getClass().getName() + e.getMessage()
+//						+ " Asynctask IOException Batoncreate");
+//			}
 			return null;
 		}
-		
+
 		@Override
 		protected void onPostExecute(Void result) {
+			if (StatusCodeCreate == 201) {
+				Toast.makeText(getApplicationContext(), "바톤이 생성되었습니다!",
+						Toast.LENGTH_SHORT).show();
+			} else if (StatusCodeCreate == 422) {
+				Toast.makeText(getApplicationContext(), "바톤이 생성될떄 에러가 났습니다",
+						Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(getApplicationContext(),
+						"바톤이 생성될떄 이상한 에러가 났습니다", Toast.LENGTH_SHORT).show();
+			}
 			super.onPostExecute(result);
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

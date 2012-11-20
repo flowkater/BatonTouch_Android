@@ -50,11 +50,11 @@ public class BatonManageShowActivity_User extends Activity {
 		task_id = in.getStringExtra("task_id");
 
 		tvName = (TextView) findViewById(R.id.name);
-		tvDate = (TextView) findViewById(R.id.date);
-		tvStatus = (TextView) findViewById(R.id.status);
+//		tvDate = (TextView) findViewById(R.id.date);
+//		tvStatus = (TextView) findViewById(R.id.status);
 		tvDescription = (TextView) findViewById(R.id.dealDescription);
 		tvResttime = (TextView) findViewById(R.id.dealResttime);
-//		linearfinish = (LinearLayout) findViewById(R.id.finish);
+		linearfinish = (LinearLayout) findViewById(R.id.finish);
 
 		new GetBatonShow().execute();
 	}
@@ -74,8 +74,8 @@ public class BatonManageShowActivity_User extends Activity {
 			try {
 				Status = task.getStatus();
 				tvName.setText(task.getName());
-				tvDate.setText(task.getDay());
-				tvStatus.setText(Global.userJudge(Status));
+//				tvDate.setText(task.getDay());
+//				tvStatus.setText(Global.userJudge(Status));
 				tvDescription.setText(task.getDescription());
 				tvResttime.setText(task.getEnddate());
 			} catch (Exception e) {

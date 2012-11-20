@@ -22,10 +22,12 @@ public class BatonCreate_StoreAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<Store> mStores;
 	private Store store;
+	private Bundle extras;
 
-	public BatonCreate_StoreAdapter(Context context, ArrayList<Store> mStores) {
+	public BatonCreate_StoreAdapter(Context context, ArrayList<Store> mStores, Bundle extras) {
 		this.context = context;
 		this.mStores = mStores;
+		this.extras = extras;
 	}
 
 	public final int getCount() {
@@ -71,17 +73,16 @@ public class BatonCreate_StoreAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				store = mStores.get(position);
 				String store_id = store.getId();
-				startAct(BatonCreate_PostATask_Detail.class, store_id);
+				startAct(BatonCreate_PostATask_Detail.class, store_id, extras);
 			}
 		});
 
 		return imageView;
 	}
 
-	public void startAct(Class<?> cls, String store_id) {
+	public void startAct(Class<?> cls, String store_id, Bundle extras) {
 		Intent in = new Intent(context, cls);
 		in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		Bundle extras = new Bundle();
 		extras.putString("store_id", store_id);
 		in.putExtras(extras);
 		context.startActivity(in);

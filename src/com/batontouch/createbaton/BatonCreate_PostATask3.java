@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.batontouch.R;
 import com.batontouch.model.Store;
@@ -32,7 +33,7 @@ public class BatonCreate_PostATask3 extends Activity {
 		setContentView(R.layout.batoncreate_postatask3);
 		GridView grid = (GridView) findViewById(R.id.gridView);
 		
-		mAdapter = new BatonCreate_StoreAdapter(getApplicationContext(), mStores);
+		mAdapter = new BatonCreate_StoreAdapter(getApplicationContext(), mStores, extras);
 		grid.setAdapter(mAdapter);
 		
 		new GetStoreList().execute();
