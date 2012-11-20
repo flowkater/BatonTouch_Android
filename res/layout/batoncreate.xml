@@ -3,19 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="60dp"
-    android:background="@drawable/background_square"
+    android:background="#ffffff"
     android:orientation="vertical" >
 
     <include
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            layout="@layout/main_upper_line" />
+            layout="@layout/include_createbaton" />
 
     <TableLayout
-        android:background="@drawable/running_boy"
+        android:background="@drawable/batontouchteam"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:layout_marginBottom="70dp"
         android:gravity="center" >
 

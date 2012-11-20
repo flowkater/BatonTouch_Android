@@ -1,4 +1,4 @@
-package com.batontouch.utils;
+﻿package com.batontouch.utils;
 
 public class Global {
 	// public static String ServerUrl = "http://192.168.0.154:3000/api/";
@@ -10,7 +10,9 @@ public class Global {
 	// == API Versioning
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
+
 	public static String AuthorizationToken = "Token token=\"ad1382c38f52c81c83d92112468ad35d\""; // Authorization
+
 
 	public static String userJudge(int taskStatus) {
 		/*

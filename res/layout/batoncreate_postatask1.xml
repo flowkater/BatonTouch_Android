@@ -9,12 +9,16 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
         
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:paddingBottom="30dp" >
+        
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/include_createbaton" />
 
         <RadioGroup
             android:id="@+id/radioGroup1"
