@@ -92,14 +92,13 @@ public class BatonCreate_PostATask3 extends Activity {
 				@Override
 				public void onClick(View v) {
 					gifticonNumber = pos;
-					// Toast.makeText(getApplicationContext(), pos + "", 3000)
-					// .show();
-					Intent intent = new Intent(getApplicationContext(),
-							BatonCreate_PostALastTask.class);
-					extras.putInt("gifticonNumber", gifticonNumber);
-					intent.putExtras(extras);
-
-					startActivity(intent);
+				
+//					Intent intent = new Intent(getApplicationContext(),
+//							BatonCreate_PostALastTask.class);
+//					extras.putInt("gifticonNumber", gifticonNumber);
+//					intent.putExtras(extras);
+//
+//					startActivity(intent);
 				}
 			});
 			return i;
