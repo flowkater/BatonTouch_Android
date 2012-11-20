@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
-    android:background="@drawable/background_square"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="fill_parent" >
 
@@ -9,121 +9,100 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        
+        android:background="@drawable/rectangle_background_400"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:paddingBottom="30dp" >
-        
+
         <include
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             layout="@layout/include_createbaton" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="fill_parent"
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/radio0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:enabled="false"
-                android:checked="true" />
-
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                       android:enabled="false"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
-
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                       android:enabled="false"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
-        </RadioGroup>
+            android:layout_margin="10dp"
+            android:src="@drawable/status_bar1" />
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" >
+
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="100dp" >
 
                 <TextView
                     android:id="@+id/nameTv"
-                    android:layout_width="fill_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:gravity="right|center_vertical"
-                    android:text="이름 : "
+                    android:text="바톤이름"
                     android:textSize="20dp" />
 
                 <EditText
                     android:id="@+id/nameEd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="ex) Task 이름"
-                    android:singleLine="true" >
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:hint="ex) 오빠닭좀 사다주세요."
+                    android:singleLine="true"
+                    android:textSize="12dp" >
                 </EditText>
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="100dp" >
 
-                <TextView
+                <ImageView
                     android:id="@+id/textView2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
                     android:gravity="right|center_vertical"
-                    android:text="여기에서 : "
-                    android:textSize="20dp" />
+                   android:background="@drawable/from_here"
+                    />
 
                 <EditText
                     android:id="@+id/fromHereEt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="ex) 김가네"
-                    android:singleLine="true" >
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:hint="경유지 ex) GS25, 던킨도넛 "
+                    android:singleLine="true"
+                    android:textSize="12dp" >
                 </EditText>
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="100dp" >
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="fill_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:gravity="right|center_vertical"
-                    android:text="여기로 : "
+                    android:text="여기로"
                     android:textSize="20dp" />
 
                 <EditText
                     android:id="@+id/toThereEt"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="ex) 서울시 구로구 구로동 마리오타워"
-                    android:singleLine="true" />
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:hint="목적지 ex) 이대 정문 앞 "
+                    android:textSize="12dp" />
             </TableRow>
         </TableLayout>
 
@@ -133,12 +112,15 @@
             android:layout_margin="10dp"
             android:orientation="vertical" >
 
-            <TextView
+            <ImageView
                 android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
                 android:text="이것들을 부탁해요!"
-                android:textSize="20dp" />
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/help_detail"
+                android:textSize="10dp" />
 
             <EditText
                 android:id="@+id/taskDescriptionEt"
@@ -146,18 +128,18 @@
                 android:layout_height="200dp"
                 android:gravity="top"
                 android:hint="이대역 3번출구에서 나와서 첫번째 골목 오른쪽 김밥집"
-               
                 android:textSize="15dp" >
             </EditText>
         </LinearLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/nextBtn"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="right"
-            android:onClick="nextBtnOnClick"
-            android:text="다음" />
+            android:layout_marginRight="10dp"
+            android:background="@drawable/createbaton_nextbtn_style"
+            android:onClick="nextBtnOnClick" />
     </LinearLayout>
 
 </ScrollView>

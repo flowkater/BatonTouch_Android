@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="top"
-        android:hint="고마운 사람을 위해 리뷰써주세요." >
+        android:hint="당신을 위해 뛰어준 러너에게 리뷰를 써주세요!" >
     </EditText>
     <!-- 클라이언트 리뷰 -->
 

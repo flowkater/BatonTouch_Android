@@ -35,7 +35,7 @@
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:src="@drawable/facebook_btn" />
+                android:src="@drawable/intro_facebookbutton_style" />
         </LinearLayout>
 
         <LinearLayout

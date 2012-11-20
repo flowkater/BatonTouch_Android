@@ -3,7 +3,7 @@
     android:id="@+id/layoutForPostATaskFooter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@drawable/rectangle_background_400"
     android:orientation="vertical" >
 
     <GridView
