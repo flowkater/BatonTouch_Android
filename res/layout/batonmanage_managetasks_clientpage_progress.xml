@@ -2,236 +2,307 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="#ffffff" >
 
     <LinearLayout
-        android:background="@drawable/rectangle_background_400"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_background_400"
         android:orientation="vertical" >
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:background="#bbbbbb" >
+            android:orientation="vertical" >
 
             <ImageView
-                android:id="@+id/userProfileImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/ic_launcher" />
-
-            <ImageView
-                android:id="@+id/userCompanyImage"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="70dp"
-                android:src="@drawable/ic_launcher" />
-
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/upper_line"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/userProfileImage"
-                android:gravity="center_vertical"
-                
-                android:orientation="vertical" >
+                android:layout_height="4dp"
+                android:background="@drawable/upper_line_mini" >
+            </ImageView>
 
-                <TextView
-                    android:id="@+id/userName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="left|center_vertical"
-                    android:text="배수지"
-                    android:textSize="25dp" />
+            <ImageView
+                android:id="@+id/top_line"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/upper_line"
+                android:background="@drawable/top_line" />
 
-                <LinearLayout
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp" >
-
-                    <Button
-                        android:id="@+id/callBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/call_btn" />
-
-                    <Button
-                        android:id="@+id/smsBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/message_btn" />
-                </LinearLayout>
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/upper_line"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp" />
         </RelativeLayout>
 
-        <TableLayout
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/featured_adapter"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="30dp" >
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
 
-            <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="딜 이름" />
-
-                <TextView
-                    android:id="@+id/deal_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="집에 서류종 가져 다 주세요." />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow2"
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal" >
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="상태" />
+                <ImageButton
+                    android:id="@+id/DeleteBtn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/delete_btn"
+                    android:text="삭제하기" />
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/deal_status"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="진행중" />
-            </TableRow>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:text="Deal 이름"
+                android:textSize="20dp" />
 
-            <TableRow
-                android:id="@+id/tableRow3"
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_below="@id/name"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
+                    android:id="@+id/date"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="자세사항" />
+                    android:layout_centerVertical="true"
+                    android:text="2012.10.23"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/deal_description"
-                    android:layout_width="0dp"
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="제 사무실에 있는 서류를 집에 있는 제 동료에게 가져다 주시면 됩니다." />
-            </TableRow>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:text="진행중"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </RelativeLayout>
 
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/dealResttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="남은 시간 : 20분"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/userImage"
+                android:layout_width="65dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/user_picture_frame" >
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+            android:layout_margin="2dp"
+                    android:background="@drawable/profile_default_img" />
+
+                <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/ic_launcher" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
+                    android:id="@+id/dealResttime"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="경유장소" />
+                    android:layout_margin="10dp"
+                    android:text="남은 시간 : 20분"
+                    android:textSize="15dp" />
 
-                <TextView
-                    android:id="@+id/deal_fromloc"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="구로구 구로동 마리오타워 804호" />
-            </TableRow>
+                    android:orientation="horizontal" >
 
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
+                    <ImageView
+                        android:id="@+id/dealResttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/call_her" />
+
+                    <ImageView
+                        android:id="@+id/dealResttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/txt_her" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/orange_dotted_line" />
+
+        <TextView
+            android:id="@+id/dealDescription"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/detail"
+           
+  />
+
+        <TextView
+            android:id="@+id/dealDescription"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/textbox_2"
+            android:lineSpacingMultiplier="1.5"
+            android:padding="15dp"
+            android:text="안녕하세요. 이화여대 정문에 위치한 밥풀이라는 음식점에서 양념통닭 3마리 사와주시고요. 오는 길에 콜라도 사와주세요."
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/giftcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/kyungyooji" />
 
                 <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
+                    android:id="@+id/giftcon"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="도착장소" />
+                    android:layout_margin="10dp"
+                    android:text="오빠 닭 구로디지털 단지역" />
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/deal_toloc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="강남구 역삼동 우리집 123호" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" >
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/giftcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/txt_destination_smaller"
+                    android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
+                    android:id="@+id/giftcon"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="남은 시간" />
+                    android:layout_margin="10dp"
+                    android:text="구로디지털단지 마리오타워" />
+            </LinearLayout>
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/rest_time"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="13시간 15분 남았습니다." />
-            </TableRow>
-        </TableLayout>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/orange_dotted_line" />
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
-                        android:orientation="horizontal" >
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/giftcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/gift_for_runner" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/starbucks" />
 
             <TextView
-                android:id="@+id/textClientStatus"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="일이 진짜 끝났나요?" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:text="도넛랑 아메리카노 세트" />
 
-            <Button
-                android:id="@+id/confirmBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="ClientConfirmBtnClick"
-                android:layout_marginLeft="20dp"
-                android:text="네!" />
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/orange_dotted_line" />
+
+            <ImageView
+                android:layout_gravity="right|center_vertical"
+                android:id="@+id/imageView3"
+                android:layout_width="200dp"
+                android:layout_margin="10dp"
+                android:layout_height="50dp"
+                android:src="@drawable/createmanage_user_detail_matched_style" />
+
         </LinearLayout>
     </LinearLayout>
 

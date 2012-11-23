@@ -34,23 +34,28 @@
                 android:text="남자 소개시켜 주세요"
                 android:textSize="20dp" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:background="@drawable/deal_progress_ing" />
+                android:text="대기중"
+         />
         </LinearLayout>
 
-        <ImageView
+             <ImageView
             android:layout_width="fill_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_thick" />
+            android:background="@drawable/orange_dotted_line" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/dealDescription"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="자세사항" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/detail"
+           
+  />
 
         <TextView
             android:id="@+id/dealDescription"
@@ -62,10 +67,10 @@
             android:padding="15dp"
             android:textSize="15dp" />
 
-        <ImageView
+             <ImageView
             android:layout_width="fill_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_thick" />
+            android:background="@drawable/orange_dotted_line" />
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -95,10 +100,10 @@
                 android:text="도넛랑 아메리카노 세트" />
         </LinearLayout>
 
-        <ImageView
+             <ImageView
             android:layout_width="fill_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_thick" />
+            android:background="@drawable/orange_dotted_line" />
 
         <TextView
             android:id="@+id/dealResttime"
@@ -109,10 +114,10 @@
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <ImageView
+             <ImageView
             android:layout_width="fill_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_thick" />
+            android:background="@drawable/orange_dotted_line" />
 
         <TextView
             android:id="@+id/textView1"
@@ -133,7 +138,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/profile_default_img" />
 
             <ImageView
                 android:id="@+id/userCompanyImage"

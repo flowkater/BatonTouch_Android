@@ -3,6 +3,7 @@
     android:id="@+id/layoutForPostATask"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/rectangle_background_400"
     android:orientation="vertical" >
     <include
@@ -17,12 +18,13 @@
             android:src="@drawable/status_bar3" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/chooseGift"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
-        android:text="선물을 골라 주세요."
+        android:text="선물을 골라 주세요!"
+        android:textSize="30dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <GridView

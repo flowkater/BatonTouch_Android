@@ -12,7 +12,7 @@
         android:targetSdkVersion="15" />
 
     <application
-        android:icon="@drawable/runnericon"
+        android:icon="@drawable/app_icon_2"
         android:label="바톤터치"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
@@ -38,6 +38,11 @@
         </activity>
         <activity
             android:name=".main.LoginActivity"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name=".included.Include_Createbaton"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
@@ -185,6 +190,11 @@
         </activity>
         <activity
             android:name=".setting.SettingActivity"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".setting.Setting_HowItWorks"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>

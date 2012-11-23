@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="#ffffff" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -49,63 +50,38 @@
             android:onClick="storeinfo"
             android:text="Store name" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="썼어요~" />
-
-        <LinearLayout
+        <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:background="@drawable/gifticon_detail_direction"
+            android:gravity="center_horizontal" >
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="아래의 버튼은 매장직원용 버튼입니다." />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="사용확인이 된 쿠폰은 이용할 수 없으므로 사용전에는 누르지 말아주세요." />
-            </LinearLayout>
-
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_alignParentBottom="true"
                 android:orientation="horizontal" >
 
-                <TextView
-                    android:id="@+id/textView4"
+                <ImageView
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="기프티콘 사용확인" />
+                    android:layout_margin="20dp"
+                    android:background="@drawable/gifticon_using_confirm" />
 
                 <ToggleButton
                     android:id="@+id/toggleButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
                     android:background="@drawable/profile_gift_used_style"
                     android:button="@null"
                     android:textOff=""
                     android:textOn="" />
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </ScrollView>

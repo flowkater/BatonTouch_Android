@@ -3,6 +3,7 @@ package com.batontouch.profile;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -14,11 +15,24 @@ public class ProfileActivity extends Activity {
 	final int MY_REQUEST_CODE = 42;
 
 	TextView textViewIntroduce;
-
+	String fontPath = "fonts/NanumPen.ttf";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile);
+		
+		TextView authorized = (TextView) findViewById(R.id.authorized);
+		
+		TextView aboutMe = (TextView) findViewById(R.id.aboutMe);
+		TextView recentActivity = (TextView) findViewById(R.id.recentActivity);
+		TextView review = (TextView) findViewById(R.id.review);
+		
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		authorized.setTypeface(tf);
+		aboutMe.setTypeface(tf);
+		recentActivity.setTypeface(tf);
+		review.setTypeface(tf);
+		
 		textViewIntroduce = (TextView) findViewById(R.id.textViewIntroduce);
 	}
 

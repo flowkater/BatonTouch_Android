@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
@@ -26,7 +29,7 @@ public class ProfileActivity_Edit extends Activity {
 	InputStream imageStream;
 	ImageButton uploadButton;
 	ImageView uploadImg;
-	
+	String fontPath = "fonts/NanumPen.ttf";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,15 @@ public class ProfileActivity_Edit extends Activity {
 
 		editTextIntroduce = (EditText) findViewById(R.id.editTextIntroduce);
 		uploadImg = (ImageView) findViewById(R.id.uploadImage);
-	//	uploadButton = (ImageButton) findViewById(R.id.uploadbutton);
+
+		TextView aboutMe = (TextView) findViewById(R.id.aboutMe);
+		TextView recentActivity = (TextView) findViewById(R.id.recentActivity);
+
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		aboutMe.setTypeface(tf);
+		recentActivity.setTypeface(tf);
+
+		// uploadButton = (ImageButton) findViewById(R.id.uploadbutton);
 	}
 
 	protected void onResume() {
@@ -68,7 +79,7 @@ public class ProfileActivity_Edit extends Activity {
 		Intent i = new Intent(Intent.ACTION_PICK,
 				android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 		startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
-		Toast.makeText(getApplicationContext(), "업로드!", 3000).show();
+		// Toast.makeText(getApplicationContext(), "업로드!", 3000).show();
 	}
 
 	public void editCompleteBtn(View v) {
@@ -102,10 +113,12 @@ public class ProfileActivity_Edit extends Activity {
 				String filePath = cursor.getString(columnIndex);
 				cursor.close();
 
-				//======================== Bug
-				Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath); //Error (Camera Upload)
-				//========================
-				
+				// ======================== Bug
+				Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath); // Error
+																				// (Camera
+																				// Upload)
+				// ========================
+
 				uploadImg.setImageBitmap(yourSelectedImage);
 				uploadImg.setScaleType(ImageView.ScaleType.FIT_XY);
 				uploadImg.setAdjustViewBounds(true);

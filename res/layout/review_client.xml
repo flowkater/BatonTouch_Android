@@ -8,6 +8,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/review_blackbox"
         android:orientation="horizontal" >
 
         <ImageView
@@ -29,11 +31,13 @@
             android:id="@+id/user_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_alignTop="@+id/user_profile_image"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/user_profile_image"
             android:text="배수지"
-            android:textSize="25dp" />
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
     </RelativeLayout>
 
     <RatingBar
@@ -50,8 +54,11 @@
         android:id="@+id/content_edit"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/review_text_box"
         android:gravity="top"
-        android:hint="고마운 사람을 위해 리뷰써주세요." >
+        android:hint="고마운 사람을 위해 리뷰써주세요."
+        android:padding="10dp" >
     </EditText>
     <!-- 클라이언트 리뷰 -->
 
@@ -66,15 +73,17 @@
         <TextView
             android:id="@+id/giftconTv"
             android:layout_width="wrap_content"
+            android:textSize="40dp"
             android:layout_height="wrap_content"
             android:text="기트티콘 받기" />
 
-        <Button
+        <ImageButton
             android:id="@+id/clientcomBtn"
-            android:onClick="clientComClick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:text="콕!" />
+            android:background="@drawable/review_poke_style"
+            android:onClick="clientComClick" />
     </LinearLayout>
-</LinearLayout>
+
+</LinearLayout>

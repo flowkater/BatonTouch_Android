@@ -113,7 +113,7 @@ public class LoginActivity extends Activity {
 
 	// 걍 통과 버튼
 	public void mOnClick(View v) {
-		Toast.makeText(getApplicationContext(), "로그인 완료!", 3000).show();
+		Toast.makeText(getApplicationContext(), "로그인 완료!", 4000).show();
 		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 		startActivity(intent);
 	}

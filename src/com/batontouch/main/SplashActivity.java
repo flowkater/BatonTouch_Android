@@ -26,8 +26,9 @@ public class SplashActivity extends Activity {
 		progressBar = new ProgressDialog(this);
 		
 	
-		progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		progressBar.show();
+	//	progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+	//	progressBar.show();
+		
 		// Handler
 		Handler handler = new Handler() {
 			@Override
