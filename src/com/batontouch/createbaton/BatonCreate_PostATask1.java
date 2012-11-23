@@ -2,16 +2,18 @@ package com.batontouch.createbaton;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.batontouch.R;
 
 public class BatonCreate_PostATask1 extends Activity {
-
+	String fontPath = "fonts/NanumPen.ttf";
 	private EditText nameEd,fromHereEt, toThereEt, taskDescriptionEt;
 	private String name, fromAt, toAt, description;
 
@@ -20,6 +22,18 @@ public class BatonCreate_PostATask1 extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batoncreate_postatask1);
 
+		
+		TextView batonName = (TextView) findViewById(R.id.batonName);
+		TextView fromHere = (TextView) findViewById(R.id.fromHere);
+		TextView toHere = (TextView) findViewById(R.id.toHere);
+		TextView askForThis = (TextView) findViewById(R.id.askForThis);
+		
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		batonName.setTypeface(tf);
+		fromHere.setTypeface(tf);
+		toHere.setTypeface(tf);
+		askForThis.setTypeface(tf);
+		
 		nameEd = (EditText) findViewById(R.id.nameEd);
 		fromHereEt = (EditText) findViewById(R.id.fromHereEt);
 		toThereEt = (EditText) findViewById(R.id.toThereEt);

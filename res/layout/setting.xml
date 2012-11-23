@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
+        android:background="@drawable/rectangle_background_400"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:layout_marginBottom="60dp"
-    android:background="@drawable/background_square" >
+ >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,12 +36,38 @@
                 android:orientation="horizontal" >
 
                 <Button
-                    android:id="@+id/FAQBtn"
+                    android:id="@+id/annoucementBtn"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_margin="1dp"
-                    android:background="@drawable/setting_qua_icon_style"
+                    android:background="@drawable/setting_notice_icon_style"
                     android:onClick="generalSettingBtn" />
+
+                <Button
+                    android:id="@+id/howItWorks"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/setting_how_icon_style"
+                    android:onClick="generalSettingBtn" />
+
+                <Button
+                    android:id="@+id/paymentBtn"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/setting_credit_icon_style"
+                    android:onClick="generalSettingBtn" />
+            </LinearLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
 
                 <ImageButton
                     android:id="@+id/recommendToFriendsBtn"
@@ -52,22 +79,12 @@
                     android:text="친구에게 바톤터치 추천하기!" />
 
                 <Button
-                    android:id="@+id/paymentBtn"
+                    android:id="@+id/FAQBtn"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_margin="1dp"
-                    android:background="@drawable/setting_credit_icon_style"
-                    android:onClick="privacySettingBtn" />
-            </LinearLayout>
-
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal" >
+                    android:background="@drawable/setting_qua_icon_style"
+                    android:onClick="generalSettingBtn" />
 
                 <Button
                     android:id="@+id/alarmBtn"
@@ -75,22 +92,6 @@
                     android:layout_height="95dp"
                     android:layout_margin="1dp"
                     android:background="@drawable/setting_alarm_icon_style"
-                    android:onClick="alarmSettingBtn" />
-
-                <ImageButton
-                    android:id="@+id/logoutBtn"
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_margin="1dp"
-                    android:background="@drawable/setting_logout_icon_style"
-                    android:onClick="privacySettingBtn" />
-
-                <Button
-                    android:id="@+id/suggestionBtn"
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_margin="1dp"
-                    android:background="@drawable/setting_feedback_icon_style"
                     android:onClick="generalSettingBtn" />
             </LinearLayout>
 
@@ -103,13 +104,21 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/annoucementBtn"
+                <ImageButton
+                    android:id="@+id/logoutBtn"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_margin="1dp"
-                    android:background="@drawable/setting_notice_icon_style"
-                    android:onClick="buttontouchSettingBtn" />
+                    android:background="@drawable/setting_logout_icon_style"
+                    android:onClick="generalSettingBtn" />
+
+                <Button
+                    android:id="@+id/suggestionBtn"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/setting_feedback_icon_style"
+                    android:onClick="generalSettingBtn" />
 
                 <Button
                     android:id="@+id/policyBtn"
@@ -117,15 +126,7 @@
                     android:layout_height="95dp"
                     android:layout_margin="1dp"
                     android:background="@drawable/setting_policy_icon_style"
-                    android:onClick="buttontouchSettingBtn" />
-
-                <Button
-                    android:id="@+id/policyBtn"
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_margin="1dp"
-                    android:background="@drawable/setting_policy_icon_style"
-                    android:onClick="buttontouchSettingBtn" />
+                    android:onClick="generalSettingBtn" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -31,15 +31,7 @@ public class SettingActivity extends Activity {
 	public void privacySettingBtn(View v) {
 
 		switch (v.getId()) {
-		case R.id.logoutBtn:
-			LogoutDialog();
-			break;
-		case R.id.paymentBtn:
-			Toast.makeText(getApplicationContext(), "결제정보 수정/확인", 3000).show();
-			Intent intent4 = new Intent(getApplicationContext(),
-					Setting_Payment.class);
-			startActivity(intent4);
-			break;
+	
 		// case R.id.faebookBtn:
 		// Toast.makeText(getApplicationContext(), "페이스북 연동", 3000).show();
 		// Intent intent2 = new Intent();
@@ -75,38 +67,72 @@ public class SettingActivity extends Activity {
 		// Toast.makeText(getApplicationContext(), "바톤터치를 친구에게 추천",
 		// 3000).show();
 		// break;
-
-		// case R.id.talkInKakao:
-		// Toast.makeText(getApplicationContext(), "카톡에서 얘기합시다!", 3000).show();
-		// Intent intent = new Intent(getApplicationContext(),
-		// SettingActivity_KaKao.class);
-		// startActivity(intent);
-		// break;
-
-		case R.id.FAQBtn:
+		
+		case R.id.annoucementBtn:
+			Toast.makeText(getApplicationContext(), "공지사항", 3000).show();
 			Intent intent1 = new Intent(getApplicationContext(),
-					Setting_FAQ.class);
+					Setting_Announcement.class);
 			startActivity(intent1);
 			break;
+			
+		case R.id.howItWorks:
+			Toast.makeText(getApplicationContext(), "이용방법", 3000).show();
+			Intent intent2 = new Intent(getApplicationContext(),
+					Setting_HowItWorks.class);
+			startActivity(intent2);
+			break;
+		
+		case R.id.paymentBtn:
+			Toast.makeText(getApplicationContext(), "결제정보 수정/확인", 3000).show();
+			Intent intent3 = new Intent(getApplicationContext(),
+					Setting_Payment.class);
+			startActivity(intent3);
+			break;
+			
+		case R.id.FAQBtn:
+			Intent intent5 = new Intent(getApplicationContext(),
+					Setting_FAQ.class);
+			startActivity(intent5);
+			break;
+			
+		case R.id.alarmBtn:
+			Toast.makeText(getApplicationContext(), "알림 설정", 3000).show();
+			Intent intent6 = new Intent(getApplicationContext(),
+					Setting_Alarm.class);
+			startActivity(intent6);
+			break;
+			
+		case R.id.logoutBtn:
+			LogoutDialog();
+			break;
+		
+
+		
 		case R.id.suggestionBtn:
 			Toast.makeText(getApplicationContext(), "문의 / 제안 / 신고", 3000)
 					.show();
-			Intent intent2 = new Intent(getApplicationContext(),
+			Intent intent8 = new Intent(getApplicationContext(),
 					Setting_Suggestion.class);
-			startActivity(intent2);
+			startActivity(intent8);
 			break;
+		
+			
+		
+
+		case R.id.policyBtn:
+			Toast.makeText(getApplicationContext(), "이용약관", 3000).show();
+			Intent intent9 = new Intent(getApplicationContext(),
+					Setting_Policy.class);
+			startActivity(intent9);
+			break;
+		
 		}
 	}
 
 	public void alarmSettingBtn(View v) {
 
 		switch (v.getId()) {
-		case R.id.alarmBtn:
-			Toast.makeText(getApplicationContext(), "알림 설정", 3000).show();
-			Intent intent1 = new Intent(getApplicationContext(),
-					Setting_Alarm.class);
-			startActivity(intent1);
-			break;
+	
 
 		// case R.id.pushAreaBtn:
 		// Toast.makeText(getApplicationContext(), "관심 푸쉬지역 설정", 3000).show();
@@ -120,25 +146,6 @@ public class SettingActivity extends Activity {
 		}
 	}
 
-	public void buttontouchSettingBtn(View v) {
-
-		switch (v.getId()) {
-		case R.id.annoucementBtn:
-			Toast.makeText(getApplicationContext(), "공지사항", 3000).show();
-			Intent intent1 = new Intent(getApplicationContext(),
-					Setting_Announcement.class);
-			startActivity(intent1);
-			break;
-
-		case R.id.policyBtn:
-			Toast.makeText(getApplicationContext(), "이용약관", 3000).show();
-			Intent intent2 = new Intent(getApplicationContext(),
-					Setting_Policy.class);
-			startActivity(intent2);
-			break;
-		}
-
-	}
 
 	public void sendUrlLink(View v) throws NameNotFoundException {
 		// Recommended: Use application context for parameter.

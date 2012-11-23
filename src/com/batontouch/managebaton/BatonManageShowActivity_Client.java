@@ -47,31 +47,31 @@ public class BatonManageShowActivity_Client extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.batonmanage_managetasks_clientpage_progress);
 
-		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
-		auth_token = mPreferences.getString("AuthToken", "");
-
-		Intent in = getIntent();
-		task_id = in.getStringExtra("task_id");
-
-		confirmBtn = (Button) findViewById(R.id.confirmBtn);
-
-		imUser = (ImageView) findViewById(R.id.userProfileImage);
-		imCompany = (ImageView) findViewById(R.id.userCompanyImage);
-
-		tvUsername = (TextView) findViewById(R.id.userName);
-
-		tvName = (TextView) findViewById(R.id.deal_name);
-		tvStatus = (TextView) findViewById(R.id.deal_status);
-		tvDescription = (TextView) findViewById(R.id.deal_description);
-		tvToloc = (TextView) findViewById(R.id.deal_toloc);
-		tvFromloc = (TextView) findViewById(R.id.deal_fromloc);
-		tvResttime = (TextView) findViewById(R.id.rest_time);
-
-		textClientStatus = (TextView) findViewById(R.id.textClientStatus);
-
-		new GetBatonShow().execute();
-
-		super.onCreate(savedInstanceState);
+//		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+//		auth_token = mPreferences.getString("AuthToken", "");
+//
+//		Intent in = getIntent();
+//		task_id = in.getStringExtra("task_id");
+//
+//		confirmBtn = (Button) findViewById(R.id.confirmBtn);
+//
+//		imUser = (ImageView) findViewById(R.id.userProfileImage);
+//		imCompany = (ImageView) findViewById(R.id.userCompanyImage);
+//
+//		tvUsername = (TextView) findViewById(R.id.userName);
+//
+//		tvName = (TextView) findViewById(R.id.deal_name);
+//		tvStatus = (TextView) findViewById(R.id.deal_status);
+//		tvDescription = (TextView) findViewById(R.id.deal_description);
+//		tvToloc = (TextView) findViewById(R.id.deal_toloc);
+//		tvFromloc = (TextView) findViewById(R.id.deal_fromloc);
+//		tvResttime = (TextView) findViewById(R.id.rest_time);
+//
+//		textClientStatus = (TextView) findViewById(R.id.textClientStatus);
+//
+//		new GetBatonShow().execute();
+//
+//		super.onCreate(savedInstanceState);
 	}
 
 	public void ClientConfirmBtnClick(View v) {

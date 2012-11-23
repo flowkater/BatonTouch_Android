@@ -10,6 +10,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +19,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.batontouch.R;
 
@@ -37,7 +38,7 @@ public class BatonCreate_PostATask2 extends Activity {
 	private Button dateToAnswer, timeToAnswer, dateTobeDone, timeTobeDone;
 
 	private EditText expectedtime;
-
+	String fontPath = "fonts/NanumPen.ttf";
 	private String spendtime, answerdate, donedate;
 	private Bundle extras;
 
@@ -55,6 +56,16 @@ public class BatonCreate_PostATask2 extends Activity {
 		// ====
 
 		setContentView(R.layout.batoncreate_postatask2);
+
+		TextView expectTime = (TextView) findViewById(R.id.expectedTime1);
+		TextView confirmTime = (TextView) findViewById(R.id.confirmTime);
+		TextView finishDate = (TextView) findViewById(R.id.finishdate);
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		expectTime.setTypeface(tf);
+		confirmTime.setTypeface(tf);
+		finishDate.setTypeface(tf);
+		
+		
 		expectedtime = (EditText) findViewById(R.id.expectedtime);
 
 		dateToAnswer = (Button) findViewById(R.id.dateToAnswer);

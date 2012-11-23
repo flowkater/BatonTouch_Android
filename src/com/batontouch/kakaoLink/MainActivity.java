@@ -125,8 +125,8 @@ public class MainActivity extends Activity {
 	 */
 	public void sendPostingLink(View v) throws NameNotFoundException {
 		Map<String, Object> urlInfoAndroid = new Hashtable<String, Object>(1);
-		urlInfoAndroid.put("title", "(광해) 실제 역사�? 진실�?�?");
-		urlInfoAndroid.put("desc", "(광해 왕�?� �?� 남�?)�?� 역사성 부족�?� 논하다.");
+		urlInfoAndroid.put("title", "(광해) 실제 역사�? 진실�?�?");
+		urlInfoAndroid.put("desc", "(광해 왕�?� �?� 남�?)�?� 역사성 부족�?� 논하다.");
 		urlInfoAndroid.put("imageurl", new String[] {"http://m1.daumcdn.net/photo-media/201209/27/ohmynews/R_430x0_20120927141307222.jpg"});
 		urlInfoAndroid.put("type", "article");
 		
@@ -152,7 +152,7 @@ public class MainActivity extends Activity {
 				"http://m.media.daum.net/entertain/enews/view?newsid=20120927110708426",
 				getPackageName(), 
 				getPackageManager().getPackageInfo(getPackageName(), 0).versionName, 
-				"미디어디�?�",
+				"미디어디�?�",
 				encoding, 
 				urlInfoAndroid);
 	}
@@ -203,7 +203,7 @@ public class MainActivity extends Activity {
 	private void alert(String message) {
 		new AlertDialog.Builder(this)
 			.setIcon(android.R.drawable.ic_dialog_alert)
-			.setTitle(R.string.app_name)
+			.setTitle("KAKAO")
 			.setMessage(message)
 			.setPositiveButton(android.R.string.ok, null)
 			.create().show();

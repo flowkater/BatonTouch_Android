@@ -28,7 +28,7 @@ public class MainActivity extends TabActivity {
 		LayoutInflater layout = getLayoutInflater();
 		View homeView = layout.inflate(R.layout.main_tab_home, null);
 		View manageView = layout.inflate(R.layout.main_tab_dealmanage, null);
-		View createView = layout.inflate(R.layout.main_tab_home, null);
+		View createView = layout.inflate(R.layout.main_tab_dealcreate, null);
 		View profileView = layout.inflate(R.layout.main_tab_profile, null);
 		View settingView = layout.inflate(R.layout.main_tab_setting, null);
 

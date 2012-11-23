@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.batontouch.R;
@@ -21,16 +23,23 @@ public class BatonCreate_PostATask3 extends Activity {
 	private String mResult;
 	private ArrayList<Store> mStores = new ArrayList<Store>();
 	private BatonCreate_StoreAdapter mAdapter;
-
+	String fontPath = "fonts/NanumPen.ttf";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		
 		
 		Intent in = getIntent();
 		Bundle extras = new Bundle();
 		extras = in.getExtras();
 
 		setContentView(R.layout.batoncreate_postatask3);
+		
+		TextView chooseGift = (TextView) findViewById(R.id.chooseGift);
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		chooseGift.setTypeface(tf);
+		
 		GridView grid = (GridView) findViewById(R.id.gridView);
 		
 		mAdapter = new BatonCreate_StoreAdapter(getApplicationContext(), mStores, extras);

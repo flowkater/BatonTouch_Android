@@ -49,7 +49,7 @@ public class BatonShowActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.batonindex_detail);
+		setContentView(R.layout.batonindex_detail_waiting);
 		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
 		auth_token = mPreferences.getString("AuthToken", "");
@@ -69,7 +69,7 @@ public class BatonShowActivity extends Activity {
 		// dealEnddatetv = (TextView) findViewById(R.id.dealEnddatetv);
 
 		dealResttime = (TextView) findViewById(R.id.dealResttime);
-		suggestBtn = (Button) findViewById(R.id.suggestBtn);
+	//	suggestBtn = (Button) findViewById(R.id.suggestBtn);
 
 		DialogProgress();
 		new GetBatonShow().execute();
