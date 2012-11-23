@@ -80,11 +80,11 @@ public class BatonCreate_GiftitemAdapter extends ArrayAdapter<Giftitem> {
 				extras.putString("gift_price", giftitem.getPrice());
 				extras.putString("gift_fromdate", giftitem.getFromdate());
 				extras.putString("gift_todate", giftitem.getTodate());
+				extras.putString("gift_image_big", giftitem.getImage_big());
 				intent.putExtras(extras);
 				context.startActivity(intent);
 			}
 		});
-
 		return convertView;
 	}
 

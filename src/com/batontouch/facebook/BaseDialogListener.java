@@ -16,6 +16,7 @@ public abstract class BaseDialogListener implements DialogListener {
 	}
 
 	public void onError(DialogError e) {
+		
 		e.printStackTrace();
 	}
 

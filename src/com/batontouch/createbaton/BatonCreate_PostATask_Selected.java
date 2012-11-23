@@ -35,7 +35,7 @@ public class BatonCreate_PostATask_Selected extends Activity {
 	private ImageView giftitem_image;
 	private TextView giftitem_name, giftitem_description, giftitem_price;
 
-	private String gift_id, gift_image, gift_name, gift_description,
+	private String gift_id, gift_image_big, gift_name, gift_description,
 			gift_price, gift_fromdate, gift_todate;
 	private String store_id, name, description, fromloc, toloc, spendtime,
 			calldate, enddate;
@@ -61,8 +61,8 @@ public class BatonCreate_PostATask_Selected extends Activity {
 		giftitem_description = (TextView) findViewById(R.id.giftitem_description);
 		giftitem_price = (TextView) findViewById(R.id.giftitem_price);
 
-		if (gift_image != null) {
-			ImageDownloader.download(Global.ServerOriginalUrl + gift_image,
+		if (gift_image_big != null) {
+			ImageDownloader.download(Global.ServerOriginalUrl + gift_image_big,
 					giftitem_image);
 		} else {
 			giftitem_image.setImageResource(R.drawable.ic_launcher);
@@ -85,7 +85,7 @@ public class BatonCreate_PostATask_Selected extends Activity {
 		calldate = extras.getString("calldate");
 		enddate = extras.getString("enddate");
 		gift_id = extras.getString("gift_id");
-		gift_image = extras.getString("gift_image");
+		gift_image_big = extras.getString("gift_image_big");
 		gift_name = extras.getString("gift_name");
 		gift_description = extras.getString("gift_description");
 		gift_price = extras.getString("gift_price");

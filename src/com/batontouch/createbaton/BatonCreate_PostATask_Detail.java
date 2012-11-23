@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,8 @@ public class BatonCreate_PostATask_Detail extends Activity {
 	private BatonCreate_GiftitemAdapter mAdapter;
 	private String mResult;
 	private TextView store_name;
+	private SharedPreferences mPreferences;
+	private String auth_token;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class BatonCreate_PostATask_Detail extends Activity {
 		Intent in = getIntent();
 		Bundle extras = in.getExtras();
 		store_id = extras.getString("store_id");
+		
+		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+		auth_token = mPreferences.getString("AuthToken", "");
 
 		setContentView(R.layout.batoncreate_postatask_gift_detail);
 
@@ -57,12 +63,13 @@ public class BatonCreate_PostATask_Detail extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			mResult = NetHelper.DownloadHtml(Global.ServerUrl + "stores/"
-					+ store_id);
+					+ store_id + "?auth_token=" + auth_token);
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
+			Log.d("batoncreate", mResult);
 			Gson gson = new Gson();
 			Store store = gson.fromJson(mResult, Store.class);
 			ArrayList<Giftitem> giftitems = store.getGiftitems();

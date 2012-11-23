@@ -8,7 +8,14 @@ public class Giftitem {
 	private String todate;
 	private String price;
 	private String image;
+	private String image_big;
 	
+	public String getImage_big() {
+		return image_big;
+	}
+	public void setImage_big(String image_big) {
+		this.image_big = image_big;
+	}
 	public String getImage() {
 		return image;
 	}

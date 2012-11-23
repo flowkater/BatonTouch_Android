@@ -11,7 +11,7 @@ public class Global {
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
 
-	public static String AuthorizationToken = "Token token=\"ad1382c38f52c81c83d92112468ad35d\""; // Authorization
+	public static String AuthorizationToken = "Token token=\"5314dce6e025dae96e588d78cf92cbe8\""; // Authorization
 
 
 	public static String userJudge(int taskStatus) {
