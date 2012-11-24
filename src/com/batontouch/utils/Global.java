@@ -5,10 +5,10 @@ import android.content.Intent;
 
 public class Global {
 	// public static String ServerUrl = "http://192.168.0.154:3000/api/";
-	// public static String ServerUrl = "http://14.63.222.63:3333/api/";
-	// public static String ServerOriginalUrl = "http://14.63.222.63:3333";
-	public static String ServerUrl = "http://192.168.0.2:3000/api/";
-	public static String ServerOriginalUrl = "http://192.168.0.2:3000";
+	 public static String ServerUrl = "http://14.63.222.63:3333/api/";
+	 public static String ServerOriginalUrl = "http://14.63.222.63:3333";
+	//public static String ServerUrl = "http://192.168.0.2:3000/api/";
+	//public static String ServerOriginalUrl = "http://192.168.0.2:3000";
 	public static String FacebookSendToken = ServerUrl
 			+ "check_mobile_login.json?token=";
 	// == API Versioning
@@ -17,7 +17,8 @@ public class Global {
 
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
-	public static String AuthorizationToken = "Token token=\"5314dce6e025dae96e588d78cf92cbe8\""; // Authorization
+
+	public static String AuthorizationToken = "Token token=\"494487784a27b92e55fad5371c10c0e5\""; // Authorization
 
 	public static String userJudge(int taskStatus) {
 		/*

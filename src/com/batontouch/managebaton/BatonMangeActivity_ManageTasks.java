@@ -10,13 +10,13 @@ import com.batontouch.R;
 
 public class BatonMangeActivity_ManageTasks extends Activity {
 	String fontPath = "fonts/NanumPen.ttf";
-	TextView dealName1, price1, date1, status1;
+	TextView dealNametv, price1, date, dealStatus, specifics, fromHere, toHere, waitingForRunner, dealResttime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.batonmanage_managetasks);
+		setContentView(R.layout.batonmanage_managetasks_waiting);
 
 		
 		
@@ -35,21 +35,45 @@ public class BatonMangeActivity_ManageTasks extends Activity {
 //		giftcon.setTypeface(tf);
 //		dealResttime.setTypeface(tf);
 
-		dealName1 = (TextView) findViewById(R.id.name);
+		dealNametv = (TextView) findViewById(R.id.name);
 		// price1 = (TextView) findViewById(R.id.price);
-		date1 = (TextView) findViewById(R.id.date);
-		status1 = (TextView) findViewById(R.id.status);
+		date = (TextView) findViewById(R.id.date);
+		dealStatus = (TextView) findViewById(R.id.status);
 
 		Intent intent = getIntent();
-		String taskName = intent.getStringExtra("taskName");
-		String status = intent.getStringExtra("status");
-		String date = intent.getStringExtra("date");
+		String taskName1 = intent.getStringExtra("taskName1");
+		String status1 = intent.getStringExtra("status1");
+		String date1 = intent.getStringExtra("date1");
 		// String price = intent.getStringExtra("price");
 
-		dealName1.setText(taskName);
+		specifics = (TextView) findViewById(R.id.specifics);
+		dealNametv.setText(taskName1);
 		// price1.setText(price);
-		date1.setText(date);
-		status1.setText(status);
+		date.setText(date1);
+		dealStatus.setText(status1);
+		
+		dealResttime = (TextView) findViewById(R.id.dealResttime);
 
+		dealNametv = (TextView) findViewById(R.id.name);
+		dealStatus = (TextView) findViewById(R.id.status);
+		waitingForRunner = (TextView) findViewById(R.id.waitingForRunner);
+		font();
+	}
+	
+	
+	
+private void font(){
+		
+		String fontPath = "fonts/NanumPen.ttf";
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		dealNametv.setTypeface(tf);
+		dealStatus.setTypeface(tf);
+		date.setTypeface(tf);
+		dealResttime.setTypeface(tf);
+		specifics.setTypeface(tf);
+		waitingForRunner.setTypeface(tf);
+		fromHere.setTypeface(tf);
+		toHere.setTypeface(tf);
+		
 	}
 }

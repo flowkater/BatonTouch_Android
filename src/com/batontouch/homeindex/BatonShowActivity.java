@@ -17,6 +17,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +35,7 @@ import com.google.gson.Gson;
 public class BatonShowActivity extends Activity {
 
 	private TextView dealNametv, fromloctv, toloctv, dealDescriptiontv,
-			dealCalldatetv, dealEnddatetv, dealStatus, dealResttime;
+			dealCalldatetv, dealEnddatetv, dealStatus, dealResttime, date, specifics, gifticon, fromHere, toHere;
 	private String task_id;
 	private String mResult; // GetBatonShow AsyncTask
 	private int StatusCode;
@@ -58,22 +59,47 @@ public class BatonShowActivity extends Activity {
 		Intent intent = getIntent();
 		task_id = intent.getStringExtra("task_id");
 
+		
 		dealNametv = (TextView) findViewById(R.id.name);
 		dealStatus = (TextView) findViewById(R.id.status);
 
+		date = (TextView) findViewById(R.id.date);
 		// fromloctv = (TextView) findViewById(R.id.fromloctv);
 		// toloctv = (TextView) findViewById(R.id.toloctv);
 
+		gifticon = (TextView) findViewById(R.id.gifticon);
 		dealDescriptiontv = (TextView) findViewById(R.id.dealDescription);
 		// dealCalldatetv = (TextView) findViewById(R.id.dealCalldatetv);
 		// dealEnddatetv = (TextView) findViewById(R.id.dealEnddatetv);
-
+		specifics = (TextView) findViewById(R.id.specifics);
 		dealResttime = (TextView) findViewById(R.id.dealResttime);
+		
+		fromHere = (TextView) findViewById(R.id.fromHere);
+		toHere = (TextView) findViewById(R.id.toHere);
 	//	suggestBtn = (Button) findViewById(R.id.suggestBtn);
 
+		
 		DialogProgress();
 		new GetBatonShow().execute();
+		
+		font();
 	}
+	
+	private void font(){
+		
+		String fontPath = "fonts/NanumPen.ttf";
+		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
+		dealNametv.setTypeface(tf);
+		dealStatus.setTypeface(tf);
+		date.setTypeface(tf);
+		dealResttime.setTypeface(tf);
+		specifics.setTypeface(tf);
+		gifticon.setTypeface(tf);
+		fromHere.setTypeface(tf);
+		toHere.setTypeface(tf);
+		
+	}
+	
 
 	private class GetBatonShow extends AsyncTask<Void, Void, Void> {
 		@Override
