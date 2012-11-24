@@ -14,26 +14,31 @@ public class ProfileActivity extends Activity {
 
 	final int MY_REQUEST_CODE = 42;
 
-	TextView textViewIntroduce;
-	String fontPath = "fonts/NanumPen.ttf";
+	TextView textViewIntroduce, authorized, aboutMe, recentActivity, review;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile);
-		
-		TextView authorized = (TextView) findViewById(R.id.authorized);
-		
-		TextView aboutMe = (TextView) findViewById(R.id.aboutMe);
-		TextView recentActivity = (TextView) findViewById(R.id.recentActivity);
-		TextView review = (TextView) findViewById(R.id.review);
-		
+
+		authorized = (TextView) findViewById(R.id.authorized);
+
+		aboutMe = (TextView) findViewById(R.id.aboutMe);
+		recentActivity = (TextView) findViewById(R.id.recentActivity);
+		review = (TextView) findViewById(R.id.review);
+
+		textViewIntroduce = (TextView) findViewById(R.id.textViewIntroduce);
+
+		font();
+	}
+
+	private void font() {
+		String fontPath = "fonts/NanumPen.ttf";
 		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
 		authorized.setTypeface(tf);
 		aboutMe.setTypeface(tf);
 		recentActivity.setTypeface(tf);
 		review.setTypeface(tf);
-		
-		textViewIntroduce = (TextView) findViewById(R.id.textViewIntroduce);
 	}
 
 	public void profileEdit(View v) {

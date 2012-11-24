@@ -11,7 +11,7 @@ public class Global {
 	// == API Versioning
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
-	public static String AuthorizationToken = "Token token=\"c0b9599186c6a8912f38b86594f9699f\""; // Authorization
+	public static String AuthorizationToken = "Token token=\"494487784a27b92e55fad5371c10c0e5\""; // Authorization
 
 	public static String userJudge(int taskStatus) {
 		/*
