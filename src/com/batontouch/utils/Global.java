@@ -1,17 +1,23 @@
 ﻿package com.batontouch.utils;
 
+import android.content.Context;
+import android.content.Intent;
+
 public class Global {
 	// public static String ServerUrl = "http://192.168.0.154:3000/api/";
-	 public static String ServerUrl = "http://14.63.222.63:3333/api/";
-	 public static String ServerOriginalUrl = "http://14.63.222.63:3333";
-	 //	public static String ServerUrl = "http://192.168.0.2:3000/api/";
-//	public static String ServerOriginalUrl = "http://192.168.0.2:3000";
+	// public static String ServerUrl = "http://14.63.222.63:3333/api/";
+	// public static String ServerOriginalUrl = "http://14.63.222.63:3333";
+	public static String ServerUrl = "http://192.168.0.2:3000/api/";
+	public static String ServerOriginalUrl = "http://192.168.0.2:3000";
 	public static String FacebookSendToken = ServerUrl
 			+ "check_mobile_login.json?token=";
 	// == API Versioning
+
+	public static final String SENDER_ID = "128292354542";
+
 	public static String version = "v1"; // Accept
 	public static String Acceptversion = "application/vnd.batontouch.v1";
-	public static String AuthorizationToken = "Token token=\"c0b9599186c6a8912f38b86594f9699f\""; // Authorization
+	public static String AuthorizationToken = "Token token=\"5314dce6e025dae96e588d78cf92cbe8\""; // Authorization
 
 	public static String userJudge(int taskStatus) {
 		/*
@@ -31,5 +37,16 @@ public class Global {
 		} else {
 			return "Error";
 		}
+	}
+
+	static final String DISPLAY_MESSAGE_ACTION = "com.example.railsgcm.DISPLAY_MESSAGE";
+
+	static final String EXTRA_MESSAGE = "message";
+
+	// Notifies UI to display a message.
+	static void displayMessage(Context context, String message) {
+		Intent intent = new Intent(DISPLAY_MESSAGE_ACTION);
+		intent.putExtra(EXTRA_MESSAGE, message);
+		context.sendBroadcast(intent);
 	}
 }

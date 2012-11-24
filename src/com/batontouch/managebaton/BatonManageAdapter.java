@@ -61,7 +61,7 @@ class BatonManageAdapter extends ArrayAdapter<Task> {
 			// 하나의 TextView 로 통합해서 status 명시
 		}
 
-		// client status 부분
+		// user status 부분
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

@@ -193,5 +193,4 @@ public class BatonShowActivity extends Activity {
 		progressdialog = ProgressDialog.show(BatonShowActivity.this, "",
 				"잠시만 기다려 주세요 ...", true);
 	}
-
 }

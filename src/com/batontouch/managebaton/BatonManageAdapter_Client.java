@@ -80,7 +80,8 @@ class BatonManageAdapter_Client extends ArrayAdapter<Task> {
 						Toast.makeText(mContext, task_id + "",
 								Toast.LENGTH_SHORT).show();
 					} else if (status == 3) {
-						startAct(BatonManageReviewActivity_Client.class, task_id);
+						startAct(BatonManageReviewActivity_Client.class,
+								task_id);
 						Toast.makeText(mContext, task_id + "",
 								Toast.LENGTH_SHORT).show();
 					}

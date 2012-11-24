@@ -3,9 +3,18 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <permission
+        android:name="com.batontouch.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.batontouch.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -41,7 +50,7 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name=".included.Include_Createbaton"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
@@ -298,6 +307,19 @@
             android:name=".managebaton.BatonManageAdapter_Client"
             android:screenOrientation="portrait" >
         </activity>
+
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.batontouch" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".utils.GCMIntentService" />
     </application>
 
 </manifest>
