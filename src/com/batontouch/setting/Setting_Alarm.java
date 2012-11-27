@@ -1,9 +1,9 @@
 package com.batontouch.setting;
 
-import com.batontouch.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.batontouch.main.R;
 
 public class Setting_Alarm extends Activity {
 

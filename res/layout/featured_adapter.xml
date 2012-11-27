@@ -24,7 +24,7 @@
             android:background="@drawable/user_picture_frame" >
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imageProfile"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="2dp"
@@ -77,6 +77,7 @@
                 android:textSize="12dp" />
 
             <TextView
+                android:id="@+id/resttime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -108,7 +109,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/button1"
+        android:id="@+id/imageGiftcon"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignBottom="@+id/linearLayout1"

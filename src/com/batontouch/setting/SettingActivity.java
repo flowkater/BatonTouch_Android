@@ -11,10 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.batontouch.R;
 import com.batontouch.kakaoLink.KakaoLink;
 import com.batontouch.main.LoginActivity;
-import com.batontouch.main.UserLoginActivity;
+import com.batontouch.main.R;
 
 public class SettingActivity extends Activity {
 	private String encoding = "UTF-8";

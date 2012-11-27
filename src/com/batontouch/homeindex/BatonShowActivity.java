@@ -23,28 +23,39 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
+import com.batontouch.model.Giftcon;
 import com.batontouch.model.Task;
+import com.batontouch.model.User;
 import com.batontouch.utils.Global;
+import com.batontouch.utils.ImageDownloader;
 import com.batontouch.utils.NetHelper;
 import com.google.gson.Gson;
 
 public class BatonShowActivity extends Activity {
 
 	private TextView dealNametv, fromloctv, toloctv, dealDescriptiontv,
-			dealCalldatetv, dealEnddatetv, dealStatus, dealResttime, date, specifics, gifticon, fromHere, toHere;
+			dealCalldatetv, dealEnddatetv, dealStatus, dealResttime, date,
+			specifics, gifticon, fromHere, toHere,runnergift;
 	private String task_id;
 	private String mResult; // GetBatonShow AsyncTask
 	private int StatusCode;
 	private SharedPreferences mPreferences;
 	private String auth_token;
-	private Button suggestBtn;
+	private ImageButton suggestBtn;
 
 	private ProgressDialog progressdialog;
+
+	private ImageView user_image, company_image, facebook_auth, phone_auth,giftcon_image;
+	private TextView user_name;
 	
+	private String userimage, companyimage, giftconimage;
+
 	private boolean auth_client;
 
 	@Override
@@ -58,35 +69,39 @@ public class BatonShowActivity extends Activity {
 
 		Intent intent = getIntent();
 		task_id = intent.getStringExtra("task_id");
-
 		
-		dealNametv = (TextView) findViewById(R.id.name);
-		dealStatus = (TextView) findViewById(R.id.status);
+		init_view();
 
-		date = (TextView) findViewById(R.id.date);
-		// fromloctv = (TextView) findViewById(R.id.fromloctv);
-		// toloctv = (TextView) findViewById(R.id.toloctv);
-
-		gifticon = (TextView) findViewById(R.id.gifticon);
-		dealDescriptiontv = (TextView) findViewById(R.id.dealDescription);
-		// dealCalldatetv = (TextView) findViewById(R.id.dealCalldatetv);
-		// dealEnddatetv = (TextView) findViewById(R.id.dealEnddatetv);
-		specifics = (TextView) findViewById(R.id.specifics);
-		dealResttime = (TextView) findViewById(R.id.dealResttime);
-		
-		fromHere = (TextView) findViewById(R.id.fromHere);
-		toHere = (TextView) findViewById(R.id.toHere);
-	//	suggestBtn = (Button) findViewById(R.id.suggestBtn);
-
-		
 		DialogProgress();
 		new GetBatonShow().execute();
-		
-		font();
 	}
-	
-	private void font(){
+
+	private void init_view() {
+		dealNametv = (TextView) findViewById(R.id.name); // 딜이름
+		date = (TextView) findViewById(R.id.date); // 딜 생성 날짜
+		dealStatus = (TextView) findViewById(R.id.status); // 딜 상태
+		//-- date 계산
+		dealResttime = (TextView) findViewById(R.id.dealResttime); // 딜남은시간
+		//--
+		dealDescriptiontv = (TextView) findViewById(R.id.dealDescription); // 딜 상세 설명
+		fromloctv = (TextView) findViewById(R.id.fromloctv); // 경유지
+		toloctv = (TextView) findViewById(R.id.toloctv); // 도착지
+		giftcon_image = (ImageView)findViewById(R.id.giftcon_image); // 기프티콘이미지
+		gifticon = (TextView) findViewById(R.id.gifticon); // 기프티콘 이름
 		
+		user_image = (ImageView)findViewById(R.id.user_image); // 유저이미지
+		company_image = (ImageView)findViewById(R.id.company_image); // 유저소속이미지
+		facebook_auth = (ImageView) findViewById(R.id.facebook_auth); // 유저페이스북인증
+		phone_auth = (ImageView)findViewById(R.id.phone_auth); // 유저전화번호인증
+		user_name = (TextView)findViewById(R.id.user_name); // 유저이름 
+		
+		specifics = (TextView)findViewById(R.id.specifics); // 자세한사항TextView
+		fromHere = (TextView)findViewById(R.id.fromHere); //TextView
+		toHere = (TextView)findViewById(R.id.toHere); // TextVIew
+		runnergift = (TextView)findViewById(R.id.runnergift); // TextView
+		
+		suggestBtn = (ImageButton)findViewById(R.id.suggestBtn);
+
 		String fontPath = "fonts/NanumPen.ttf";
 		Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
 		dealNametv.setTypeface(tf);
@@ -94,12 +109,10 @@ public class BatonShowActivity extends Activity {
 		date.setTypeface(tf);
 		dealResttime.setTypeface(tf);
 		specifics.setTypeface(tf);
-		gifticon.setTypeface(tf);
+		runnergift.setTypeface(tf);
 		fromHere.setTypeface(tf);
 		toHere.setTypeface(tf);
-		
 	}
-	
 
 	private class GetBatonShow extends AsyncTask<Void, Void, Void> {
 		@Override
@@ -113,18 +126,52 @@ public class BatonShowActivity extends Activity {
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
 			Task task = gson.fromJson(mResult, Task.class);
+			User user = task.getUser();
+			Giftcon giftcon = task.getGiftcon();
 			Log.d("batonindex", mResult + "");
 			try {
 				int status = task.getStatus();
 				boolean current_user = task.isCurrent_user();
+				userimage = user.getProfile_image();
+//				companyimage 
+				giftconimage = giftcon.getImage();
+				
 				dealNametv.setText(task.getName());
+				date.setText(task.getDay());
 				dealDescriptiontv.setText(task.getDescription());
 				dealStatus.setText(Global.userJudge(status));
-
-				// 대기중일때, auth_client true 일때, current_user 가 아닐때, 이 태스크에서 비딩을 걸수있따.
+				fromloctv.setText(task.getFromloc());
+				toloctv.setText(task.getToloc());
+				
+				if(user.isFacebook()){
+					facebook_auth.setVisibility(View.VISIBLE);
+				}
+				if(user.isPhone_auth()){
+					phone_auth.setVisibility(View.VISIBLE);
+				}
+				user_name.setText(user.getName());
+				gifticon.setText(giftcon.getName());
+				
+				// 대기중일때, auth_client true 일때, current_user 가 아닐때, 이 태스크에서 비딩을
+				// 걸수있따.
 				if (status == 0 && auth_client && !current_user) {
 					suggestBtn.setVisibility(View.VISIBLE);
 				}
+				
+				if (userimage != null) {
+					ImageDownloader.download(Global.ServerOriginalUrl + userimage, user_image);
+				}else{
+					user_image.setImageResource(R.drawable.ic_launcher);
+				}
+				
+				if (giftconimage != null) {
+					ImageDownloader.download(Global.ServerOriginalUrl + giftconimage, giftcon_image);
+				}else{
+					giftcon_image.setImageResource(R.drawable.ic_launcher);
+				}
+//				user_image
+//				company_image = (ImageView)findViewById(R.id.company_image); // 유저소속이미지
+				
 			} catch (Exception e) {
 				Log.e("batonindex",
 						e.getClass().getName() + " " + e.getMessage()
@@ -186,10 +233,11 @@ public class BatonShowActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "제안 되었습니다.",
 						Toast.LENGTH_SHORT).show();
 				suggestBtn.setVisibility(View.GONE);
-				
+
 			} else {
-				Toast.makeText(getApplicationContext(), "오류가 발생했습니다. 잠시후에 다시 시도해주세요.",
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(),
+						"오류가 발생했습니다. 잠시후에 다시 시도해주세요.", Toast.LENGTH_SHORT)
+						.show();
 			}
 
 			super.onPostExecute(result);

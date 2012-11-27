@@ -8,12 +8,9 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
-import com.batontouch.R;
 import com.batontouch.createbaton.BatonCreateActivity;
 import com.batontouch.homeindex.BatonIndexActivity;
 import com.batontouch.managebaton.BatonManageActivity_Intro;
-import com.batontouch.managebaton.BatonManageAskedActivity;
-import com.batontouch.profile.ProfileActivity;
 import com.batontouch.profile.ProfileActivity_Intro;
 import com.batontouch.setting.SettingActivity;
 

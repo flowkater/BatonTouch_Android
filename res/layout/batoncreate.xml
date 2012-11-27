@@ -44,8 +44,7 @@
                 android:layout_height="135dp"
                 android:layout_margin="2dp"
                 android:background="@drawable/createbaton_food_icon_style"
-                android:onClick="mOnClick"
-                android:text="음식"
+                android:onClick="foodClick"
                 android:textSize="30dp" />
 
             <ImageView
@@ -54,7 +53,7 @@
                 android:layout_height="135dp"
                 android:layout_margin="2dp"
                 android:background="@drawable/createbaton_manpower_icon_style"
-                android:onClick="mOnClick"
+                android:onClick="manClick"
                 android:textSize="30dp" />
         </TableRow>
 
@@ -70,7 +69,7 @@
                 android:layout_height="135dp"
                 android:layout_margin="2dp"
                 android:background="@drawable/createbaton_shopping_icon_style"
-                android:onClick="mOnClick"
+                android:onClick="lifeClick"
                 android:textSize="30dp" />
 
             <ImageView
@@ -79,8 +78,7 @@
                 android:layout_height="135dp"
                 android:layout_margin="2dp"
                 android:background="@drawable/createbaton_superman_icon_style"
-                android:onClick="mOnClick"
-                android:text="그 외에"
+                android:onClick="superClick"
                 android:textSize="30dp" />
         </TableRow>
     </TableLayout>

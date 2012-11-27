@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class Setting_PushArea extends Activity {
 

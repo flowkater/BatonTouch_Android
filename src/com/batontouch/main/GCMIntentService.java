@@ -1,7 +1,6 @@
-package com.batontouch.utils;
+package com.batontouch.main;
 
 import android.app.Notification;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -11,9 +10,8 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.batontouch.R;
-import com.batontouch.main.MainActivity;
-import com.batontouch.main.RegisterActivity.Usercreate;
+import com.batontouch.utils.Global;
+import com.batontouch.utils.WakeLocker;
 import com.google.android.gcm.GCMBaseIntentService;
 
 public class GCMIntentService extends GCMBaseIntentService {
@@ -32,6 +30,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 	protected void onRegistered(Context context, String registrationId) {
 		Log.i(TAG, "Device registered: regId = " + registrationId);
 		// Log.d("NAME", MainActivity.name);
+		Global.gcm_regid = registrationId;
 	}
 
 	/**
@@ -51,9 +50,15 @@ public class GCMIntentService extends GCMBaseIntentService {
 		Log.i(TAG, "Received message");
 		push_message = intent.getExtras().getString("text");
 
+		// Waking up mobile if it is sleeping
+		WakeLocker.acquire(getApplicationContext());
+		 
 		// notifies user
 		handler.sendEmptyMessage(0);
 		generateNotification(context, push_message);
+		 
+		// Releasing wake lock
+		WakeLocker.release();
 	}
 
 	/**

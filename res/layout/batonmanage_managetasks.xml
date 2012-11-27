@@ -131,7 +131,7 @@
                 android:background="@drawable/user_picture_frame" >
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/user_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="2dp"
@@ -153,7 +153,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/dealResttime"
+                    android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -166,14 +166,16 @@
                     android:orientation="horizontal" >
 
                     <ImageView
-                        android:id="@+id/dealResttime"
+                        android:id="@+id/facebook_auth"
+                        android:visibility="gone"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/fb_btn" />
 
                     <ImageView
-                        android:id="@+id/dealResttime"
+                        android:id="@+id/phone_auth"
+                        android:visibility="gone"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
@@ -229,7 +231,7 @@
                />
 
                 <TextView
-                    android:id="@+id/giftcon"
+                    android:id="@+id/fromloctv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -252,7 +254,7 @@
                     android:textSize="30dp" />
 
                 <TextView
-                    android:id="@+id/giftcon"
+                    android:id="@+id/toloctv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -281,13 +283,14 @@
            />
 
             <ImageView
+                android:id="@+id/giftcon_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/starbucks" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/giftcon_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

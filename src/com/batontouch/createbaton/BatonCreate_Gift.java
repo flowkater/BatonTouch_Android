@@ -12,11 +12,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class BatonCreate_Gift extends Activity {
 	private int count;

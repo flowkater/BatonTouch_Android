@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="60dp"
-
     android:background="@drawable/rectangle_background_400" >
 
     <LinearLayout
@@ -20,11 +19,10 @@
             android:layout_margin="3dp"
             android:orientation="vertical" >
 
-            <LinearLayout
+            <RelativeLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:layout_height="wrap_content" >
 
                 <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -34,7 +32,7 @@
                     android:background="@drawable/user_picture_frame" >
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/profileImage"
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginLeft="5dp"
@@ -44,26 +42,24 @@
                     <ImageView
                         android:id="@+id/imageView4"
                         android:layout_width="40dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_marginBottom="10dp"
                         android:layout_height="40dp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="4dp"
                         android:src="@drawable/ewha" />
-
                 </RelativeLayout>
 
                 <ImageButton
-            
                     android:id="@+id/profileEdit"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="100dp"
-                    android:background="@drawable/edit_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/ic_action_search"
                     android:onClick="profileEdit"
                     android:text="Edit" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -165,7 +161,7 @@
                     android:src="@drawable/orange_dotted_line" />
 
                 <TextView
-                    android:id="@+id/textViewIntroduce"
+                    android:id="@+id/introduceMySelf"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -319,15 +315,31 @@
                 android:background="@drawable/profile_division"
                 android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/review"
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="left|center_vertical"
-                    android:text="리뷰"
-                    android:textSize="30dp" />
+                    android:onClick="seeMore" >
+
+                    <TextView
+                        android:id="@+id/review"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="left|center_vertical"
+                        android:text="리뷰"
+                        android:textSize="30dp" />
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_action_search"
+                        android:onClick="seeMore" />
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -347,41 +359,39 @@
                         xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="85dp"
                         android:layout_height="90dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/user_picture_frame" >
 
                         <ImageView
-                            android:id="@+id/imageView6"
+                            android:id="@+id/reviewerImage"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="3dp"
                             android:layout_marginTop="3dp"
-                            android:background="@drawable/profile_default_img" />
+                            android:background="@drawable/profile_default_img"
+                            android:onClick="seeMore" />
                     </RelativeLayout>
 
                     <LinearLayout
                         xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="fill_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_height="100dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/review_balloon"
-                    >
+                        android:onClick="seeMore" >
 
                         <TextView
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="25dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="20dp"
-                            android:id="@+id/textView1"
+                            android:id="@+id/reviewBox"
                             android:layout_width="fill_parent"
                             android:layout_height="85dp"
-                          
-                            
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="다음에 또 시키고 시퍼요~" />
-
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

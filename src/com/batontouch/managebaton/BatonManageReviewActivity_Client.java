@@ -13,12 +13,6 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import com.batontouch.R;
-import com.batontouch.model.Task;
-import com.batontouch.utils.Global;
-import com.batontouch.utils.NetHelper;
-import com.google.gson.Gson;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,7 +22,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
-import android.widget.Toast;
+
+import com.batontouch.main.R;
+import com.batontouch.model.Task;
+import com.batontouch.utils.Global;
+import com.batontouch.utils.NetHelper;
+import com.google.gson.Gson;
 
 public class BatonManageReviewActivity_Client extends Activity {
 	private String mResult;
@@ -101,7 +100,7 @@ public class BatonManageReviewActivity_Client extends Activity {
 				reqEntity.addPart("review[target_id]", new StringBody(
 						target_id, Charset.forName("UTF-8")));
 				reqEntity.addPart("review[status]",
-						new StringBody("0", Charset.forName("UTF-8")));
+						new StringBody("1", Charset.forName("UTF-8")));
 				reqEntity.addPart("review[task_id]", new StringBody(task_id,
 						Charset.forName("UTF-8")));
 

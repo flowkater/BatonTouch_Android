@@ -6,6 +6,7 @@ import com.batontouch.utils.Global;
 
 public class Task {
 	private String id;
+	private String category_id;
 	private String name;
 	private String day;
 	private int status;
@@ -19,9 +20,53 @@ public class Task {
 	private ArrayList<User> users;
 	private boolean current_user;
 	private boolean client_status;
+	private boolean review_toclient;
+	private boolean review_touser;
 	private User user;
 	private User client;
+	private Giftcon giftcon;
+	private Review review;
 	
+	public String getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
+	}
+
+	public Review getReview() {
+		return review;
+	}
+
+	public void setReview(Review review) {
+		this.review = review;
+	}
+
+	public Giftcon getGiftcon() {
+		return giftcon;
+	}
+
+	public void setGiftcon(Giftcon giftcon) {
+		this.giftcon = giftcon;
+	}
+
+	public boolean isReview_toclient() {
+		return review_toclient;
+	}
+
+	public void setReview_toclient(boolean review_toclient) {
+		this.review_toclient = review_toclient;
+	}
+
+	public boolean isReview_touser() {
+		return review_touser;
+	}
+
+	public void setReview_touser(boolean review_touser) {
+		this.review_touser = review_touser;
+	}
+
 	public String getClient_size_status(int status){
 		if (status == 0) {
 			return this.client_size + "명  " + Global.userJudge(status);

@@ -1,9 +1,10 @@
 package com.batontouch.utils;
 
-import com.batontouch.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+
+import com.batontouch.main.R;
 
 public class AlertDialogManager {
 	public void showAlertDialog(Context context, String title, String message,

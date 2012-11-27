@@ -22,7 +22,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class BatonCreate_PostATask2 extends Activity {
 	private int hour;

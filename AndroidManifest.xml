@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.batontouch"
+    package="com.batontouch.main"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -7,14 +7,20 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <permission
-        android:name="com.batontouch.permission.C2D_MESSAGE"
+        android:name="com.batontouch.main.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.batontouch.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.batontouch.main.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Network State Permissions to detect Internet status -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permission to vibrate -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -25,7 +31,7 @@
         android:label="바톤터치"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name=".main.SplashActivity"
+            android:name="com.batontouch.main.SplashActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -35,236 +41,221 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.MainActivity"
+            android:name="com.batontouch.main.MainActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".main.Logout_Dialog"
+            android:name="com.batontouch.main.Logout_Dialog"
             android:label="Batontouch"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".main.LoginActivity"
+            android:name="com.batontouch.main.LoginActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".included.Include_Createbaton"
+            android:name="com.batontouch.managebaton.BatonManageAskedActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageAskedActivity"
+            android:name="com.batontouch.managebaton.BatonManageActivity_ManageTasks_Footer"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageActivity_ManageTasks_Footer"
+            android:name="com.batontouch.managebaton.BatonManageProfileActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageProfileActivity"
+            android:name="com.batontouch.managebaton.BatonMangeActivity_ManageTasks"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonMangeActivity_ManageTasks"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask_Selected"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Example"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask_Choose"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostATask_Selected"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask_Detail"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostATask_Choose"
+            android:name="com.batontouch.createbaton.BatonCreateActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostATask_Detail"
-            android:label="Batontouch"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".createbaton.BatonCreateActivity"
-            android:label="Batontouch"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".homeindex.BatonIndexActivity"
+            android:name="com.batontouch.homeindex.BatonIndexActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".homeindex.NMapViewerActivity"
+            android:name="com.batontouch.homeindex.NMapViewerActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".homeindex.BatonShowActivity"
+            android:name="com.batontouch.homeindex.BatonShowActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".homeindex.BatonListAdapter"
+            android:name="com.batontouch.homeindex.BatonListAdapter"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".main.List6"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask1"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostATask1"
-            android:label="Batontouch"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".createbaton.BatonCreate_PostATask_Map"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask_Map"
             android:label="Batontouch"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostATask2"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask2"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_Gift"
+            android:name="com.batontouch.createbaton.BatonCreate_Gift"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostALastTask"
+            android:name="com.batontouch.createbaton.BatonCreate_PostALastTask"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".createbaton.BatonCreate_PostATask3"
+            android:name="com.batontouch.createbaton.BatonCreate_PostATask3"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity_Intro"
+            android:name="com.batontouch.profile.ProfileActivity_Intro"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity_Manage_Cukis"
+            android:name="com.batontouch.profile.ProfileActivity_Manage_Cukis"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity_Manage_Gifticon"
+            android:name="com.batontouch.profile.ProfileActivity_Manage_Gifticon"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity_Manage_Gifticonpage"
+            android:name="com.batontouch.profile.ProfileActivity_Manage_Gifticonpage"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity_Manage_Gifticonpage_Storeinfo"
+            android:name="com.batontouch.profile.ProfileActivity_Manage_Gifticonpage_Storeinfo"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity"
+            android:name="com.batontouch.profile.ProfileActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".profile.ProfileActivity_Edit"
+            android:name="com.batontouch.profile.ProfileActivity_Edit"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.SettingActivity_KaKao"
+            android:name="com.batontouch.setting.SettingActivity_KaKao"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.SettingActivity"
+            android:name="com.batontouch.setting.SettingActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_HowItWorks"
+            android:name="com.batontouch.setting.Setting_HowItWorks"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".main.RegisterActivity"
+            android:name="com.batontouch.main.RegisterActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".main.UserLoginActivity"
+            android:name="com.batontouch.main.UserLoginActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Announcement"
+            android:name="com.batontouch.setting.Setting_Announcement"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Dropout"
+            android:name="com.batontouch.setting.Setting_Dropout"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_FAQ"
+            android:name="com.batontouch.setting.Setting_FAQ"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Logout"
+            android:name="com.batontouch.setting.Setting_Logout"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Policy"
+            android:name="com.batontouch.setting.Setting_Policy"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Suggestion"
+            android:name="com.batontouch.setting.Setting_Suggestion"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Verification"
+            android:name="com.batontouch.setting.Setting_Verification"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_PushArea"
+            android:name="com.batontouch.setting.Setting_PushArea"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".setting.Setting_Alarm"
+            android:name="com.batontouch.setting.Setting_Alarm"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".setting.Setting_Payment"
+            android:name="com.batontouch.setting.Setting_Payment"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".kakaoLink.MainActivity"
+            android:name="com.batontouch.kakaoLink.MainActivity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name="com.batontouch.kakaoLink.SplashActivity"
             android:screenOrientation="portrait" >
 
             <!-- custom scheme(execute url) -->
@@ -280,31 +271,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".managebaton.BatonManageShowActivity_User"
+            android:name="com.batontouch.managebaton.BatonManageShowActivity_User"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageShowActivity_Client"
+            android:name="com.batontouch.managebaton.BatonManageShowActivity_Client"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageReviewActivity_User"
+            android:name="com.batontouch.managebaton.BatonManageReviewActivity_User"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageReviewActivity_Client"
+            android:name="com.batontouch.managebaton.BatonManageReviewActivity_Client"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageActivity_Intro"
+            android:name="com.batontouch.managebaton.BatonManageActivity_Intro"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageClientActivity"
+            android:name="com.batontouch.managebaton.BatonManageClientActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".managebaton.BatonManageAdapter_Client"
+            android:name="com.batontouch.managebaton.BatonManageAdapter_Client"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.batontouch.managebaton.BatonManageCompleteActivity"
             android:screenOrientation="portrait" >
         </activity>
 
@@ -315,11 +310,11 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="com.batontouch" />
+                <category android:name="com.batontouch.main" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".utils.GCMIntentService" />
+        <service android:name=".GCMIntentService" />
     </application>
 
 </manifest>

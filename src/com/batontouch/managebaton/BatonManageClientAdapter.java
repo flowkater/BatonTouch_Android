@@ -1,6 +1,7 @@
 package com.batontouch.managebaton;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
@@ -29,14 +30,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.User;
 import com.batontouch.utils.Global;
+import com.batontouch.utils.ImageDownloader;
 
 public class BatonManageClientAdapter extends ArrayAdapter<User> {
 	private Context mContext;
@@ -80,8 +82,10 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 					.findViewById(R.id.userImage);
 			holder.userName = (TextView) convertView
 					.findViewById(R.id.userName);
-			holder.selectBtn = (Button) convertView
+			holder.selectBtn = (ImageButton) convertView
 					.findViewById(R.id.selectBtn);
+			holder.facebook = (ImageView)convertView.findViewById(R.id.facebook_auth);
+			holder.phone = (ImageView)convertView.findViewById(R.id.phone_auth);
 
 			convertView.setTag(holder);
 		} else {
@@ -89,7 +93,21 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 		}
 
 		if (user != null) {
-			// holder.userImage
+			String image = user.getProfile_image();
+			if (image != null) {
+				ImageDownloader.download(Global.ServerOriginalUrl + image, holder.userImage);
+			}else{
+				holder.userImage.setImageResource(R.drawable.ic_launcher);
+			}
+			
+			if (user.isFacebook()) {
+				holder.facebook.setVisibility(View.VISIBLE);
+			}
+			
+			if (user.isPhone_auth()) {
+				holder.phone.setVisibility(View.VISIBLE);
+			}
+			
 			holder.userName.setText(user.getName());
 
 			// 버튼 클릭했을때 select Action
@@ -120,8 +138,10 @@ public class BatonManageClientAdapter extends ArrayAdapter<User> {
 
 	class ViewHolder {
 		ImageView userImage;
+		ImageView facebook;
+		ImageView phone;
 		TextView userName;
-		Button selectBtn;
+		ImageButton selectBtn;
 	}
 
 	// 러너 선택 다이얼로그 method

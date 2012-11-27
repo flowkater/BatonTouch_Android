@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.batontouch.R;
 import com.batontouch.facebook.LoginButton;
 import com.batontouch.facebook.SessionEvents;
 import com.batontouch.facebook.SessionEvents.AuthListener;

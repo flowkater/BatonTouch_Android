@@ -13,10 +13,26 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical" >
 
-        <include
+   <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/upper_line"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/upper_line_mini" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/imageView1"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/include_profile" />
+            android:layout_height="50dp"
+            android:layout_marginTop="-1dp"
+            android:background="@drawable/top_my_account" />
+    </LinearLayout>
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

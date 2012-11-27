@@ -24,7 +24,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.batontouch.R;
 import com.batontouch.utils.AlertDialogManager;
 import com.batontouch.utils.Global;
 

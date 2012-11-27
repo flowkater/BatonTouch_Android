@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class BatonCreate_PostATask_Map extends Activity {
 	

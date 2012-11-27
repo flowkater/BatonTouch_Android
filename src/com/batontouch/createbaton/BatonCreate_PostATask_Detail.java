@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Giftitem;
 import com.batontouch.model.Store;
 import com.batontouch.utils.Global;

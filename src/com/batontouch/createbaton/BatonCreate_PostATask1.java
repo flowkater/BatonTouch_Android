@@ -10,18 +10,22 @@ import android.view.View.OnTouchListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class BatonCreate_PostATask1 extends Activity {
 	String fontPath = "fonts/NanumPen.ttf";
 	private EditText nameEd,fromHereEt, toThereEt, taskDescriptionEt;
 	private String name, fromAt, toAt, description;
+	private Bundle extras;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.batoncreate_postatask1);
 
+		Intent in = getIntent();
+		extras = new Bundle();
+		extras = in.getExtras();
 		
 		TextView batonName = (TextView) findViewById(R.id.batonName);
 		TextView fromHere = (TextView) findViewById(R.id.fromHere);
@@ -78,15 +82,14 @@ public class BatonCreate_PostATask1 extends Activity {
 		toAt = toThereEt.getText().toString();
 		description = taskDescriptionEt.getText().toString();
 
-		Intent intent = new Intent(getApplicationContext(),
+		Intent in = new Intent(getApplicationContext(),
 				BatonCreate_PostATask2.class);
-		Bundle extras = new Bundle();
 		extras.putString("name", name);
 		extras.putString("fromloc", fromAt);
 		extras.putString("toloc", toAt);
 		extras.putString("description", description);
-		intent.putExtras(extras);
+		in.putExtras(extras);
 
-		startActivity(intent);
+		startActivity(in);
 	}
 }

@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TabHost;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class ProfileActivity_Intro extends TabActivity {
 

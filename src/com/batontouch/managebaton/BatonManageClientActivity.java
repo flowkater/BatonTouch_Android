@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Task;
 import com.batontouch.model.Tasks;
 import com.batontouch.utils.Global;

@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 /**
  * Copyright 2012 Kakao Crop. All rights reserved.

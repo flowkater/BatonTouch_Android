@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.batontouch.R;
 import com.batontouch.homeindex.BatonShowActivity;
+import com.batontouch.main.R;
 import com.batontouch.model.Task;
 
 class BatonManageAdapter_Client extends ArrayAdapter<Task> {
@@ -43,7 +43,9 @@ class BatonManageAdapter_Client extends ArrayAdapter<Task> {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = mInflater.inflate(mResource, parent, false);
 			holder = new ViewHolder();
-
+			
+			holder.categoryImage = (ImageView) convertView
+					.findViewById(R.id.categoryImage);
 			holder.dealName = (TextView) convertView.findViewById(R.id.name);
 			holder.dealDay = (TextView) convertView.findViewById(R.id.day);
 			holder.dealStatus = (TextView) convertView
@@ -55,6 +57,24 @@ class BatonManageAdapter_Client extends ArrayAdapter<Task> {
 		}
 
 		if (task != null) {
+			if (task.getCategory_id() != null) {
+				int category_id = Integer.parseInt(task.getCategory_id());
+				if (category_id == 1) {
+					holder.categoryImage
+							.setImageResource(R.drawable.runnericon);
+				} else if (category_id == 2) {
+					holder.categoryImage
+							.setImageResource(R.drawable.review_blackbox);
+				} else if (category_id == 3) {
+					holder.categoryImage.setImageResource(R.drawable.call_btn);
+				} else if (category_id == 4) {
+					holder.categoryImage
+							.setImageResource(R.drawable.message_btn);
+				} else {
+					holder.categoryImage
+							.setImageResource(R.drawable.ic_launcher);
+				}
+			}
 			holder.dealName.setText(task.getName());
 			holder.dealDay.setText(task.getDay());
 			holder.dealStatus.setText(task.getClient_size_status(task
@@ -68,22 +88,19 @@ class BatonManageAdapter_Client extends ArrayAdapter<Task> {
 			public void onClick(View v) {
 				task = mTasks.get(position);
 				int status = task.getStatus();
+				boolean review = task.isReview_touser();
 				String task_id = task.getId();
 				if (auth_client) {
 					// client 일때
 					if (status == 0) {
 						startAct(BatonShowActivity.class, task_id);
-						Toast.makeText(mContext, task_id + "",
-								Toast.LENGTH_SHORT).show();
 					} else if (status == 1 || status == 2) {
 						startAct(BatonManageShowActivity_Client.class, task_id);
-						Toast.makeText(mContext, task_id + "",
-								Toast.LENGTH_SHORT).show();
-					} else if (status == 3) {
+					} else if (status == 3 || (status == 4 && !review)) {
 						startAct(BatonManageReviewActivity_Client.class,
 								task_id);
-						Toast.makeText(mContext, task_id + "",
-								Toast.LENGTH_SHORT).show();
+					} else if (status == 4 && review) {
+						startAct(BatonManageCompleteActivity.class, task_id);
 					}
 				}
 			}
@@ -101,6 +118,7 @@ class BatonManageAdapter_Client extends ArrayAdapter<Task> {
 	}
 
 	class ViewHolder {
+		ImageView categoryImage;
 		TextView dealName;
 		TextView dealDay;
 		TextView dealStatus;

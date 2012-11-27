@@ -3,55 +3,72 @@ package com.batontouch.profile;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
+import com.batontouch.model.Giftcon;
+import com.batontouch.model.User;
+import com.batontouch.utils.Global;
+import com.batontouch.utils.NetHelper;
+import com.google.gson.Gson;
 
-public class ProfileActivity_Manage_Gifticon extends Activity{
-	ListView listView;
-	ArrayList<MyItem4> arItem;
+public class ProfileActivity_Manage_Gifticon extends Activity {
+	private ListView mlistView;
+	private ArrayList<Giftcon> giftcons;
+	private SharedPreferences mPreferences;
+	private String auth_token;
 
-	private ArrayList<String> items;
+	private ProfileGiftconAdapter giftconAdapter;
+	private String mResult;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile_manage_gifticon);
-		
-		arItem = new ArrayList<MyItem4>();
-		MyItem4 mi;
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
-		mi = new MyItem4(R.drawable.starbucks, "스타벅스");
-		arItem.add(mi);
 
+		mlistView = (ListView) findViewById(R.id.gifticonList);
 
+		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+		auth_token = mPreferences.getString("AuthToken", "");
 
-		MyListAdapter MyAdapter = new MyListAdapter(this, R.layout.featured_adapter_gift, arItem);
+		giftcons = new ArrayList<Giftcon>();
 
-		listView = (ListView) findViewById(R.id.gifticonList);
+		new GetMyGiftcons().execute();
 
-		listView.setAdapter(MyAdapter);
+		giftconAdapter = new ProfileGiftconAdapter(this,
+				R.layout.featured_adapter_gift, giftcons);
+		mlistView.setAdapter(giftconAdapter);
 	}
 
-}
-class MyItem4 {
-	MyItem4(int aIcon, String aName) {
-		Icon = aIcon;
-		Name = aName;
-	}
+	private class GetMyGiftcons extends AsyncTask<Void, Void, Void> {
+		@Override
+		protected Void doInBackground(Void... params) {
+			mResult = NetHelper.DownloadHtml(Global.ServerUrl
+					+ "users/user_current?auth_token=" + auth_token);
+			return null;
+		}
 
-	int Icon;
-	String Name;
+		@Override
+		protected void onPostExecute(Void result) {
+			Gson gson = new Gson();
+			User user = gson.fromJson(mResult, User.class);
+			try {
+				for (Giftcon giftcon : user.getGiftcons()) {
+					giftcons.add(giftcon);
+				}
+			} catch (Exception e) {
+				 Log.e("giftcon",
+						e.getClass().getName() + " " + e.getMessage()
+								+ " Giftcons Gson Exception");
+			}
+
+			giftconAdapter.notifyDataSetChanged();
+			
+			super.onPostExecute(result);
+		}
+	}
 }

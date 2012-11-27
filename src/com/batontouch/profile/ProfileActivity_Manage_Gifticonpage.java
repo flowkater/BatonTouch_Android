@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class ProfileActivity_Manage_Gifticonpage extends Activity{
 	

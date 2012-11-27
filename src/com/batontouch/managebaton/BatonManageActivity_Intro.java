@@ -1,7 +1,5 @@
 package com.batontouch.managebaton;
 
-import com.batontouch.R;
-
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TabHost;
+
+import com.batontouch.main.R;
 
 public class BatonManageActivity_Intro extends TabActivity {
 	@Override

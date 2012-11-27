@@ -10,9 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Store;
 import com.batontouch.model.Stores;
 import com.batontouch.utils.Global;

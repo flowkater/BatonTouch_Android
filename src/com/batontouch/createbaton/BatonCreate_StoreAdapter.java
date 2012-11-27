@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Store;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.ImageDownloader;

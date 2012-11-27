@@ -27,7 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.ImageDownloader;
 
@@ -38,7 +38,7 @@ public class BatonCreate_PostATask_Selected extends Activity {
 	private String gift_id, gift_image_big, gift_name, gift_description,
 			gift_price, gift_fromdate, gift_todate;
 	private String store_id, name, description, fromloc, toloc, spendtime,
-			calldate, enddate;
+			calldate, enddate, category_id;
 
 	private String auth_token;
 	private SharedPreferences mPreferences;
@@ -77,6 +77,7 @@ public class BatonCreate_PostATask_Selected extends Activity {
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
 
+		category_id = extras.getString("category_id");
 		name = extras.getString("name");
 		description = extras.getString("description");
 		fromloc = extras.getString("fromloc");
@@ -196,6 +197,8 @@ public class BatonCreate_PostATask_Selected extends Activity {
 				reqEntity.addPart("task[calldate]", new StringBody(calldate,
 						Charset.forName("UTF-8")));
 				reqEntity.addPart("task[enddate]", new StringBody(enddate,
+						Charset.forName("UTF-8")));
+				reqEntity.addPart("task[category_ids][]", new StringBody(category_id,
 						Charset.forName("UTF-8")));
 				reqEntity.addPart("price",
 						new StringBody(gift_price, Charset.forName("UTF-8")));

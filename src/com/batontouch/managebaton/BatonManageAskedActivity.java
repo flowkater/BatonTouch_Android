@@ -8,11 +8,9 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Task;
 import com.batontouch.model.Tasks;
 import com.batontouch.utils.Global;

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
@@ -59,18 +58,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:orientation="horizontal" >
-
-                <ImageButton
-                    android:id="@+id/DeleteBtn"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/delete_btn"
-                    android:text="삭제하기" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/deal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -87,7 +78,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/date"
+                    android:id="@+id/deal_date"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -96,7 +87,7 @@
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/deal_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -108,7 +99,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/dealResttime"
+            android:id="@+id/rest_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -131,10 +122,10 @@
                 android:background="@drawable/user_picture_frame" >
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/user_image"
                     android:layout_width="fill_parent"
                     android:layout_height="60dp"
-            android:layout_margin="2dp"
+                    android:layout_margin="2dp"
                     android:background="@drawable/profile_default_img" />
 
                 <ImageButton
@@ -152,7 +143,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/dealResttime"
+                    android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -165,14 +156,14 @@
                     android:orientation="horizontal" >
 
                     <ImageView
-                        android:id="@+id/dealResttime"
+                        android:id="@+id/call_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/call_her" />
 
                     <ImageView
-                        android:id="@+id/dealResttime"
+                        android:id="@+id/sms_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -192,12 +183,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/detail"
-           
-  />
+            android:background="@drawable/detail" />
 
         <TextView
-            android:id="@+id/dealDescription"
+            android:id="@+id/deal_description"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="10dp"
@@ -219,7 +208,7 @@
                 android:orientation="vertical" >
 
                 <ImageView
-                    android:id="@+id/giftcon"
+                    android:id="@+id/fromHere"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -227,7 +216,7 @@
                     android:background="@drawable/kyungyooji" />
 
                 <TextView
-                    android:id="@+id/giftcon"
+                    android:id="@+id/deal_fromloc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -241,7 +230,7 @@
                 android:orientation="vertical" >
 
                 <ImageView
-                    android:id="@+id/giftcon"
+                    android:id="@+id/toHere"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -250,7 +239,7 @@
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/giftcon"
+                    android:id="@+id/deal_toloc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -277,13 +266,14 @@
                 android:background="@drawable/gift_for_runner" />
 
             <ImageView
+                android:id="@+id/giftcon_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/starbucks" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/giftcon_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -295,14 +285,20 @@
                 android:layout_height="2dp"
                 android:background="@drawable/orange_dotted_line" />
 
-            <ImageView
-                android:layout_gravity="right|center_vertical"
-                android:id="@+id/imageView3"
+            <ImageButton
+                android:id="@+id/confirmBtn"
+                android:onClick="ClientConfirmBtnClick"
                 android:layout_width="200dp"
-                android:layout_margin="10dp"
                 android:layout_height="50dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_margin="10dp"
                 android:src="@drawable/createmanage_user_detail_matched_style" />
 
+            <TextView
+                android:id="@+id/textClientStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical" />
         </LinearLayout>
     </LinearLayout>
 

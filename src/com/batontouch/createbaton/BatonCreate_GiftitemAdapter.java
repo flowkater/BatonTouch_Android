@@ -12,9 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Giftitem;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.ImageDownloader;

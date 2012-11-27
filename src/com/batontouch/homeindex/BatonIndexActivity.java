@@ -11,13 +11,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.Task;
 import com.batontouch.model.Tasks;
 import com.batontouch.utils.Global;

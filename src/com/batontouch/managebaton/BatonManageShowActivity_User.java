@@ -18,24 +18,33 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
+import com.batontouch.model.Giftcon;
 import com.batontouch.model.Task;
+import com.batontouch.model.User;
 import com.batontouch.utils.Global;
+import com.batontouch.utils.ImageDownloader;
 import com.batontouch.utils.NetHelper;
 import com.google.gson.Gson;
 
 public class BatonManageShowActivity_User extends Activity {
-	private TextView tvName, tvDate, tvStatus, tvDescription, tvResttime;
+	private TextView tvName, tvStatus, tvDescription, tvResttime, giftcon_name,
+			userName;
+	private ImageView giftcon_image, userProfileImage;
+	private Button callBtn, smsBtn;
+
 	private LinearLayout linearfinish;
 	private SharedPreferences mPreferences;
 	private String auth_token;
 	private String task_id;
 	private String mResult;
 	private int Status;
-	
+
 	private int StatusCode;
 
 	@Override
@@ -50,11 +59,19 @@ public class BatonManageShowActivity_User extends Activity {
 		task_id = in.getStringExtra("task_id");
 
 		tvName = (TextView) findViewById(R.id.name);
-//		tvDate = (TextView) findViewById(R.id.date);
-//		tvStatus = (TextView) findViewById(R.id.status);
+		tvStatus = (TextView) findViewById(R.id.status);
 		tvDescription = (TextView) findViewById(R.id.dealDescription);
 		tvResttime = (TextView) findViewById(R.id.dealResttime);
 		linearfinish = (LinearLayout) findViewById(R.id.finish);
+		
+		
+		giftcon_name = (TextView) findViewById(R.id.giftcon_name);
+		userName = (TextView) findViewById(R.id.userName);
+		giftcon_image = (ImageView) findViewById(R.id.giftcon_image);
+		userProfileImage = (ImageView) findViewById(R.id.userProfileImage);
+
+		callBtn = (Button) findViewById(R.id.callBtn);
+		smsBtn = (Button) findViewById(R.id.smsBtn);
 
 		new GetBatonShow().execute();
 	}
@@ -71,13 +88,35 @@ public class BatonManageShowActivity_User extends Activity {
 		protected void onPostExecute(Void result) {
 			Gson gson = new Gson();
 			Task task = gson.fromJson(mResult, Task.class);
+			User client = task.getClient();
+			
+			Giftcon giftcon = task.getGiftcon();
 			try {
+				String uimage = client.getProfile_image();
+				String gimage = giftcon.getImage();
+				if (uimage != null) {
+					ImageDownloader.download(Global.ServerOriginalUrl+uimage, userProfileImage);
+				}else{
+					userProfileImage.setImageResource(R.drawable.ic_launcher);
+				}
+				
+				if (gimage != null) {
+					ImageDownloader.download(Global.ServerOriginalUrl+gimage, giftcon_image);
+				}else{
+					giftcon_image.setImageResource(R.drawable.ic_launcher);
+				}
+				
+				
 				Status = task.getStatus();
 				tvName.setText(task.getName());
-//				tvDate.setText(task.getDay());
-//				tvStatus.setText(Global.userJudge(Status));
+				tvStatus.setText(Global.userJudge(Status));
 				tvDescription.setText(task.getDescription());
 				tvResttime.setText(task.getEnddate());
+				
+				userName.setText(client.getName());
+				giftcon_name.setText(giftcon.getName());
+				
+				
 			} catch (Exception e) {
 				Log.e("batonmanage",
 						e.getClass().getName() + " " + e.getMessage()
@@ -151,7 +190,12 @@ public class BatonManageShowActivity_User extends Activity {
 		@Override
 		protected void onPostExecute(Void result) {
 			if (StatusCode == 200) {
-				
+				finish();
+				Intent in = new Intent(getApplicationContext(), BatonManageReviewActivity_User.class);
+				Bundle extras = new Bundle();
+				extras.putString("task_id", task_id);
+				in.putExtras(extras);
+				startActivity(in);
 			}
 			super.onPostExecute(result);
 		}

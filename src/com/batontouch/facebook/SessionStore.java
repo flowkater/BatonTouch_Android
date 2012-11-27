@@ -38,6 +38,7 @@ import com.batontouch.main.MainActivity;
 import com.batontouch.main.ParsedLoginDataSet;
 import com.batontouch.utils.Global;
 import com.facebook.android.Facebook;
+import com.google.android.gcm.GCMRegistrar;
 
 public class SessionStore {
 
@@ -114,7 +115,7 @@ public class SessionStore {
 		mPreferences = mcontext.getSharedPreferences("CurrentUser", mcontext.MODE_PRIVATE);
 
 		DefaultHttpClient client = new DefaultHttpClient();
-		HttpGet get = new HttpGet(Global.FacebookSendToken + token);
+		HttpGet get = new HttpGet(Global.FacebookSendToken + token + "&regid=" + Global.gcm_regid);
 		
 		get.setHeader("Accept", "application/vnd.batontouch." + Global.version);
 
@@ -138,6 +139,7 @@ public class SessionStore {
 		}
 		parsedLoginDataSet.setExtractedString(sessionTokens.get("error"));
 		if (parsedLoginDataSet.getExtractedString().equals("Success")) {
+			GCMRegistrar.setRegisteredOnServer(mcontext, true);
 			// Store the username and password in SharedPreferences after the
 			// successful login
 			SharedPreferences.Editor editor = mPreferences.edit();

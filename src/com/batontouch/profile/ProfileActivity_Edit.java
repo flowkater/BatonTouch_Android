@@ -13,15 +13,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class ProfileActivity_Edit extends Activity {
 	final int ACTIVITY_SELECT_IMAGE = 100;

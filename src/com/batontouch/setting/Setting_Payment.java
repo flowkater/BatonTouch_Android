@@ -1,11 +1,9 @@
 package com.batontouch.setting;
 
-import com.batontouch.R;
-
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.widget.TextView;
+
+import com.batontouch.main.R;
 
 public class Setting_Payment extends Activity {
 

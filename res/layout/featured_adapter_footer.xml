@@ -9,7 +9,7 @@
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/userImage"
+        android:id="@+id/userRelative"
         android:layout_width="65dp"
         android:layout_margin="10dp"
         android:layout_height="68dp"
@@ -18,7 +18,7 @@
         android:background="@drawable/user_picture_frame" >
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/userImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="2dp"
@@ -48,27 +48,29 @@
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/userImage"
+        android:layout_alignTop="@+id/userRelative"
         android:layout_marginLeft="23dp"
-        android:layout_toRightOf="@+id/userImage"
+        android:layout_toRightOf="@+id/userRelative"
         android:singleLine="true"
         android:text="ID : 다니엘"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="15dp" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/facebook_auth"
+        android:visibility="gone"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignBottom="@+id/userImage"
+        android:layout_alignBottom="@+id/userRelative"
         android:layout_alignLeft="@+id/userName"
         android:src="@drawable/fb_btn" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/phone_auth"
         android:layout_width="30dp"
+        android:visibility="gone"
         android:layout_height="30dp"
-        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignBottom="@+id/facebook_auth"
         android:layout_centerHorizontal="true"
         android:src="@drawable/phone_verifed" />
 

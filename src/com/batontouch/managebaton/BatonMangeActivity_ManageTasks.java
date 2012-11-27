@@ -6,7 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 
 public class BatonMangeActivity_ManageTasks extends Activity {
 	String fontPath = "fonts/NanumPen.ttf";

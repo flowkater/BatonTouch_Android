@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.batontouch.R;
+import com.batontouch.main.R;
 import com.batontouch.model.User;
 import com.batontouch.utils.Global;
 import com.batontouch.utils.NetHelper;
