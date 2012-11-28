@@ -15,6 +15,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
     <!-- Network State Permissions to detect Internet status -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -163,6 +166,14 @@
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>
+         <activity
+            android:name="com.batontouch.profile.ProfileActivity_Manage_Cukis_Header"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        
         <activity
             android:name="com.batontouch.profile.ProfileActivity_Manage_Gifticonpage"
             android:label="Batontouch"
@@ -200,6 +211,11 @@
         </activity>
         <activity
             android:name="com.batontouch.main.RegisterActivity"
+            android:label="Batontouch"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.batontouch.main.Register2Activity"
             android:label="Batontouch"
             android:screenOrientation="portrait" >
         </activity>

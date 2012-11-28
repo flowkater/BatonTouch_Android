@@ -49,7 +49,7 @@ public class ProfileActivity extends Activity {
 		profileImage = (ImageView) findViewById(R.id.profileImage); // 프로필이미지
 		introduceMySelf = (TextView) findViewById(R.id.introduceMySelf); //내소개
 		reviewBox = (TextView) findViewById(R.id.reviewBox); // 리뷰내용
-		reviewerImage = (ImageView) findViewById(R.id.reviewerImage); //리뷰어이미지
+		reviewerImage = (ImageView) findViewById(R.id.reviewImage); //리뷰어이미지
 		
 		
 		authorized = (TextView) findViewById(R.id.authorized);
@@ -99,5 +99,12 @@ public class ProfileActivity extends Activity {
 		Intent intent = new Intent(getApplicationContext(),
 				ProfileActivity_Edit.class);
 		startActivity(intent);
+}
+	
+	public void seeMore(View v){
+		Intent intent = new Intent(getApplicationContext(),
+				ProfileActivity_ReviewSeeMore.class);
+		startActivity(intent);
+		
 	}
 }

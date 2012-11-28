@@ -123,6 +123,36 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
+                    android:text="닉네임"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/member_name_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/createbaton_underline_box_style"
+                    android:singleLine="true" >
+                </EditText>
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/member_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:text="전화번호 "
                     android:textSize="15dp" />
 
@@ -132,6 +162,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="2"
                     android:background="@drawable/createbaton_underline_box_style"
+                    android:enabled="false"
                     android:singleLine="true" >
                 </EditText>
 
@@ -166,7 +197,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:background="@drawable/createbaton_underline_box_style"
-                    android:inputType="textPassword"
                     android:singleLine="true" >
                 </EditText>
 
@@ -200,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:background="@drawable/createbaton_underline_box_style"
-                    android:inputType="textPassword"
+                    android:hint="ex) 이화여자대학교"
                     android:singleLine="true" >
                 </EditText>
 
@@ -221,8 +251,9 @@
                     android:id="@+id/registerBtn"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/finish_button"/>
+                    android:background="@drawable/finish_button" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
+
 </ScrollView>

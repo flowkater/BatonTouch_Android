@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -34,7 +34,7 @@ public class BatonManageClientActivity extends Activity {
 
 	private ProgressDialog progressdialog;
 
-	private ImageView clientimg;
+	private LinearLayout clientimg;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class BatonManageClientActivity extends Activity {
 		auth_token = mPreferences.getString("AuthToken", ""); // auth_token 가져오기
 		auth_client = mPreferences.getBoolean("AuthClient", false);
 
-		clientimg = (ImageView) findViewById(R.id.upper_line_client);
+		clientimg = (LinearLayout)findViewById(R.id.upper_line_client);
 
 		if (auth_client) {
 			mArrayList = new ArrayList<Task>();
@@ -62,6 +62,14 @@ public class BatonManageClientActivity extends Activity {
 			clientimg.setVisibility(View.VISIBLE);
 		}
 	}
+	
+	public void clientRegister(View v){
+		
+		Intent i = new Intent(this, BatonManageClientActivity_Register.class);
+		startActivity(i);
+		
+	}
+	
 
 	// 내가 할 일 가져오기 리스트
 	private class GetMyTaskBidList extends AsyncTask<Void, Void, Void> {

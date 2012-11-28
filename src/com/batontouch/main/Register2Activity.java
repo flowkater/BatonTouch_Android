@@ -33,79 +33,98 @@ import com.google.android.gcm.GCMRegistrar;
 
 public class Register2Activity extends Activity {
 	private EditText member_phone_edit_text, member_company_edit_text,
-			member_authnum_edit_text;
+			member_authnum_edit_text, member_name_edit_text;
 	private String email, password, password_confirmation, phone, company,
-			authnum;
+			authnum, name;
 	private String ranNum, message;
 
 	private int StatusCode;
-	
+
 	private boolean auth_status = false;
-	
+
 	private ImageButton sendBtn, authBtn, registerBtn;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.registerpage_2);
-		
+
 		Intent in = getIntent();
 		Bundle extras = in.getExtras();
-		
+
 		email = extras.getString("email");
 		password = extras.getString("password");
 		password_confirmation = extras.getString("password_confirmation");
-		
-		member_phone_edit_text = (EditText)findViewById(R.id.member_phone_edit_text);
-		member_authnum_edit_text = (EditText)findViewById(R.id.member_authnum_edit_text);
-		member_company_edit_text = (EditText)findViewById(R.id.member_company_edit_text);
-		
-		sendBtn = (ImageButton)findViewById(R.id.sendBtn);
-		authBtn = (ImageButton)findViewById(R.id.authBtn);
-		registerBtn = (ImageButton)findViewById(R.id.registerBtn);
-		
+
+		member_name_edit_text = (EditText) findViewById(R.id.member_name_edit_text);
+		member_phone_edit_text = (EditText) findViewById(R.id.member_phone_edit_text);
+		member_authnum_edit_text = (EditText) findViewById(R.id.member_authnum_edit_text);
+		member_company_edit_text = (EditText) findViewById(R.id.member_company_edit_text);
+
+		sendBtn = (ImageButton) findViewById(R.id.sendBtn);
+		authBtn = (ImageButton) findViewById(R.id.authBtn);
+		registerBtn = (ImageButton) findViewById(R.id.registerBtn);
+
 		sendBtn.setOnClickListener(new sendClick());
 		authBtn.setOnClickListener(new authClick());
 		registerBtn.setOnClickListener(new regiClick());
-		
-		
-//		TelephonyManager telManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-//		phone = telManager.getLine1Number();
+
+		TelephonyManager telManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+		phone = telManager.getLine1Number();
+
+		member_phone_edit_text.setText(phone);
+
 		ranNum = Global.randomRange(1000, 9999) + "";
-		
+
 		message = "[인증번호:" + ranNum + "]" + " 바톤터치에서 보낸 메시지입니다.";
 	}
-	
-	public class sendClick implements OnClickListener{
+
+	public class sendClick implements OnClickListener {
 		@Override
 		public void onClick(View v) {
 			sendSMS(phone, message);
 		}
 	}
-	public class authClick implements OnClickListener{
+
+	public class authClick implements OnClickListener {
 		@Override
 		public void onClick(View v) {
-			String  authNum = member_authnum_edit_text.getText().toString();
-			if ( authNum.equals(ranNum) ) {
-				// 성공
-			}else{
-				// 실패
+			String authNum = member_authnum_edit_text.getText().toString();
+			if (authNum.equals(ranNum)) {
+				Toast.makeText(getApplicationContext(), "인증이 완료되었습니다!",
+						Toast.LENGTH_SHORT).show();
+				auth_status = true;
+			} else {
+				Toast.makeText(getApplicationContext(), "인증을 실패했습니다!",
+						Toast.LENGTH_SHORT).show();
+				auth_status = false;
 			}
 		}
 	}
-	public class regiClick implements OnClickListener{
+
+	public class regiClick implements OnClickListener {
 		@Override
 		public void onClick(View v) {
-			
-			new Usercreate().execute(email, password, password_confirmation, Global.gcm_regid, company, phone);
+			// Null 값 체크
+			name = member_name_edit_text.getText().toString();
+			phone = member_phone_edit_text.getText().toString();
+			company = member_company_edit_text.getText().toString();
+			if (auth_status) {
+				new Usercreate().execute(email, password,
+						password_confirmation, Global.gcm_regid, company,
+						phone, name);
+			} else {
+				Toast.makeText(getApplicationContext(), "인증이 필요합니다!",
+						Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
-	
-	private void sendSMS(String phoneNum, String message){
-    	PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(), 0);
-    	SmsManager sms = SmsManager.getDefault();
-    	sms.sendTextMessage(phoneNum, null, message, pi, null);
-    }
+
+	private void sendSMS(String phoneNum, String message) {
+		PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(), 0);
+		SmsManager sms = SmsManager.getDefault();
+		sms.sendTextMessage(phoneNum, null, message, pi, null);
+	}
 
 	public class Usercreate extends AsyncTask<String, Void, Void> {
 		@Override
@@ -127,9 +146,13 @@ public class Register2Activity extends Activity {
 						new StringBody(infos[2], Charset.forName("UTF-8")));
 				reqEntity.addPart("user[gcm_regid]", new StringBody(infos[3],
 						Charset.forName("UTF-8")));
-				reqEntity.addPart("user[company]", new StringBody(infos[4],
-						Charset.forName("UTF-8")));
+				if (company != null) {
+					reqEntity.addPart("user[company]", new StringBody(infos[4],
+							Charset.forName("UTF-8")));
+				}
 				reqEntity.addPart("user[phone]", new StringBody(infos[5],
+						Charset.forName("UTF-8")));
+				reqEntity.addPart("user[name]", new StringBody(infos[6],
 						Charset.forName("UTF-8")));
 
 				postRequest.setEntity(reqEntity);
@@ -151,9 +174,10 @@ public class Register2Activity extends Activity {
 						+ s);
 			} catch (IOException e) {
 				Log.e("my", e.getClass().getName() + e.getMessage());
-			} catch (Exception e) {
-				Log.e("my", e.getClass().getName() + e.getMessage());
 			}
+			// catch (Exception e) {
+			// Log.e("my", e.getClass().getName() + e.getMessage());
+			// }
 			return null;
 		}
 

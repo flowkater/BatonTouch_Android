@@ -56,7 +56,7 @@
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
-                    android:background="@drawable/ic_action_search"
+                    android:background="@drawable/profile_edit_style"
                     android:onClick="profileEdit"
                     android:text="Edit" />
             </RelativeLayout>
@@ -318,8 +318,7 @@
                 <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="seeMore" >
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/review"
@@ -337,7 +336,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/ic_action_search"
+                        android:background="@drawable/profile_review_more"
                         android:onClick="seeMore" />
                 </RelativeLayout>
 
@@ -365,7 +364,7 @@
                         android:background="@drawable/user_picture_frame" >
 
                         <ImageView
-                            android:id="@+id/reviewerImage"
+                            android:id="@+id/reviewImage"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="3dp"

@@ -21,5 +21,9 @@
     
         android:background="@drawable/top_qna" />
 
-
+    <ExpandableListView
+        android:id="@+id/expandableListView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ExpandableListView>
 </LinearLayout>

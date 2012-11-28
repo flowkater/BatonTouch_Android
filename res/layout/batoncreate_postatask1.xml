@@ -70,7 +70,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="3"
                     android:background="@drawable/createbaton_underline_box_style"
-                    android:hint="ex) 오빠닭좀 사다주세요."
+                    android:hint="ex) 카라멜 마키야토 사다주세요."
                     android:singleLine="true"
                     android:textSize="12dp" >
                 </EditText>
@@ -96,7 +96,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="3"
                     android:background="@drawable/createbaton_underline_box_style"
-                    android:hint="경유지 ex) GS25, 던킨도넛 "
+                    android:hint="경유지를 기록해주세요. ex) 이대역 커피빈  or 서대문구 대현동 45-10"
                     android:singleLine="true"
                     android:textSize="12dp" >
                 </EditText>
@@ -122,7 +122,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="3"
                     android:background="@drawable/createbaton_underline_box_style"
-                    android:hint="목적지 ex) 이대 정문 앞 "
+                    android:hint="러너의 목적지에요 ex) 서대문구 대현동 11-1 ecc or 이대 ecc"
                     android:textSize="12dp" />
             </TableRow>
         </TableLayout>
